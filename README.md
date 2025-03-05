@@ -105,13 +105,13 @@ npm run configure -- -m <method> -o <options>
 - Get token name:
 
   ```bash
-  npm run configure -- -m get -o token_name
+  npm run configure -- -m get -o TOKEN_NAME
   ```
 
 - Set initial supply to 1,000,000:
 
   ```bash
-  npm run configure -- -m set -o initial_supply=1000000
+  npm run configure -- -m set -o NETWORK=mainnet
   ```
 
 ---
