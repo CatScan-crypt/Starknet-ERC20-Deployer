@@ -2,6 +2,7 @@
   "name": "starknet-erc20-boilerplate",
   "private": "false",
   "scripts": {
+    "configure": "./CLI/config.sh",
     "deploy": "ts-node scripts/deploy.ts",
     "installer": "bash ./bash/installer.bash",
     "firstDeploy": "bash ./bash/firstDeploy.bash"
