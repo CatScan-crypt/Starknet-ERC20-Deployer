@@ -79,10 +79,46 @@ Example first deploy: &nbsp; \
 &nbsp;
 ## Customization📊
 
-After the first test deployment, you can customize your ERC20 token by editing the `.env` file that was saved in your Starknet-ERC20-Deployer folder. &nbsp; \
-Modify parameters such as token name, symbol, initial supply, etc., to tailor the deployment to your needs. &nbsp; \
-Then to deploy your customized token just run:
+---
 
+### Customizing Your ERC20 Token
+
+After the initial test deployment, you can customize your ERC20 token by editing the `.env` file in the **Starknet-ERC20-Deployer** folder. Modify parameters like:
+
+- Token Name
+- Token Symbol
+- Initial Supply
+
+Alternatively, use the `npm run configure` command for command-line configuration:
+
+```bash
+npm run configure -- -m <method> -o <options>
+```
+
+### Methods
+
+- **get**: Retrieves a configuration value (use `-o <parameter_name>`).
+- **set**: Sets a configuration value (use `-o <parameter_name=value>`).
+
+### Examples
+
+- Get token name:
+
+  ```bash
+  npm run configure -- -m get -o token_name
+  ```
+
+- Set initial supply to 1,000,000:
+
+  ```bash
+  npm run configure -- -m set -o initial_supply=1000000
+  ```
+
+---
+
+
+
+Then to deploy your customized token just run:
 ```bash
 npm run deploy
 ```
