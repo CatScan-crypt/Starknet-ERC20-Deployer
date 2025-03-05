@@ -50,7 +50,7 @@ To install the Deployer, just run the following command in your terminal:
 ```bash
 curl https://raw.githubusercontent.com/CatScan-crypt/Starknet-ERC20-Deployer/refs/heads/main/bash/curlPack.bash | bash
 ```
-This will download and install all necessary files. &nbsp; \
+This will download and install all necessary files in your current working directory. &nbsp; \
 &nbsp;
 
 &nbsp;
@@ -91,7 +91,7 @@ npm run deploy
 ## Verification🐱‍👤
 Deploying a token with this tool will output a verified class hash, [sepolia class hash](https://sepolia.voyager.online/class/0x01a8655ab30252af2383100169d84090df14c39376d3da8fbe95d9548c2ad178).
 
-[Sepolia deployed verified erc20 example.](https://sepolia.voyager.online/contract/0x001f7b137c8A87BFA8DD39EAdd0737784a3Da0d1c7Be415B8f74F4B5881eBD5C#tokenHolders) &nbsp; \
+[Sepolia deployed verified erc20 example.](https://sepolia.voyager.online/contract/0x001f7b137c8A87BFA8DD39EAdd0737784a3Da0d1c7Be415B8f74F4B5881eBD5C#tokenHolders) &nbsp; 
 
 
 &nbsp;
@@ -102,7 +102,7 @@ The following features are planned for future updates:
 
 - [x] Adding an example GIF or video for easier understanding.
 - [x] Verifying the contract on Voyager.
-- [ ] Adding a CLI (Command Line Interface) for easier configuration.
+- [x] Adding a CLI (Command Line Interface) for easier configuration.
 - [ ] Introducing a component builder for customizing options like **ownable**, **mintable**, **burnable**, etc.
 - [ ] Adding Voyager Verifier support for contract verification.
 &nbsp;
