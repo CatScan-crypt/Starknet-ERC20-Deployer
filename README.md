@@ -1,8 +1,7 @@
-
- &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;                                           <img src="https://github.com/user-attachments/assets/82deb204-ca2f-472b-86c0-93a554d13d4f" width="205" height="203">
-
-
-# Starknet ERC20 Token Deployer  
+<p align="center">
+<img src="https://github.com/user-attachments/assets/82deb204-ca2f-472b-86c0-93a554d13d4f" width="205" height="203" align="center">
+# Starknet ERC20 Token Deployer 
+ </p>
 An easy-to-install and deploy tool for publishing an ERC20 token on [Starknet](https://www.starknet.io/). &nbsp; \
 With a simple installation and deployment process, you can quickly create and customize your ERC20 token on Starknet.
 &nbsp;
