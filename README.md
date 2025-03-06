@@ -77,7 +77,7 @@ Example output: &nbsp; \
 &nbsp;
 &nbsp;
 
-## First Time Deployment🚀 🚀 🚀
+## 🚀First Time Deployment🚀
 
 Once the installation is complete, run the following command to deploy the test ERC20 token:
 
@@ -141,7 +141,7 @@ npm run deploy
 ```
 
 &nbsp;
-## Verification
+## Verification🐱‍👤
 Deploying a token with this tool will output a verified class hash, [sepolia class hash](https://sepolia.voyager.online/class/0x01a8655ab30252af2383100169d84090df14c39376d3da8fbe95d9548c2ad178).
 
 [Sepolia deployed verified erc20 example.](https://sepolia.voyager.online/contract/0x001f7b137c8A87BFA8DD39EAdd0737784a3Da0d1c7Be415B8f74F4B5881eBD5C#tokenHolders) &nbsp; 
@@ -149,7 +149,7 @@ Deploying a token with this tool will output a verified class hash, [sepolia cla
 
 &nbsp;
 
-## TODO
+## TODO✅
 
 The following features are planned for future updates:
 
@@ -161,11 +161,11 @@ The following features are planned for future updates:
 &nbsp;
 
 &nbsp;
-## Acknowledgements
+## Acknowledgements💖
 Special thanks to [robertkodra](https://github.com/robertkodra) for the examples and guidance shared on BasecampX, which helped in the creation of this project. 
 &nbsp;
 &nbsp;
-## License 
+## License🔐 
 This project is licensed under the GNU License - see the [LICENSE](LICENSE) file for details.
 &nbsp;
 &nbsp;
