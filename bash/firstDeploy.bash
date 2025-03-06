@@ -5,7 +5,15 @@ cp example.env .env
 
 # Prompt the user to enter the DEPLOYER_PRIVATE_KEY
 echo "Please enter your wallet's private key:"
-read -r -s deployer_private_key
+read -r deployer_private_key
+clear
+
+# Format the private key to hide the middle part with asterisks
+HiddenPvk="${deployer_private_key:0:4}******${deployer_private_key: -4}"
+
+# Print the formatted private key
+echo "Private Key: $HiddenPvk"
+
 # Append the DEPLOYER_PRIVATE_KEY to the .env file
 sed -i "s|DEPLOYER_PRIVATE_KEY=.*|DEPLOYER_PRIVATE_KEY=$deployer_private_key|" .env
 
@@ -17,4 +25,5 @@ sed -i "s|DEPLOYER_ADDRESS=.*|DEPLOYER_ADDRESS=$deployer_address|" .env
 
 echo ".env has been updated with your wallet address and private key."
 
+# Run the deploy command
 npm run deploy
