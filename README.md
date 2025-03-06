@@ -1,3 +1,11 @@
+# Starknet ERC20 Token Deployer
+
+An easy-to-install and deploy tool for deploying an ERC20 token on the Starknet network. &nbsp; \
+With a simple installation and deployment process, you can quickly create and customize your ERC20 token on Starknet.
+&nbsp;
+&nbsp;
+
+&nbsp;
 
 
 ## Menu
@@ -13,14 +21,6 @@
 - [Tested Environment](#tested-environment)
 
 ---
-# Starknet ERC20 Token Deployer
-
-An easy-to-install and deploy tool for deploying an ERC20 token on the Starknet network. &nbsp; \
-With a simple installation and deployment process, you can quickly create and customize your ERC20 token on Starknet.
-&nbsp;
-&nbsp;
-
-&nbsp;
 
 &nbsp;
 ## Prerequisites
@@ -145,7 +145,7 @@ Deploying a token with this tool will output a verified class hash, [sepolia cla
 
 &nbsp;
 
-## TODO ✅
+## TODO
 
 The following features are planned for future updates:
 
