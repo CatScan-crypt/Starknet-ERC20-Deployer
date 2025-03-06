@@ -23,7 +23,7 @@ With a simple installation and deployment process, you can quickly create and cu
 &nbsp;
 
 &nbsp;
-## Prerequisites
+## Prerequisites   👼
 You can use this tool on:
 - Bash: Linux Ubuntu > 24.04 | Windows - [WSL2](https://www.sitepoint.com/wsl2)
 
