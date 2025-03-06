@@ -7,7 +7,7 @@
 - [First Time Deployment](#first-time-deployment)
 - [Customization](#customization)
 - [Verification](#verification)
-- [TODO-✅](#TODO-✅)
+- [TODO ✅](#TODO-✅)
 - [Acknowledgements](#acknowledgements💖)
 - [License](#license-🔐)
 - [Tested Environment](#tested-environment)
@@ -145,7 +145,7 @@ Deploying a token with this tool will output a verified class hash, [sepolia cla
 
 &nbsp;
 
-## TODO-✅
+## TODO ✅
 
 The following features are planned for future updates:
 
