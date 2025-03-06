@@ -3,10 +3,10 @@
 ## Menu
 
 - [Prerequisites](#prerequisites)
-- [Installation](#installation-🦾)
-- [First Time Deployment](#first-time-deployment🚀-🚀-🚀)
-- [Customization](#customization📊)
-- [Verification](#verification🐱‍👤)
+- [Installation](#installation)
+- [First Time Deployment](#first-time-deployment)
+- [Customization](#customization)
+- [Verification](#verification)
 - [TODO](#todo-✅)
 - [Acknowledgements](#acknowledgements💖)
 - [License](#license-🔐)
