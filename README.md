@@ -12,7 +12,7 @@ With a simple installation and deployment process, you can quickly create and cu
 &nbsp;
 
 
-## Menu
+## Menu📑
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -27,7 +27,7 @@ With a simple installation and deployment process, you can quickly create and cu
 ---
 
 &nbsp;
-## Prerequisites
+## 🛠️Prerequisites🛠️
 You can use this tool on:
 - Bash: Linux Ubuntu > 24.04 | Windows - [WSL2](https://www.sitepoint.com/wsl2)
 
@@ -77,7 +77,7 @@ Example output: &nbsp; \
 &nbsp;
 &nbsp;
 
-## First Time Deployment
+## First Time Deployment🚀 🚀 🚀
 
 Once the installation is complete, run the following command to deploy the test ERC20 token:
 
