@@ -60,7 +60,7 @@ After your wallet is funded you can proceed to set it up on chain (deploy): &nbs
 &nbsp;
 &nbsp;
 
-## Installation
+## Installation🦾
 
 To install the Deployer, just run the following command in your terminal:
 
