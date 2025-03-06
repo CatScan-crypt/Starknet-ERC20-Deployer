@@ -7,9 +7,9 @@
 - [First Time Deployment](#first-time-deployment)
 - [Customization](#customization)
 - [Verification](#verification)
-- [TODO ✅](#TODO-✅)
-- [Acknowledgements](#acknowledgements💖)
-- [License](#license-🔐)
+- [TODO](#TODO)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 - [Tested Environment](#tested-environment)
 
 ---
