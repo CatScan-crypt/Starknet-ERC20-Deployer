@@ -8,8 +8,6 @@ With a simple installation and deployment process, you can quickly create and cu
 &nbsp;
 &nbsp;
 
-&nbsp;
-
 
 ## Menu
 
