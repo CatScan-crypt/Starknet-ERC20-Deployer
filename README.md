@@ -20,7 +20,6 @@ Before using this tool, ensure you have the following installed:
 
 - [curl](https://curl.se/)
 - [git](https://git-scm.com/)&nbsp; 
-![Uploading bitmap.png…]()
 
 \
 ``
