@@ -125,7 +125,7 @@ npm run configure -- -m <method> -o <options>
   npm run configure -- -m get -o TOKEN_NAME
   ```
 
-- Set initial supply to 1,000,000:
+- Set deployment network to mainnet:
 
   ```bash
   npm run configure -- -m set -o NETWORK=mainnet
