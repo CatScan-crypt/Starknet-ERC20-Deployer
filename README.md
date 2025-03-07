@@ -145,7 +145,7 @@ For more advanced customization, you can directly use the `Contract Builder`. Th
 
 &nbsp;
 &nbsp;
-`The upgraded contract will contain automatic ownership on the token, this will give the ability to revoke or transfer ownership.`
+`The upgraded contract will contain an automatic ownership on the token, this will give the ability to revoke or transfer ownership.`
 
 To use the contract builder, run the following command:
 
