@@ -139,8 +139,32 @@ Then to deploy your customized token just run:
 ```bash
 npm run deploy
 ```
+### Advanced Customization with Contract Builder
+
+For more advanced customization, you can directly use the `Contract Builder`. This allows you to select specific components to include in your ERC20 contract, such as `mint_class` and `burn_class`.
 
 &nbsp;
+&nbsp;
+`The upgraded contract will contain automatic ownership on the token, this will give the ability to revoke or transfer ownership.`
+
+To use the contract builder, run the following command:
+
+```bash
+npm run upgradeContract -- <component_name1> {`optional` <component_name2>}
+```
+
+Available components: `mint_class`, `burn_class`.
+
+Example: To create a contract with mint and burn functionality, use:
+
+```bash
+npm run upgradeContract -- mint_class burn_class
+```
+
+&nbsp;
+&nbsp;
+&nbsp;
+
 ## Verification🐱‍👤
 Deploying a token with this tool will output a verified class hash, [sepolia class hash](https://sepolia.voyager.online/class/0x01a8655ab30252af2383100169d84090df14c39376d3da8fbe95d9548c2ad178).
 
@@ -156,7 +180,7 @@ The following features are planned for future updates:
 - [x] Adding an example GIF or video for easier understanding.
 - [x] Verifying the contract on Voyager.
 - [x] Adding a CLI (Command Line Interface) for easier configuration.
-- [ ] Introducing a component builder for customizing options like **ownable**, **mintable**, **burnable**, etc.
+- [x] Introducing a component builder for customizing options like **ownable**, **mintable**, **burnable**, etc.
 - [ ] Adding Voyager Verifier support for contract verification.
 &nbsp;
 
