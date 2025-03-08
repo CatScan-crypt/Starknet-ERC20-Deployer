@@ -26,8 +26,38 @@ fi
 
 SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 ParentFolder="$SCRIPT_DIR"/../
-ENV_FILE="$ParentFolder/.env"
+ENV_FILE=../.env
 
+
+
+ENV_TO_SOURCE="$ENV_FILE"
+load_env() {
+  if [ -f "$ENV_TO_SOURCE" ]; then
+    while IFS= read -r line; do
+      # Skip comments and empty lines
+      if [[ $line =~ ^(#.*|)$ ]]; then
+        continue
+      fi
+
+      # Split into key and value
+      key=$(echo "$line" | cut -d'=' -f1 | xargs)
+      value=$(echo "$line" | cut -d'=' -f2- | xargs)
+
+      # Export the variable
+      if [ -n "$key" ]; then
+        export "$key=$value"
+      fi
+    done < "$ENV_TO_SOURCE"
+  else
+    echo "Error: Environment file '$ENV_TO_SOURCE' not found."
+    exit 1
+  fi
+}
+
+# Load environment variables
+load_env
+
+echo "deployer pvk" "${NETWORK}"
 # Read class hash from JSON in working directory
 hash=$(jq -r '.classHash' ../classHash.json)
 
@@ -46,4 +76,4 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Run cargo command
-cargo run -- --network sepolia submit --name "$name" --hash "$hash" --path .. --execute
+cargo run -- --network "${NETWORK}" submit --name "$name" --hash "$hash" --path .. --execute
