@@ -13,7 +13,7 @@ if [ ! -d "starknet-contract-verifier" ]; then
   # Install dependencies
   sudo apt-get update -y
   sudo apt install build-essential -y
-  apt install pkg-config -y
+  sudo apt install pkg-config -y
   sudo apt install libssl-dev -y
   sudo apt install jq -y
 
@@ -24,11 +24,7 @@ else
   cd starknet-contract-verifier || exit
 fi
 
-SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
-ParentFolder="$SCRIPT_DIR"/../
 ENV_FILE=../.env
-
-
 
 ENV_TO_SOURCE="$ENV_FILE"
 load_env() {
@@ -57,7 +53,6 @@ load_env() {
 # Load environment variables
 load_env
 
-echo "deployer pvk" "${NETWORK}"
 # Read class hash from JSON in working directory
 hash=$(jq -r '.classHash' ../classHash.json)
 
