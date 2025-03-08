@@ -1,6 +1,6 @@
 node_modules
 target
-
+starknet-contract-verifier
 .env
 test.env
 .snfoundry_cache
