@@ -32,6 +32,22 @@ async function main() {
     provider
   );
 
+  let classHash = deployResponse.declare.class_hash;
+  console.log('Class Hash:', classHash);  // Log the class hash
+
+  // Determine the path for the parent folder
+  const parentFolderPath = path.join(__dirname, '..', 'classHash.json');
+  const classHashData = { classHash };  // Wrap the class hash in an object
+
+  // Write the class hash to a JSON file asynchronously
+  console.log('Attempting to write class hash to file...');
+  try {
+    await fs.promises.writeFile(parentFolderPath, JSON.stringify(classHashData, null, 2));
+    console.log('Class hash saved to parent folder as classHash.json');
+  } catch (err) {
+    console.error('Error writing to file:', err);
+  }
+
   if (constructorData.network === "sepolia"){
     console.log(
       `✅ Contract has been deploy with the address: https://sepolia.voyager.online/contract/${deploytContract.address}`
