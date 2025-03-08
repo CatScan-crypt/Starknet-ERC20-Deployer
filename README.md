@@ -166,9 +166,26 @@ npm run upgradeContract -- mint_class burn_class
 &nbsp;
 
 ## Verification🐱‍👤
-Deploying a token with this tool will output a verified class hash, [sepolia class hash](https://sepolia.voyager.online/class/0x01a8655ab30252af2383100169d84090df14c39376d3da8fbe95d9548c2ad178).
+Deploying a base token with this tool will output a verified class hash, [sepolia class hash](https://sepolia.voyager.online/class/0x01a8655ab30252af2383100169d84090df14c39376d3da8fbe95d9548c2ad178).
 
 [Sepolia deployed verified erc20 example.](https://sepolia.voyager.online/contract/0x001f7b137c8A87BFA8DD39EAdd0737784a3Da0d1c7Be415B8f74F4B5881eBD5C#tokenHolders) &nbsp; 
+
+This tool also includes a script to verify your deployed contract on Voyager Block Explorer. To verify the contract, run the following command:
+
+```bash
+npm run verify
+```
+
+This will read the last deployed token and produce a Voyager verification.
+
+You can use the `--name` flag to specify a name for the verification:
+
+```bash
+npm run verify -- --name theNameYouWant
+```
+
+In case you don't provide a name using the `--name` flag, the script will use the `class hash` of the contract as the verification name.
+
 
 
 &nbsp;
@@ -181,7 +198,7 @@ The following features are planned for future updates:
 - [x] Verifying the contract on Voyager.
 - [x] Adding a CLI (Command Line Interface) for easier configuration.
 - [x] Introducing a component builder for customizing options like **ownable**, **mintable**, **burnable**, etc.
-- [ ] Adding Voyager Verifier support for contract verification.
+- [x] Adding Voyager Verifier support for contract verification.
 &nbsp;
 
 &nbsp;
