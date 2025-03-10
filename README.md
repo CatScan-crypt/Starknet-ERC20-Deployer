@@ -192,14 +192,34 @@ In case you don't provide a name using the `--name` flag, the script will use th
 
 ## TODO✅
 
-The following features are planned for future updates:
+<h2>The following features are planned for future updates:</h2>
+<details> 
+<summary><h2> Phase 1(Completed)🎉 </h2> </summary>
 
 - [x] Adding an example GIF or video for easier understanding.
 - [x] Verifying the contract on Voyager.
-- [x] Adding a CLI (Command Line Interface) for easier configuration.
+- [x] Adding a CLI for easier configuration.
 - [x] Introducing a component builder for customizing options like **ownable**, **mintable**, **burnable**, etc.
 - [x] Adding Voyager Verifier support for contract verification.
-&nbsp;
+</details>
+<details open> 
+<summary> <h2> Phase 2(In progress...)🛠 </h2> </summary> 
+
+- [ ] Serving with Express.
+- [ ] Adding a basic React UI.
+- [ ] Frontend wallet connections and methods.
+- [ ] Implementing SQL for tracking deployments.
+- [ ] Publishing test website. 
+</details>
+<details> 
+<summary ><h2 >Phase 3(TBD)📝 </h2> </summary>
+
+- [ ] TBD
+- [ ] TBD
+- [ ] TBD
+- [ ] TBD
+- [ ] TBD
+</details>
 
 &nbsp;
 ## Acknowledgements💖
