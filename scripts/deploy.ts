@@ -1,7 +1,8 @@
 import { CallData, Contract, stark } from "starknet";
 import { getCompiledCode} from "./utils";
 import { account ,provider ,constructorData} from "./initializer";
-
+import * as path from 'path';
+import * as fs from 'fs';
 
 async function main() {
 
