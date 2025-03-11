@@ -73,7 +73,7 @@ body, html {
   font-weight: bold;
 }
 
-.deploy-tab::after {
+.active-tab::after {
   content: '';
   position: absolute;
   left: auto;
