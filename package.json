@@ -3,6 +3,7 @@
   "private": "false",
   "scripts": {
     "configure": "./CLI/config.sh",
+    "server": "node server/server.js && cd client && npm run dev -- --host 0.0.0.0 --port 57102",
     "deploy": "ts-node scripts/deploy.ts",
     "installer": "bash ./bash/installer.bash",
     "firstDeploy": "bash ./bash/firstDeploy.bash",
@@ -11,7 +12,6 @@
   },
   "dependencies": {
     "@tsconfig/node21": "21.0.3",
-    "express": "4.21.2",
     "dotenv": "16.4.5",
     "starknet": "6.11.0",
     "ts-node": "10.9.2",
