@@ -1,6 +1,18 @@
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
+  margin-left: -50px;
   padding: 2rem;
   text-align: center;
 }
@@ -39,4 +51,27 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.tab {
+  display: inline-block;
+  padding: 16px 20px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  top: 10px;
+  font-size: 16px;
+}
+
+.nav {
+  backgroundColor: #e0e0e0;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
 }
