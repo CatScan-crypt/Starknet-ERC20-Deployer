@@ -4,7 +4,7 @@ import './App.css';
 
 function Deploy() {
   return (
-    <div style={{ backgroundColor: 'red', width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div style={{ backgroundColor: 'grey', width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <h1>Deploy Page</h1>
     </div>
   );
@@ -12,7 +12,7 @@ function Deploy() {
 
 function History() {
   return (
-    <div style={{ backgroundColor: 'green', width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div style={{ backgroundColor: 'grey', width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <h1>History Page</h1>
     </div>
   );
@@ -20,7 +20,7 @@ function History() {
 
 function Settings() {
   return (
-    <div style={{ backgroundColor: 'blue', width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div style={{ backgroundColor: 'grey', width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <h1>Settings Page</h1>
     </div>
   );
@@ -28,14 +28,14 @@ function Settings() {
 
 function App() {
   const [activeTab, setActiveTab] = useState("/");
-const [clickedTab, setClickedTab] = useState("");
+const [clickedTab, setClickedTab] = useState("/");
 
   return (
     <BrowserRouter>
       <nav className="nav">
-        <Link to="/" className={`tab deploy-tab ${activeTab === "/" ? 'active-tab' : ''} ${clickedTab === "Deploy" ? 'clicked' : ''}`} onClick={() => {setActiveTab("/"); setClickedTab("Deploy");}}>Deploy</Link>
-        <Link to="/history" className={`tab ${clickedTab === "History" ? 'clicked' : ''} ${activeTab === "/history" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/history"); setClickedTab("History");}}>History</Link>
-        <Link to="/settings" className={`tab ${clickedTab === "Settings" ? 'clicked' : ''} ${activeTab === "/settings" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/settings"); setClickedTab("Settings");}}>Settings</Link>
+        <Link to="/" className={`tab deploy-tab ${activeTab === "/" ? 'active-tab' : ''} ${clickedTab === "/" ? 'clicked' : ''}`} onClick={() => {setActiveTab("/"); setClickedTab("/");}}>Deploy</Link>
+        <Link to="/history" className={`tab ${clickedTab === "/history" ? 'clicked' : ''} ${activeTab === "/history" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/history"); setClickedTab("/history");}}>History</Link>
+        <Link to="/settings" className={`tab ${clickedTab === "/settings" ? 'clicked' : ''} ${activeTab === "/settings" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/settings"); setClickedTab("/settings");}}>Settings</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Deploy />} />
