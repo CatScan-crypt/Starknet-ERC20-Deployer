@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
@@ -28,12 +27,15 @@ function Settings() {
 }
 
 function App() {
+  const [activeTab, setActiveTab] = useState("/");
+const [clickedTab, setClickedTab] = useState("");
+
   return (
     <BrowserRouter>
       <nav className="nav">
-        <Link to="/" className="tab deploy-tab">Deploy</Link>
-        <Link to="/history" className="tab">History</Link>
-        <Link to="/settings" className="tab">Settings</Link>
+        <Link to="/" className={`tab deploy-tab ${activeTab === "/" ? 'active-tab' : ''} ${clickedTab === "Deploy" ? 'clicked' : ''}`} onClick={() => {setActiveTab("/"); setClickedTab("Deploy");}}>Deploy</Link>
+        <Link to="/history" className={`tab ${clickedTab === "History" ? 'clicked' : ''} ${activeTab === "/history" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/history"); setClickedTab("History");}}>History</Link>
+        <Link to="/settings" className={`tab ${clickedTab === "Settings" ? 'clicked' : ''} ${activeTab === "/settings" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/settings"); setClickedTab("Settings");}}>Settings</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Deploy />} />

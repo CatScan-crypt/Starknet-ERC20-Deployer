@@ -69,11 +69,15 @@ body, html {
   font-size: 16px;
 }
 
+.clicked {
+  background-color: gray;
+}
 .deploy-tab {
   font-weight: bold;
 }
 
-.deploy-tab::after {
+
+.tab.active-tab::after {
   content: '';
   position: absolute;
   left: auto;
@@ -81,7 +85,7 @@ body, html {
   bottom: -1px;
   width: calc(100% + 22px);
   height: 8px;
-  background-color: #f0f0f0;
+  background-color: #000;
   border-radius: 10px 10px 0 0;
 }
 
