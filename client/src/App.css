@@ -69,6 +69,22 @@ body, html {
   font-size: 16px;
 }
 
+.deploy-tab {
+  font-weight: bold;
+}
+
+.deploy-tab::after {
+  content: '';
+  position: absolute;
+  left: auto;
+  right: -11px;
+  bottom: -1px;
+  width: calc(100% + 22px);
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 10px 10px 0 0;
+}
+
 .nav {
   backgroundColor: #e0e0e0;
   padding: 10px;

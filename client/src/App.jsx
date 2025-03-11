@@ -31,7 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <nav className="nav">
-        <Link to="/" className="tab">Deploy</Link>
+        <Link to="/" className="tab deploy-tab">Deploy</Link>
         <Link to="/history" className="tab">History</Link>
         <Link to="/settings" className="tab">Settings</Link>
       </nav>
