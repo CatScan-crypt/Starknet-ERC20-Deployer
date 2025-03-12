@@ -45,7 +45,7 @@ const useNetworkConfig = () => {
     fetchNetworkConfig();
   }, []);
 
-  const handleUpdate = (newConfig) => {
+  const handleUpdate = async (newConfig) => {
     if (!initialConfig.current) {
       console.log("No initial configuration to compare against.");
       return;
@@ -56,6 +56,18 @@ const useNetworkConfig = () => {
       if (newConfig[key] !== initialConfig.current[key]) {
         console.log(`Value changed for: ${key}.  New value: ${newConfig[key]}`);
         changesMade = true;
+
+        try {
+          const response = await fetch(`http://localhost:3001/configure?m=set&o=${key}=${newConfig[key]}`, {
+            method: 'POST',
+          });
+
+          if (!response.ok) {
+            console.error(`Failed to update ${key} on the server.`);
+          }
+        } catch (error) {
+          console.error(`Error updating ${key} on the server:`, error);
+        }
       }
     }
 
