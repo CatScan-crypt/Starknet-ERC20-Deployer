@@ -14,7 +14,7 @@ function Deploy() {
           method: 'POST',
         });
         const data = await response.json();
-        setNetworkConfig(data);
+        setNetworkConfig("Network=" + data.output.replace(/\\n/g, ""));
       } catch (error) {
         console.error('Error fetching network config:', error);
         setNetworkConfig({ error: error.message });
@@ -31,7 +31,7 @@ function Deploy() {
         networkConfig.error ? (
           <p>Error: {networkConfig.error}</p>
         ) : (
-          <pre>{JSON.stringify(networkConfig, null, 2)}</pre>
+          <pre>{networkConfig}</pre>
         )
       ) : (
         <p>Loading network configuration...</p>
