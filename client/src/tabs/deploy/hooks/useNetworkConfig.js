@@ -54,13 +54,15 @@ const useNetworkConfig = () => {
     let changesMade = false;
     for (const key in newConfig) {
       if (newConfig[key] !== initialConfig.current[key]) {
-        console.log(`Value changed for: ${key}`);
+        console.log(`Value changed for: ${key}.  New value: ${newConfig[key]}`);
         changesMade = true;
       }
     }
 
     if (!changesMade) {
       console.log("No changes made.");
+    } else {
+      initialConfig.current = { ...newConfig };
     }
   };
 
