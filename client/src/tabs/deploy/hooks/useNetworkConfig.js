@@ -1,9 +1,10 @@
 // /src/hooks/useNetworkConfig.js
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const useNetworkConfig = () => {
   const [networkConfig, setNetworkConfig] = useState({});
+  const initialConfig = useRef(null);
 
   useEffect(() => {
     const fetchNetworkConfig = async () => {
@@ -33,16 +34,37 @@ const useNetworkConfig = () => {
           config[option] = results[index].output;
         });
         setNetworkConfig(config);
+        initialConfig.current = config;
       } catch (error) {
         console.error('Error fetching network config:', error);
         setNetworkConfig({ error: error.message });
+        initialConfig.current = null;
       }
     };
 
     fetchNetworkConfig();
   }, []);
 
-  return networkConfig;
+  const handleUpdate = (newConfig) => {
+    if (!initialConfig.current) {
+      console.log("No initial configuration to compare against.");
+      return;
+    }
+
+    let changesMade = false;
+    for (const key in newConfig) {
+      if (newConfig[key] !== initialConfig.current[key]) {
+        console.log(`Value changed for: ${key}`);
+        changesMade = true;
+      }
+    }
+
+    if (!changesMade) {
+      console.log("No changes made.");
+    }
+  };
+
+  return { networkConfig, handleUpdate };
 };
 
 export default useNetworkConfig;
