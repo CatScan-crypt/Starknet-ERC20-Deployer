@@ -9,7 +9,7 @@ function DeployTable({ networkConfig }) {
           <p>Error: {networkConfig.error}</p>
         ) : (
           <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-          <table style={{ borderCollapse: 'collapse', width: '80%', marginLeft: '20px' }}>
+          <table style={{ borderCollapse: 'collapse', width: '95%', marginLeft: '20px' }}>
             <thead>
               <tr>
                 <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>Option</th>
@@ -20,7 +20,7 @@ function DeployTable({ networkConfig }) {
               {Object.entries(networkConfig).map(([key, value]) => (
                 <tr key={key}>
                   <td style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>{key}</td>
-                  <td style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>{value}</td>
+                  <td style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}><input type="text" defaultValue={value} style={{ width: '100%' }} /></td>
                 </tr>
               ))}
             </tbody>
