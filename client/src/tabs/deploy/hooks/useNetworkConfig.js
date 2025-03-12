@@ -1,12 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import DeployTable from './components/DeployTable';
+// /src/hooks/useNetworkConfig.js
 
-function Deploy() {
+import { useState, useEffect } from 'react';
+
+const useNetworkConfig = () => {
   const [networkConfig, setNetworkConfig] = useState({});
 
   useEffect(() => {
     const fetchNetworkConfig = async () => {
-      const options = ["DEPLOYER_PRIVATE_KEY", "DEPLOYER_ADDRESS", "NETWORK", "RPC_ENDPOINT_SEPOLIA", "RPC_ENDPOINT_MAINNET", "TOKEN_NAME", "SYMBOL_NAME", "DECIMALS_LENGTH", "FIXED_SUPPLY"];
+      const options = [
+        "DEPLOYER_PRIVATE_KEY",
+        "DEPLOYER_ADDRESS",
+        "NETWORK",
+        "RPC_ENDPOINT_SEPOLIA",
+        "RPC_ENDPOINT_MAINNET",
+        "TOKEN_NAME",
+        "SYMBOL_NAME",
+        "DECIMALS_LENGTH",
+        "FIXED_SUPPLY"
+      ];
+
       try {
         const results = await Promise.all(
           options.map(option =>
@@ -18,7 +30,7 @@ function Deploy() {
 
         const config = {};
         options.forEach((option, index) => {
-          config[option] = results[index].output
+          config[option] = results[index].output;
         });
         setNetworkConfig(config);
       } catch (error) {
@@ -30,10 +42,7 @@ function Deploy() {
     fetchNetworkConfig();
   }, []);
 
-  return (
-    <DeployTable networkConfig={networkConfig} />
-  );
-}
+  return networkConfig;
+};
 
-export default Deploy;
-
+export default useNetworkConfig;
