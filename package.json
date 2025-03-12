@@ -2,6 +2,7 @@
   "name": "starknet-erc20-boilerplate",
   "private": "false",
   "scripts": {
+    "setup": "npm i && cd client && npm i",
     "configure": "./CLI/config.sh",
     "server1": "node server/server.js ",
     "server2":  "cd client && npm run dev -- --host 0.0.0.0 --port 57102",
