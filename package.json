@@ -2,10 +2,10 @@
   "name": "starknet-erc20-boilerplate",
   "private": "false",
   "scripts": {
-    "setup": "npm i && cd client && npm i",
+    "setup": "cp example.env .env && npm i && cd client && npm i",
     "configure": "./CLI/config.sh",
     "server1": "node server/server.js",
-    "server2": "cd client && npm run dev -- --host 0.0.0.0 --port 58542",
+    "server2": "cd client && npm run dev -- --host 0.0.0.0 --port 53012",
     "start": "concurrently \"npm run server1\" \"npm run server2\"",
     "deploy": "ts-node scripts/deploy.ts",
     "installer": "bash ./bash/installer.bash",

@@ -4,10 +4,10 @@ import DeployTable from './components/DeployTable';
 import useNetworkConfig from './hooks/useNetworkConfig';
 
 function Deploy() {
-  const networkConfig = useNetworkConfig();
+  const { networkConfig, handleUpdate } = useNetworkConfig();
 
   return (
-    <DeployTable networkConfig={networkConfig} />
+    <DeployTable networkConfig={networkConfig} handleUpdate={handleUpdate} />
   );
 }
 
