@@ -5,16 +5,25 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 
 function Deploy() {
-  const [networkConfig, setNetworkConfig] = useState(null);
+  const [networkConfig, setNetworkConfig] = useState({});
 
   useEffect(() => {
     const fetchNetworkConfig = async () => {
+      const options = ["DEPLOYER_PRIVATE_KEY", "DEPLOYER_ADDRESS", "NETWORK", "RPC_ENDPOINT_SEPOLIA", "RPC_ENDPOINT_MAINNET", "TOKEN_NAME", "SYMBOL_NAME", "DECIMALS_LENGTH", "FIXED_SUPPLY"];
       try {
-        const response = await fetch('http://localhost:3001/configure?m=get&o=NETWORK', {
-          method: 'POST',
+        const results = await Promise.all(
+          options.map(option =>
+            fetch(`http://localhost:3001/configure?m=get&o=${option}`, {
+              method: 'POST',
+            }).then(response => response.json())
+          )
+        );
+
+        const config = {};
+        options.forEach((option, index) => {
+          config[option] = results[index].output
         });
-        const data = await response.json();
-        setNetworkConfig("Network=" + data.output.replace(/\\n/g, ""));
+        setNetworkConfig(config);
       } catch (error) {
         console.error('Error fetching network config:', error);
         setNetworkConfig({ error: error.message });
@@ -31,7 +40,7 @@ function Deploy() {
         networkConfig.error ? (
           <p>Error: {networkConfig.error}</p>
         ) : (
-          <pre>{networkConfig}</pre>
+          <pre>{JSON.stringify(networkConfig, null, 2)}</pre>
         )
       ) : (
         <p>Loading network configuration...</p>
