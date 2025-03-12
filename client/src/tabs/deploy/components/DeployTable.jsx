@@ -8,23 +8,31 @@ function DeployTable({ networkConfig }) {
         networkConfig.error ? (
           <p>Error: {networkConfig.error}</p>
         ) : (
-          <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-          <table style={{ borderCollapse: 'collapse', width: '95%', marginLeft: '20px' }}>
-            <thead>
-              <tr>
-                <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>Option</th>
-                <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              {Object.entries(networkConfig).map(([key, value]) => (
-                <tr key={key}>
-                  <td style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>{key}</td>
-                  <td style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}><input type="text" defaultValue={value} style={{ width: '100%' }} /></td>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', width: '26%' }}>
+            <table style={{ borderCollapse: 'collapse', width: '95%', marginLeft: '20px' }}>
+              <thead>
+                <tr>
+                  <th style={{ border: '1px solid black', padding: '8px', textAlign: 'center' , width: '40%'  }}>Option</th>
+                  <th style={{ border: '1px solid black', padding: '8px', textAlign: 'center'  }}>Value</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {Object.entries(networkConfig).map(([key, value]) => (
+                  <tr key={key}>
+                    <td style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>{key}</td>
+                    <td style={{ border: '1px solid black', padding: '8px', textAlign: 'left' }}>
+                      <input type="text" defaultValue={value} style={{ width: '100%' }} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {/* Button aligned with the table */}
+            <div style={{ width: '95%', marginLeft: '20px', marginTop: '20px', display: 'flex', justifyContent: 'flex-start' }}>
+              <button style={{ padding: '10px 20px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+                Update
+              </button>
+            </div>
           </div>
         )
       ) : (
