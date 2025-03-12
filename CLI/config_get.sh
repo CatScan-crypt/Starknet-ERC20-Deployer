@@ -61,39 +61,39 @@ helpMessage="$message"
 if [ -n "$get_option" ]; then
   case "$get_option" in
     "DEPLOYER_PRIVATE_KEY")
-      printf "%s\n" "${DEPLOYER_PRIVATE_KEY}"
+      printf "%s" "${DEPLOYER_PRIVATE_KEY}"
       exit 0
       ;;
     "DEPLOYER_ADDRESS")
-      printf "%s\n" "${DEPLOYER_ADDRESS}"
+      printf "%s" "${DEPLOYER_ADDRESS}"
       exit 0
       ;;
     "NETWORK")
-      printf "%s\n" "${NETWORK}"
+      printf "%s" "${NETWORK}"
       exit 0
       ;;
     "RPC_ENDPOINT_MAINNET")
-      printf "%s\n" "${RPC_ENDPOINT_MAINNET}"
+      printf "%s" "${RPC_ENDPOINT_MAINNET}"
       exit 0
       ;;
     "RPC_ENDPOINT_SEPOLIA")
-      printf "%s\n" "${RPC_ENDPOINT_SEPOLIA}"
+      printf "%s" "${RPC_ENDPOINT_SEPOLIA}"
       exit 0
       ;;
     "TOKEN_NAME")
-      printf "%s\n" "${TOKEN_NAME}"
+      printf "%s" "${TOKEN_NAME}"
       exit 0
       ;; 
     "SYMBOL_NAME")
-      printf "%s\n" "${SYMBOL_NAME}"
+      printf "%s" "${SYMBOL_NAME}"
       exit 0
       ;;
     "DECIMALS_LENGTH")
-      printf "%s\n" "${DECIMALS_LENGTH}"
+      printf "%s" "${DECIMALS_LENGTH}"
       exit 0
       ;;
     "FIXED_SUPPLY")
-      printf "%s\n" "${FIXED_SUPPLY}"
+      printf "%s" "${FIXED_SUPPLY}"
       exit 0
       ;;
     *)
