@@ -33,7 +33,7 @@ app.post('/configure', (req, res) => {
     runCommand(command, res);
 });
 
-app.get('/deploy', (req, res) => runCommand('npm run deploy', res));
+app.post('/deploy', (req, res) => runCommand('npm run deploy', res));
 app.get('/upgradeContract', (req, res) => runCommand('upgradeContract', res));
 app.get('/verify', (req, res) => runCommand('verify', res));
 

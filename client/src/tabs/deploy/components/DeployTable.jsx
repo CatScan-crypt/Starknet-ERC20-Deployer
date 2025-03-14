@@ -14,6 +14,22 @@ function DeployTable({ networkConfig, handleUpdate }) {
     handleUpdate(updatedConfig);
   };
 
+  const handleDeployClick = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/deploy', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+        console.log("Deployment initiated successfully!");
+      } else {
+        console.error("Deployment failed.");
+      }
+    } catch (error) {
+      console.error("Error initiating deployment:", error);
+    }
+  };
+
   return (
     <div style={{ backgroundColor: 'grey', width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', marginLeft: '20px' }}>
       <h1>Deploy Page</h1>
@@ -52,6 +68,14 @@ function DeployTable({ networkConfig, handleUpdate }) {
                 onClick={handleUpdateClick}
               >
                 Update
+              </button>
+            </div>
+            <div style={{ width: '95%', marginLeft: '20px', marginTop: '20px', display: 'flex', justifyContent: 'flex-start' }}>
+              <button
+                style={{ padding: '10px 20px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+                onClick={handleDeployClick}
+              >
+                Deploy
               </button>
             </div>
           </div>
