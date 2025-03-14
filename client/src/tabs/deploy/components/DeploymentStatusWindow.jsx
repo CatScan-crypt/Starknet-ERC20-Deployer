@@ -14,8 +14,8 @@ const NewComponent = () => {
       });
 
       if (response.ok) {
-        console.log("Deployment initiated successfully!");
         const data = await response.json(); // Parse the JSON response
+        console.log("Deployment data:", data); // Log the entire response
         setDeploymentStatus(data); // Store the entire response
       } else {
         setDeploymentStatus({ success: false, output: 'Deployment failed.' });
@@ -46,6 +46,14 @@ const NewComponent = () => {
               <tr>
                 <td style={{ width: '20%', border: '1px solid black' }}>{deploymentStatus.success ? 'Success' : 'Failed'}</td>
                 <td style={{ width: '80%', border: '1px solid black' }}><pre style={{ width: '100%', wordWrap: 'break-word', overflowWrap: 'break-word', overflow: 'auto', whiteSpace: 'pre-wrap' }}>{deploymentStatus.output}</pre></td>
+              </tr>
+              <tr>
+                <td style={{ width: '20%', border: '1px solid black' }}>Class Hash</td>
+                <td style={{ width: '80%', border: '1px solid black' }}><pre style={{ width: '100%', wordWrap: 'break-word', overflowWrap: 'break-word', overflow: 'auto', whiteSpace: 'pre-wrap' }}>{deploymentStatus.classHash}</pre></td>
+              </tr>
+              <tr>
+                <td style={{ width: '20%', border: '1px solid black' }}>Contract Address</td>
+                <td style={{ width: '80%', border: '1px solid black' }}><pre style={{ width: '100%', wordWrap: 'break-word', overflowWrap: 'break-word', overflow: 'auto', whiteSpace: 'pre-wrap' }}>{deploymentStatus.contractAddress}</pre></td>
               </tr>
             </tbody>
           </table>
