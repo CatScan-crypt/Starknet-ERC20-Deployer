@@ -2,6 +2,9 @@ const express = require('express');
 const { spawn } = require('child_process');
 const shell = '/bin/bash';
 const app = express();
+const fs = require('fs');
+const path = require('path');
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
@@ -33,7 +36,23 @@ const runCommand = (script, res) => {
       console.error(`Command exited with code ${code}`);
       return res.status(500).json({ success: false, error: `Command exited with code ${code}`, stderr: stderrData });
     }
-    res.json({ success: true, output: stdoutData });
+
+    // Read deployment info
+    const deploymentInfoPath = path.join(process.env.HOME, 'Starknet-ERC20-Deployer', 'deployment_info.json');
+    fs.readFile(deploymentInfoPath, 'utf8', (err, data) => {
+      if (err) {
+        console.error('Failed to read deployment info:', err);
+        return res.status(500).json({ success: false, error: 'Failed to read deployment info', output: stdoutData });
+      }
+
+      try {
+        const deploymentInfo = JSON.parse(data);
+        res.json({ success: true, output: stdoutData, classHash: deploymentInfo.classHash, contractAddress: deploymentInfo.contractAddress });
+      } catch (parseErr) {
+        console.error('Failed to parse deployment info:', parseErr);
+        return res.status(500).json({ success: false, error: 'Failed to parse deployment info', output: stdoutData });
+      }
+    });
   });
 
   child.on('error', (err) => {
@@ -52,7 +71,9 @@ app.post('/configure', (req, res) => {
   runCommand(command, res);
 });
 
-app.post('/deploy', (req, res) => runCommand('npm run deploy', res));
+app.post('/deploy', (req, res) => {
+  runCommand('npm run deploy --silent', res);
+});
 app.get('/upgradeContract', (req, res) => runCommand('upgradeContract', res));
 app.get('/verify', (req, res) => runCommand('verify', res));
 
