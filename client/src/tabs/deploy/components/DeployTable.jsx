@@ -20,7 +20,7 @@ function DeployTable({ networkConfig, handleUpdate }) {
         networkConfig.error ? (
           <p>Error: {networkConfig.error}</p>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', width: '26%' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', width: '80%' }}>
             <table style={{ borderCollapse: 'collapse', width: '95%', marginLeft: '20px' }}>
               <thead>
                 <tr>
