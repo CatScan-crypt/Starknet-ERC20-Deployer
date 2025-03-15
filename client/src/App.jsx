@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import ConnectWallet from './components/ConnectWallet'
+import SwitchChain from './components/SwitchChain'
 
 import React, { useState } from 'react';
 import Deploy from './tabs/deploy/Deploy';
@@ -17,7 +18,7 @@ function App() {
 
       <BrowserRouter>
         <div>
-    <ConnectWallet/> 
+    <ConnectWallet/> <SwitchChain/> 
   </div>
         <nav className="nav">
           <Link to="/" className={`tab deploy-tab ${activeTab === "/" ? 'active-tab' : ''} ${clickedTab === "/" ? 'clicked' : ''}`} onClick={() => {setActiveTab("/"); setClickedTab("/");}}>Deploy</Link>

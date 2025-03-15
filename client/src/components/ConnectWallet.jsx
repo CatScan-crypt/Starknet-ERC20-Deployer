@@ -19,7 +19,7 @@ function ConnectWallet() {
     const handleSwitchChain = async () => {
         try {
             console.log("Current chain:", chain);
-            await switchChain();
+             switchChain();
             console.log("Switched chain successfully");
         } catch (error) {
             console.error("Error switching chain:", error);
@@ -37,9 +37,7 @@ function ConnectWallet() {
                         <button onClick={() => disconnect()} className="font-bold tracking-wide p-2 pl-8 hover:cursor-pointer text-red-400 hover:text-red-600">
                             Disconnect
                         </button>
-                        <button onClick={handleSwitchChain} >
-                            Switch Chain
-                        </button>
+
                     </div>
                 ) : (
                     <span className="opacity-80 text-lg tracking-wide">Connect your wallet to begin</span>
