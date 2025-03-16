@@ -17,8 +17,10 @@ function App() {
   return (
 
       <BrowserRouter>
+      
         <div>
-    <ConnectWallet/> <SwitchChain/> 
+    <ConnectWallet/> <SwitchChain/>  
+
   </div>
         <nav className="nav">
           <Link to="/" className={`tab deploy-tab ${activeTab === "/" ? 'active-tab' : ''} ${clickedTab === "/" ? 'clicked' : ''}`} onClick={() => {setActiveTab("/"); setClickedTab("/");}}>Deploy</Link>

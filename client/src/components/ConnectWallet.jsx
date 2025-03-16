@@ -1,30 +1,10 @@
 import React from "react";
-import { useAccount, useConnect, useDisconnect, useNetwork, useSwitchChain } from "@starknet-react/core";
-import { constants } from "starknet";
+import { useAccount, useConnect, useDisconnect} from "@starknet-react/core";
 
 function ConnectWallet() {
     const { address } = useAccount();
     const { connect, connectors } = useConnect();
     const { disconnect } = useDisconnect();
-    const { chain } = useNetwork();
-    const { switchChain } = useSwitchChain({
-        params: {
-            chainId:
-                chain?.id === constants.StarknetChainId.SN_SEPOLIA
-                    ? constants.StarknetChainId.SN_MAIN
-                    : constants.StarknetChainId.SN_SEPOLIA,
-        },
-    });
-
-    const handleSwitchChain = async () => {
-        try {
-            console.log("Current chain:", chain);
-             switchChain();
-            console.log("Switched chain successfully");
-        } catch (error) {
-            console.error("Error switching chain:", error);
-        }
-    };
 
     return (
         <div className="w-full h-full">
