@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 import {
     type Address,
     useAccount,
@@ -11,7 +11,7 @@ import {
   import { constants, CallData } from "starknet";
   import { erc20ClassAbi } from "../../../components/erc20_class_abi";
   import DeploymentTable from "./DeploymentTable";
-  
+
   export default function DeployContractInner() {
     const { address } = useAccount();
     const { chain } = useNetwork();
@@ -26,7 +26,7 @@ import {
     const [tokenName, setTokenName] = useState("STARKNET REACT DEMO");
     const [tokenSymbol, setTokenSymbol] = useState("SRD");
     const [initialSupply, setInitialSupply] = useState(1000000);
-  
+
     const { isError, error, send, data, isPending } = useSendTransaction({
       calls:
         udc && address
@@ -40,10 +40,10 @@ import {
             ]
           : undefined,
     });
-useEffect(() => {
-      if (data?.transaction_hash) {
+
+    useEffect(() => {
+      if (data?.transaction_hash && address) { // Ensure address is available
         // Deployment successful, save to local storage
-console.log("Deployment data:", data);
         const deploymentData = {
           timestamp: new Date().toISOString(),
           contractAddress: "TBD", // Replace with actual contract address if available
@@ -55,17 +55,18 @@ console.log("Deployment data:", data);
         };
 
         // Get existing deployments from local storage
-        const storedDeployments = localStorage.getItem("deployments");
+        const key = `deployments_${address}`; // Use wallet address as part of the key
+        const storedDeployments = localStorage.getItem(key);
         const deployments = storedDeployments ? JSON.parse(storedDeployments) : [];
 
         // Add the new deployment to the array
         deployments.push(deploymentData);
 
         // Save the updated array back to local storage
-        localStorage.setItem("deployments", JSON.stringify(deployments));
+        localStorage.setItem(key, JSON.stringify(deployments));
       }
-    }, [data?.transaction_hash, tokenName, tokenSymbol, initialSupply]);
-  
+    }, [data?.transaction_hash, tokenName, tokenSymbol, initialSupply, address]); // Add address to the dependency array
+
     return (
       <div className="flex flex-col gap-4">
         {chain.id === BigInt(constants.StarknetChainId.SN_SEPOLIA) ? (
@@ -123,11 +124,11 @@ console.log("Deployment data:", data);
       </div>
     );
   }
-  
+
   // https://sepolia.starkscan.co/class/0x07f3777c99f3700505ea966676aac4a0d692c2a9f5e667f4c606b51ca1dd3420
   const classHash =
     "0x07f3777c99f3700505ea966676aac4a0d692c2a9f5e667f4c606b51ca1dd3420";
-  
+
   function getCallData(address: Address, name: string, symbol: string, initialSupply: number) {
     const calldata = new CallData(erc20ClassAbi).compile("constructor", {
       name: name,

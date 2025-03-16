@@ -1,39 +1,44 @@
 import React, { useState, useEffect } from 'react';
+import { useAccount } from "@starknet-react/core";
 
 const DeploymentHistoryTable = () => {
   const [deployments, setDeployments] = useState([]);
+  const { address } = useAccount();
 
   useEffect(() => {
-    // Load deployments from local storage on component mount
-    const storedDeployments = localStorage.getItem("deployments");
-    if (storedDeployments) {
-      setDeployments(JSON.parse(storedDeployments));
-    } else {
-      // Add mock data if no data exists in local storage
-      const mockData = [
-        {
-          timestamp: new Date().toISOString(),
-          contractAddress: "0x1234567890abcdef",
-          status: "Success",
-          transactionHash: "0xabcdef1234567890",
-          tokenName: "MockToken",
-          tokenSymbol: "MTK",
-          initialSupply: 1000000,
-        },
-        {
-          timestamp: new Date(Date.now() - 86400000).toISOString(), // Yesterday
-          contractAddress: "0x0987654321fedcba",
-          status: "Success",
-          transactionHash: "0xfedcba0987654321",
-          tokenName: "AnotherToken",
-          tokenSymbol: "ATK",
-          initialSupply: 500000,
-        },
-      ];
-      localStorage.setItem("deployments", JSON.stringify(mockData));
-      setDeployments(mockData);
+    if (address) {
+      // Load deployments from local storage on component mount
+      const key = `deployments_${address}`;
+      const storedDeployments = localStorage.getItem(key);
+      if (storedDeployments) {
+        setDeployments(JSON.parse(storedDeployments));
+      } else {
+        // Add mock data if no data exists in local storage
+        const mockData = [
+          {
+            timestamp: new Date().toISOString(),
+            contractAddress: "0x1234567890abcdef",
+            status: "Success",
+            transactionHash: "0xabcdef1234567890",
+            tokenName: "MockToken",
+            tokenSymbol: "MTK",
+            initialSupply: 1000000,
+          },
+          {
+            timestamp: new Date(Date.now() - 86400000).toISOString(), // Yesterday
+            contractAddress: "0x0987654321fedcba",
+            status: "Success",
+            transactionHash: "0xfedcba0987654321",
+            tokenName: "AnotherToken",
+            tokenSymbol: "ATK",
+            initialSupply: 500000,
+          },
+        ];
+        localStorage.setItem(key, JSON.stringify(mockData));
+        setDeployments(mockData);
+      }
     }
-  }, []);
+  }, [address]);
 
   return (
     <table style={{ borderCollapse: 'collapse', width: '80%' }}>
