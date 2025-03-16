@@ -37,14 +37,14 @@ async function main() {
   console.log('Class Hash:', classHash);  // Log the class hash
 
   // Determine the path for the parent folder
-  const parentFolderPath = path.join(__dirname, '..', 'classHash.json');
-  const classHashData = { classHash };  // Wrap the class hash in an object
+  const parentFolderPath = path.join(__dirname, '..', 'deployment_info.json');
+  const deploymentInfo = { classHash: classHash, contractAddress: deploytContract.address };
 
   // Write the class hash to a JSON file asynchronously
   console.log('Attempting to write class hash to file...');
   try {
-    await fs.promises.writeFile(parentFolderPath, JSON.stringify(classHashData, null, 2));
-    console.log('Class hash saved to parent folder as classHash.json');
+    await fs.promises.writeFile(parentFolderPath, JSON.stringify(deploymentInfo, null, 2));
+    console.log('Deployment info saved to parent folder as deployment_info.json');
   } catch (err) {
     console.error('Error writing to file:', err);
   }

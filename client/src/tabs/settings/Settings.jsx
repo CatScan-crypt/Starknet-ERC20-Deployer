@@ -1,9 +1,13 @@
-function Settings() {
+export default function WalletConnectAndSwitch() {
+  // Handle injected connectors
+
+
+
+
+
   return (
-    <div style={{ backgroundColor: 'grey', width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <h1>Settings Page</h1>
+    <div>
     </div>
   );
+  
 }
-
-export default Settings;
