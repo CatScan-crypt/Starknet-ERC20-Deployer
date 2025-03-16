@@ -12,14 +12,14 @@ function ConnectWallet() {
 
     const handleSwitchChain = async () => {
         try {
-            console.log("Current chain:", chain.network);
+            console.log("Current chain:", chain);
             if(chain.network === "mainnet"){
              switchChain({ chainId: constants.StarknetChainId.SN_SEPOLIA });
             }else{
-                switchChain({ chainId: constants.StarknetChainId.SN_MAIN });
+             switchChain({ chainId: constants.StarknetChainId.SN_MAIN });
             }
             console.log("Switched chain successfully");
-        } catch (error) {
+            } catch (error) {
             console.error("Error switching chain:", error);
         }
     };
@@ -28,7 +28,6 @@ function ConnectWallet() {
             <button onClick={handleSwitchChain} >
                 Switch Chain
             </button>
-            
         </div>
     );
 }
