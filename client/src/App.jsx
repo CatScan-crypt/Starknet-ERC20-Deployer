@@ -18,10 +18,11 @@ function App() {
 
       <BrowserRouter>
       
-        <div>
-    <ConnectWallet/> <SwitchChain/>  
-
-  </div>
+        <div className="app-container">
+          <div className="top-right-corner">
+            <ConnectWallet/> <SwitchChain/>
+            </div>
+          </div>
         <nav className="nav">
           <Link to="/" className={`tab deploy-tab ${activeTab === "/" ? 'active-tab' : ''} ${clickedTab === "/" ? 'clicked' : ''}`} onClick={() => {setActiveTab("/"); setClickedTab("/");}}>Deploy</Link>
      
@@ -34,7 +35,7 @@ function App() {
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </BrowserRouter>
-  
+
   );
 }
 

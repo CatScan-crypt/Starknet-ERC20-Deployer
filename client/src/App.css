@@ -90,8 +90,20 @@ body, html {
 }
 
 .nav {
-  backgroundColor: #e0e0e0;
   padding: 10px;
   display: flex;
   justify-content: flex-start;
+}
+
+
+.app-container {
+  position: relative; /* Make the container relative */
+}
+
+.top-right-corner {
+  position: absolute; /* Position the div absolutely */
+  top: 0;           /* Align to the top */
+  right: 0;         /* Align to the right */
+  display: flex;     /* Use flexbox for horizontal alignment */
+  justify-content: flex-end; /* Align items to the right */
 }
