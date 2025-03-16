@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {
     type Address,
     useAccount,
@@ -14,7 +14,6 @@ import {
   
   export default function DeployContractInner() {
     const { address } = useAccount();
-    console.log(useAccount())
     const { chain } = useNetwork();
     const { error: switchChainError, switchChainAsync } = useSwitchChain({
       params: {
@@ -41,6 +40,31 @@ import {
             ]
           : undefined,
     });
+useEffect(() => {
+      if (data?.transaction_hash) {
+        // Deployment successful, save to local storage
+console.log("Deployment data:", data);
+        const deploymentData = {
+          timestamp: new Date().toISOString(),
+          contractAddress: "TBD", // Replace with actual contract address if available
+          status: "Success",
+          transactionHash: data.transaction_hash,
+          tokenName: tokenName,
+          tokenSymbol: tokenSymbol,
+          initialSupply: initialSupply,
+        };
+
+        // Get existing deployments from local storage
+        const storedDeployments = localStorage.getItem("deployments");
+        const deployments = storedDeployments ? JSON.parse(storedDeployments) : [];
+
+        // Add the new deployment to the array
+        deployments.push(deploymentData);
+
+        // Save the updated array back to local storage
+        localStorage.setItem("deployments", JSON.stringify(deployments));
+      }
+    }, [data?.transaction_hash, tokenName, tokenSymbol, initialSupply]);
   
     return (
       <div className="flex flex-col gap-4">
