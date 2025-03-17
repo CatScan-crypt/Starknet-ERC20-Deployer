@@ -4,13 +4,11 @@ import React, { useState } from "react";
 import useDeploymentEffect from "../hooks/useDeploymentEffect";
 import { getCallData } from "../../../utils/getCallData"; // Importing the getCallData function
 import {
-  type Address,
   useAccount,
   useNetwork,
   useSendTransaction,
   useUniversalDeployerContract,
 } from "@starknet-react/core";
-import { constants } from "starknet";
 import DeployContractInnerUI from "./DeployContractInnerUI"; // Importing the new UI component
 
 export default function DeployContractInner() {
