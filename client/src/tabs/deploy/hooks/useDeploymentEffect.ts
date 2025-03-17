@@ -30,7 +30,7 @@ const useDeploymentEffect = (
         try {
           const response = await fetch('https://starknet-sepolia.public.blastapi.io', options);
           const res = await response.json();
-          console.log(res ,"and", data.transaction_hash)
+          console.log(res)
 
 
           // Deployment successful, save to local storage
