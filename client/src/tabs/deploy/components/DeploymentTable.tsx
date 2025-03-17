@@ -1,5 +1,4 @@
 import React from "react";
-
 interface DeploymentTableProps {
   tokenName: string;
   tokenSymbol: string;
@@ -28,15 +27,20 @@ const DeploymentTable: React.FC<DeploymentTableProps> = ({ tokenName, tokenSymbo
                 <td>{React.Children.toArray(children)[2]}</td>
               </tr>
             </tbody>
+            
           </table>
+          
         ) : (
           <p>Error: Please provide Token Name, Token Symbol and Initial Supply inputs.</p>
         )}
         <button onClick={() => send()} className="px-4 py-2 bg-blue-500 text-white rounded">
           Deploy Contract
         </button>
+        
       </div>
+
     </div>
+    
   );
 };
 
