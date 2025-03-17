@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import useDeploymentEffect from "../hooks/useDeploymentEffect";
 import { getCallData } from "../../../utils/getCallData"; // Importing the getCallData function
-
 import {
   type Address,
   useAccount,
@@ -11,9 +10,8 @@ import {
   useSendTransaction,
   useUniversalDeployerContract,
 } from "@starknet-react/core";
-import stringify from "safe-stable-stringify";
 import { constants } from "starknet";
-import DeploymentTable from "./DeploymentTable";
+import DeployContractInnerUI from "./DeployContractInnerUI"; // Importing the new UI component
 
 export default function DeployContractInner() {
   const { address } = useAccount();
@@ -33,7 +31,7 @@ export default function DeployContractInner() {
               23,
               false,
               getCallData(address, tokenName, tokenSymbol, initialSupply), // Using the imported getCallData function
-            ]),
+            ]), 
           ]
         : undefined,
   });
@@ -42,44 +40,19 @@ export default function DeployContractInner() {
   useDeploymentEffect(data, address, tokenName, tokenSymbol, initialSupply);
 
   return (
-    <div className="flex gap-6"> {/* Flex container to hold both sides */}
-      <pre className="bg-gray-100 p-4 rounded-lg overflow-auto">
-          {stringify(
-            {
-              data,
-              isPending,
-              isError,
-              error: error?.message,
-            },
-            null,
-            2
-          )}
-        </pre>
-      {/* Deployment table with input fields on the right */}
-      <div className="flex-1"> {/* Takes up remaining space on the right */}
-
-        <DeploymentTable tokenName={tokenName} tokenSymbol={tokenSymbol} send={send}>
-          <input
-            type="text"
-            value={tokenName}
-            onChange={(e) => setTokenName(e.target.value)}
-            className="border border-gray-300 rounded px-2 py-1 mb-2 w-full"
-          />
-          <input
-            type="text"
-            value={tokenSymbol}
-            onChange={(e) => setTokenSymbol(e.target.value)}
-            className="border border-gray-300 rounded px-2 py-1 mb-2 w-full"
-          />
-          <input
-            type="number"
-            value={initialSupply}
-            onChange={(e) => setInitialSupply(parseInt(e.target.value))}
-            className="border border-gray-300 rounded px-2 py-1 w-full"
-          />          
-        </DeploymentTable>  
-      </div>  
-    </div>
+    <DeployContractInnerUI
+      data={data}
+      isPending={isPending}
+      isError={isError}
+      error={error}
+      tokenName={tokenName}
+      setTokenName={setTokenName}
+      tokenSymbol={tokenSymbol}
+      setTokenSymbol={setTokenSymbol}
+      initialSupply={initialSupply}
+      setInitialSupply={setInitialSupply}
+      send={send}
+    />
   );
 }
 
