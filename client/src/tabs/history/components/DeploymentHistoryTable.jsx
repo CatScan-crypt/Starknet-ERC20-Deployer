@@ -12,30 +12,6 @@ const DeploymentHistoryTable = () => {
       const storedDeployments = localStorage.getItem(key);
       if (storedDeployments) {
         setDeployments(JSON.parse(storedDeployments));
-      } else {
-        // Add mock data if no data exists in local storage
-        const mockData = [
-          {
-            timestamp: new Date().toISOString(),
-            contractAddress: "0x1234567890abcdef",
-            status: "Success",
-            transactionHash: "0xabcdef1234567890",
-            tokenName: "MockToken",
-            tokenSymbol: "MTK",
-            initialSupply: 1000000,
-          },
-          {
-            timestamp: new Date(Date.now() - 86400000).toISOString(), // Yesterday
-            contractAddress: "0x0987654321fedcba",
-            status: "Success",
-            transactionHash: "0xfedcba0987654321",
-            tokenName: "AnotherToken",
-            tokenSymbol: "ATK",
-            initialSupply: 500000,
-          },
-        ];
-        localStorage.setItem(key, JSON.stringify(mockData));
-        setDeployments(mockData);
       }
     }
   }, [address]);
@@ -56,7 +32,7 @@ const DeploymentHistoryTable = () => {
       <tbody>
         {deployments.map((deployment, index) => (
           <tr key={index}>
-            <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.timestamp}</td>
+            <td style={{ border: '1px solid black', padding: '8px' }}>{new Date(deployment.timestamp).toISOString().slice(0, 10)} - {String(new Date(deployment.timestamp).getUTCHours()).padStart(2, '0')}:{String(new Date(deployment.timestamp).getUTCMinutes()).padStart(2, '0')}</td>
             <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.contractAddress}</td>
             <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.status}</td>
             <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.transactionHash}</td>
