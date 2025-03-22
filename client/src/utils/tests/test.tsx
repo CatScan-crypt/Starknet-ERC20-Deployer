@@ -1,4 +1,4 @@
-import React from "react"; // This is required in a module context if you're using JSX
+import React from "react"; 
 import {
   type UseDeclareContractArgs,
   useDeclareContract,
@@ -6,7 +6,7 @@ import {
 import stringify from "safe-stable-stringify";
 import sierraCodeRaw from "./boilerplate_erc20_contract.contract_class.json";
 import casmCodeRaw from "./boilerplate_erc20_contract.compiled_contract_class.json";
-import {hash } from "starknet";
+import {hash} from "starknet";
 
 export default function DeclareContract() {
   return (
@@ -24,8 +24,6 @@ function DeclareContractInner() {
   return (
     <div>
       <p>Params</p>
-      <pre>{stringify(params, null, 2)}</pre>
-
       <p>Response</p>
       <pre>
         {stringify(
@@ -39,7 +37,6 @@ function DeclareContractInner() {
           2,
         )}
       </pre>
-
       <button
         onClick={() => declare()}
         disabled={isPending}
@@ -52,11 +49,11 @@ function DeclareContractInner() {
 
 // Contract params
 const params: UseDeclareContractArgs = {
-  compiled_class_hash: hash.computeCompiledClassHash(casmCodeRaw), // Compute the compiled class hash from the casm
+  compiled_class_hash: hash.computeCompiledClassHash(casmCodeRaw), 
   contract_class: {
-    abi: JSON.stringify(sierraCodeRaw.abi), // Ensure ABI is properly stringified
-    contract_class_version: "0x01", // Ensure you're using the correct contract version
-    sierra_program: sierraCodeRaw.sierra_program, // Provide the Sierra program
-    entry_points_by_type: sierraCodeRaw.entry_points_by_type, // Provide the entry points
+    abi: JSON.stringify(sierraCodeRaw.abi), 
+    contract_class_version: "0.1.0", 
+    sierra_program: sierraCodeRaw.sierra_program, 
+    entry_points_by_type: sierraCodeRaw.entry_points_by_type, 
   },
 };

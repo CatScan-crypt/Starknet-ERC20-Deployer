@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import ConnectWallet from './components/ConnectWallet'
 import SwitchChain from './components/SwitchChain'
-import DeployButton from './utils/tests/test'
+// import DeployButton from './utils/tests/test'
+import DeclareContractInner from './utils/tests/test'
 
 import React, { useState } from 'react';
 import Deploy from './tabs/deploy/Deploy';
@@ -18,7 +19,7 @@ function App() {
   return (
 
       <BrowserRouter>
-      {/* <DeployButton/> */}
+      <DeclareContractInner/>
         <div className="app-container">
           <div className="top-right-corner">
             <ConnectWallet/> <SwitchChain/>
