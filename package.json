@@ -10,9 +10,8 @@
     "deploy": "ts-node scripts/deploy.ts",
     "installer": "bash ./bash/installer.bash",
     "firstDeploy": "bash ./bash/firstDeploy.bash",
-    "upgradeContract": "node builder/ContractBuilder.js",
-    "verify": "bash ./bash/contractVerifier.bash"
-  },
+    "upgradeContract": "node builder/ContractBuilder.js"
+    },
   "dependencies": {
     "@tsconfig/node21": "21.0.3",
     "dotenv": "16.4.5",
