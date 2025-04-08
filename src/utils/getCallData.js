@@ -1,18 +1,18 @@
 // src/utils/getCallData.js
 
 import { CallData } from "starknet";
-import { erc20ClassAbi } from "../components/erc20_class_abi";
+import sierraCodeRaw from "./tests/boilerplate_erc20_contract.contract_class.json";
 
 export function getCallData(address, name, symbol, initialSupply) {
-  const calldata = new CallData(erc20ClassAbi).compile("constructor", {
+  const calldata = new CallData(sierraCodeRaw.abi).compile("constructor", {
     name: name,
+    initial_value: initialSupply,
     symbol: symbol,
     decimals: 18n,
-    initial_supply: { low: BigInt(initialSupply) * 10n ** 18n, high: 0n },
+    owner: address,
+    fixed_supply: { low: BigInt(initialSupply) * 10n ** 18n, high: 0n },
     recipient: address,
-    permitted_minter: address,
-    provisional_governance_admin: address,
-    upgrade_delay: 0n,
+    account: address,
   });
   return calldata;
 }

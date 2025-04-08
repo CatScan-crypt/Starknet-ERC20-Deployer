@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNetwork } from "@starknet-react/core";
 
 interface DeploymentData {
   transaction_hash?: string;
@@ -11,6 +12,8 @@ const useDeploymentEffect = (
   tokenSymbol: string,
   initialSupply: number
 ) => {
+  const { chain } = useNetwork();
+
   useEffect(() => {
     if (data?.transaction_hash && address) {
       const fetchContract = async () => {
@@ -28,7 +31,8 @@ const useDeploymentEffect = (
           })
         };
         try {
-          const response = await fetch('https://starknet-sepolia.public.blastapi.io', options);
+          const baseUrl = chain?.network === "mainnet" ? 'https://starknet-mainnet.public.blastapi.io' :'https://starknet-sepolia.public.blastapi.io' ;
+          const response = await fetch(baseUrl, options);
           const res = await response.json();
           
           // Deployment successful, save to local storage
@@ -58,7 +62,7 @@ const useDeploymentEffect = (
       }
       fetchContract()
     }
-  }, [data?.transaction_hash, tokenName, tokenSymbol, initialSupply, address]); // Add address to the dependency array
+  }, [data?.transaction_hash, tokenName, tokenSymbol, initialSupply, address]);
 }
 
 export default useDeploymentEffect

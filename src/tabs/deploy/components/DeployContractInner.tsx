@@ -55,4 +55,4 @@ export default function DeployContractInner() {
 }
 
 const classHash =
-  "0x07f3777c99f3700505ea966676aac4a0d692c2a9f5e667f4c606b51ca1dd3420";
+  "0x4cc8564546f31da0978311735c8d3f3ff2a2b36301dc2edd0785ee538fc6289";
