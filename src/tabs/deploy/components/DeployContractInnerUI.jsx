@@ -19,18 +19,6 @@ const DeployContractInnerUI = ({
 }) => {
   return (
     <div className="flex gap-6"> {/* Flex container to hold both sides */}
-      <pre className="bg-gray-100 p-4 rounded-lg overflow-auto">
-        {stringify(
-          {
-            data,
-            isPending,
-            isError,
-            error: error?.message,
-          },
-          null,
-          2
-        )}
-      </pre>
       {/* Deployment table with input fields on the right */}
       <div className="flex-1"> {/* Takes up remaining space on the right */}
         <DeploymentTable tokenName={tokenName} tokenSymbol={tokenSymbol} send={send}>

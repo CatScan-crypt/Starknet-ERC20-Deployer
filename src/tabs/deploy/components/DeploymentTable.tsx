@@ -6,7 +6,7 @@ interface DeploymentTableProps {
   send: () => void;
 }
 
-const DeploymentTable: React.FC<DeploymentTableProps> = ({ tokenName, tokenSymbol, children, send }) => {
+const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send }) => {
   return (
     <div className="border border-gray-300 rounded p-4" style={{ backgroundColor: 'grey', width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', marginLeft: '20px' }}>
       <h3 className="text-lg font-semibold">Deployment Information</h3>
