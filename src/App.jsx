@@ -16,7 +16,7 @@ function App() {
 
   return (
 
-      <BrowserRouter>
+      <BrowserRouter  basename="/deploy">
         <div className="app-container">
           <div className="top-right-corner">
             <ConnectWallet/> <SwitchChain/>

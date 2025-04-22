@@ -85,26 +85,8 @@ The issue you're encountering—receiving a 404 error when navigating directly t
 
 To resolve this, you need to ensure that your server serves the `index.html` file for all routes, allowing React Router to handle the routing on the client side. Here's how you can do this depending on your hosting environment:
 
-#### 1. **For Apache Servers**
 
-Create or update a `.htaccess` file in your project's root directory with the following content:
-
-
-```apache
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
-</IfModule>
-```
-
-This configuration ensures that all requests are redirected to `index.html`, allowing React Router to handle the routing.
-
-#### 2. **For Vercel**
+#### 1. **For Vercel**
 
 Create or update a `vercel.json` file in your project's root directory with the following content:
 
@@ -122,10 +104,6 @@ Create or update a `vercel.json` file in your project's root directory with the 
 
 This configuration ensures that Vercel redirects all requests to `index.html`, allowing React Router to handle the routing.
 
-
-#### 3. **For Other Hosting Environments**
-
-If you're using a different hosting environment, you'll need to configure it to serve `index.html` for all routes. This typically involves setting up URL rewrites or redirects. Consult your hosting provider's documentation for specific instructions.
 
 ### 🔧 Additional Tips
 
