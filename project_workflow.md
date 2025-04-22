@@ -78,15 +78,63 @@ src/
 ### Problem Description
 When navigating directly to a URL containing a tab path (e.g., `/deploy` or `/history`) or refreshing the page while on such a path, the server returns a 404 error. This happens because the client-side routing handles these paths, but the server is not configured to serve the main `index.html` for these routes, which is necessary for the React Router to take over.
 
-### Possible Solutions
-1.  **Configure Server Fallback**: Configure the development server (Vite) and the production server (e.g., Vercel, Netlify) to serve `index.html` for all non-asset requests. This allows the client-side router to handle the path.
-2.  **Use Hash Router**: Switch from `BrowserRouter` to `HashRouter` in React Router. This uses the URL hash (`#`) for routing (e.g., `/#/deploy`), which doesn't require server-side configuration as the part after the hash isn't sent to the server.
-3.  **Server-Side Rendering (SSR)**: Implement SSR, although this is likely overkill for this project and adds significant complexity.
-
 ### Proposed Solution
-We will implement **Solution 1: Configure Server Fallback**. This is the standard approach for single-page applications (SPAs) using `BrowserRouter`. We need to ensure both the Vite development server and the deployment platform are correctly configured.
+The issue you're encountering—receiving a 404 error when navigating directly to a URL containing a tab path (e.g., `/deploy` or `/history`) or refreshing the page while on such a path—is a common problem in single-page applications (SPAs) using React Router. This happens because the server doesn't know how to handle routes defined client-side by React Router.
 
-### Steps to Complete
-1.  **Verify Vite Configuration**: Check `vite.config.js` to ensure the development server is configured correctly for SPA fallback. Vite usually handles this by default, but it's good to confirm.
-2.  **Configure Deployment Platform**: If deploying to a platform like Vercel or Netlify, add the necessary configuration (e.g., a `vercel.json` or `netlify.toml` file) to handle rewrites, ensuring all paths serve `index.html`.
-3.  **Test**: Test direct navigation and page refreshes on different tab routes both locally and in the deployed environment (if applicable).
+### ✅ Solution: Configure Your Server to Handle Client-Side Routing
+
+To resolve this, you need to ensure that your server serves the `index.html` file for all routes, allowing React Router to handle the routing on the client side. Here's how you can do this depending on your hosting environment:
+
+#### 1. **For Apache Servers**
+
+Create or update a `.htaccess` file in your project's root directory with the following content:
+
+
+```apache
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+</IfModule>
+```
+
+This configuration ensures that all requests are redirected to `index.html`, allowing React Router to handle the routing.
+
+#### 2. **For Vercel**
+
+Create or update a `vercel.json` file in your project's root directory with the following content:
+
+
+```json
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+This configuration ensures that Vercel redirects all requests to `index.html`, allowing React Router to handle the routing.
+
+
+#### 3. **For Other Hosting Environments**
+
+If you're using a different hosting environment, you'll need to configure it to serve `index.html` for all routes. This typically involves setting up URL rewrites or redirects. Consult your hosting provider's documentation for specific instructions.
+
+### 🔧 Additional Tips
+
+- **Ensure Correct Base Path**: If your application is served from a subdirectory (e.g., `https://example.com/my-app/`), make sure to set the `basename` prop in your `BrowserRouter` component
+
+```jsx
+  <BrowserRouter basename="/my-app">
+    {/* your routes */}
+  </BrowserRouter>
+```
+
+- **Check for Server-Side Routing Conflicts**: Ensure that your server is not conflicting with client-side routing For example, if you have a server route that matches a client-side route, it may intercept the request before React Router can handle it
