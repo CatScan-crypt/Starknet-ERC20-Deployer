@@ -60,8 +60,8 @@ src/
 2. [x] Fix 404 on F5/refresh and on direct URL access when tab path is included in the URL.
 3. [x] Add clear browser data to settings page.
 4. [ ] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
-5. [ ] Add Vercel's analytics.
-6. [ ] Remove field's text for name and symbol and add placeholders(also for supply but without deleting default number).
+5. [x] Add Vercel's analytics.
+6. [x] Remove field's text for name and symbol and add placeholders(also placeholder for supply but without deleting default number).
 7. [ ] Add sending transaction popup.
 8. [ ] Nest the Deployment in a floating frame.
 9. [ ] Fix Auto connected wallet open on tab move(could be fixed when upgraded to starkit in task #1).

@@ -16,8 +16,8 @@ export default function DeployContractInner() {
   const { chain } = useNetwork(); // Get the current network (mainnet or testnet)
   const { udc } = useUniversalDeployerContract();
 
-  const [tokenName, setTokenName] = useState("STARKNET REACT DEMO");
-  const [tokenSymbol, setTokenSymbol] = useState("SRD");
+  const [tokenName, setTokenName] = useState("");
+  const [tokenSymbol, setTokenSymbol] = useState("");
   const [initialSupply, setInitialSupply] = useState(1000000);
 
   const { isError, error, send, data, isPending } = useSendTransaction({

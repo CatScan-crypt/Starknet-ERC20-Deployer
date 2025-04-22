@@ -34,18 +34,21 @@ const DeployContractInnerUI = ({
             type="text"
             value={tokenName}
             onChange={(e) => setTokenName(e.target.value)}
+            placeholder="e.g., MyToken"
             className="border border-gray-300 rounded px-2 py-1 mb-2 w-full"
           />
           <input
             type="text"
             value={tokenSymbol}
             onChange={(e) => setTokenSymbol(e.target.value)}
+            placeholder="e.g., TST"
             className="border border-gray-300 rounded px-2 py-1 mb-2 w-full"
           />
           <input
             type="number"
             value={initialSupply}
             onChange={(e) => setInitialSupply(parseInt(e.target.value))}
+            placeholder="Enter initial supply"
             className="border border-gray-300 rounded px-2 py-1 w-full"
           />          
         </DeploymentTable>  
