@@ -28,7 +28,6 @@ src/
 		react.svg
 	components/
 		ConnectWallet.jsx
-		erc20_class_abi.ts
 		starknet-provider.tsx
 		SwitchChain.tsx
 	tabs/
@@ -48,10 +47,10 @@ src/
 			Settings.jsx
 	utils/
 		getCallData.js
-	tests/
-		boilerplate_erc20_contract.compiled_contract_class.json
-		boilerplate_erc20_contract.contract_class.json
-		test.tsx
+		tests/
+			boilerplate_erc20_contract.compiled_contract_class.json
+			boilerplate_erc20_contract.contract_class.json
+			test.tsx
 ```
 
 ## Future Tasks
@@ -62,7 +61,7 @@ src/
 4. [ ] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
 5. [x] Add Vercel's analytics.
 6. [x] Remove field's text for name and symbol and add placeholders(also placeholder for supply but without deleting default number).
-7. [ ] Add sending transaction popup.
+7. [ ] Add "Waiting for confirmation" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
 8. [ ] Nest the Deployment in a floating frame.
 9. [ ] Fix Auto connected wallet open on tab move(could be fixed when upgraded to starkit in task #1).
 10. [ ] Create a new "Write" tab and plan a contract write function methods to it(add future task to add custom contract after).
@@ -70,6 +69,8 @@ src/
 12. [ ] Disable button when sending transaction.
 13. [ ] Add export history data to settings tab.
 14. [ ] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
+15. [ ] Pop the hover message when blocked Deploy button is pressed.
+16. [ ] Block button when wallet isn't connected.
 
 ## Current Issue.
 
