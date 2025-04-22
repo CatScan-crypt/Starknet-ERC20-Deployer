@@ -61,7 +61,7 @@ src/
 3. [x] Add clear browser data to settings page.
 4. [ ] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
 5. [ ] Add Vercel's analytics.
-6. [ ] Remove fields text and add placeholders.
+6. [ ] Remove field's text for name and symbol and add placeholders(also for supply but without deleting default number).
 7. [ ] Add sending transaction popup.
 8. [ ] Nest the Deployment in a floating frame.
 9. [ ] Fix Auto connected wallet open on tab move(could be fixed when upgraded to starkit in task #1).
@@ -71,53 +71,45 @@ src/
 13. [ ] Add export history data to settings tab.
 14. [ ] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
 
-## Current Task
+## Current Issue.
 
-### Task 2: Add clear browser data to settings page.
+### Task 4: Upgrade wallet connection with starkit
 
 ### Problem Description
 
-The application needs a feature in the settings page that allows users to clear locally stored browser data, such as cached deployment history or wallet connection information. This is important for user privacy and troubleshooting purposes.
+The current wallet connection implementation needs to be upgraded to use Starkit for improved functionality and compatibility. Starkit provides a more robust and modern approach to wallet integration with Starknet dApps.
 
 ### Proposed Solution
 
-Implement a button or similar UI element in the settings tab that, when activated, clears the relevant data stored in the browser's local storage or cookies.
+Replace the existing wallet connection logic with Starkit, following the guidelines and examples provided in the Starknet-React documentation.
+Starknetkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
 
 ### Implementation Details
 
-1.  **UI Element:** Add a button or a similar interactive element to the `Settings.jsx` component.
-2.  **Data Clearing Function:** Implement a function that clears the specific keys from `localStorage` or removes the cookies used by the application. This includes data set in `useDeploymentEffect.ts`.
-3.  **Confirmation:** Optionally, provide a confirmation dialog to prevent accidental data loss.
-4.  **Feedback:** Provide visual feedback to the user indicating that the data has been cleared.
+1. **Update ConnectWallet Component:** Modify the `ConnectWallet.jsx` component to use Starkit for wallet connection. This includes updating the component to use the `useStarknet` hook and related Starkit components.
+2. **Remove Legacy Code:** Remove any legacy wallet connection code that is no longer needed.
 
-### Code Snippets
+### Steps to Update ConnectWallet Component
 
-#### Settings.jsx
+1. **Install Starkit Dependencies:** Ensure that the required dependencies for Starkit are installed. Use the following command:
+   ```bash
+   npm install @starknet-react/core
+   ```
 
-```jsx
-// ...existing code...
-import React from 'react';
+2. **Refactor ConnectWallet Component:**
+   - Replace the existing wallet connection logic in `ConnectWallet.jsx` with the `useStarknet` hook and related Starkit components.
+   - Update the UI to reflect the new wallet connection flow.
 
-const Settings = () => {
-  const handleClearData = () => {
-    // Confirm with the user before clearing data
-    if (window.confirm('Are you sure you want to clear all local data?')) {
-      // Clear specific keys from localStorage
-      localStorage.removeItem('deploymentHistory');
-      localStorage.removeItem('walletConnection');
+3. **Remove Legacy Code:**
+   - Identify and remove any unused imports and legacy wallet connection logic.
 
-      // Provide feedback to the user
-      alert('Local data cleared successfully!');
-    }
-  };
+4. **Test the Component:**
+   - Verify that the wallet connection works as expected.
+   - Test the disconnect functionality and ensure compatibility with different wallets.
 
-  return (
-    
-      <h2>Settings</h2>
-      <button onClick={handleClearData}>Clear Local Data</button>
-    
-  );
-};
+5. **Update Documentation:**
+   - Update the `README.md` or any relevant documentation to reflect the new wallet connection implementation.
 
-export default Settings;
-```
+6. **Commit Changes:**
+   - Commit the updated `ConnectWallet.jsx` file and any other related changes to the repository.
+
