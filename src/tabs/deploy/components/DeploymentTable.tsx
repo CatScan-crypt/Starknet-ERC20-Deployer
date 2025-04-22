@@ -4,9 +4,10 @@ interface DeploymentTableProps {
   tokenSymbol: string;
   children: React.ReactNode;
   send: () => void;
+  isFormValid: boolean; // Add isFormValid prop
 }
 
-const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send }) => {
+const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send, isFormValid }) => {
   return (
     <div className="border border-gray-300 rounded p-4" style={{ backgroundColor: 'grey', width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', marginLeft: '20px' }}>
       <h3 className="text-lg font-semibold">Deployment Information</h3>
@@ -33,7 +34,12 @@ const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send }) => 
         ) : (
           <p>Error: Please provide Token Name, Token Symbol and Initial Supply inputs.</p>
         )}
-        <button onClick={() => send()} className="px-4 py-2 bg-blue-500 text-white rounded">
+        <button 
+          onClick={() => send()} 
+          className={`px-4 py-2 text-white rounded ${isFormValid ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`}
+          disabled={!isFormValid} // Disable button based on isFormValid
+          title={!isFormValid ? "Please fill in all required fields (Token Name, Token Symbol, Initial Supply > 0)" : "Deploy Contract"} // Add tooltip
+        >
           Deploy Contract
         </button>
         

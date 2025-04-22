@@ -17,11 +17,19 @@ const DeployContractInnerUI = ({
   setInitialSupply,
   send
 }) => {
+  // Calculate form validity
+  const isFormValid = tokenName.trim() !== '' && tokenSymbol.trim() !== '' && initialSupply > 0;
+
   return (
     <div className="flex gap-6"> {/* Flex container to hold both sides */}
       {/* Deployment table with input fields on the right */}
       <div className="flex-1"> {/* Takes up remaining space on the right */}
-        <DeploymentTable tokenName={tokenName} tokenSymbol={tokenSymbol} send={send}>
+        <DeploymentTable 
+          tokenName={tokenName} 
+          tokenSymbol={tokenSymbol} 
+          send={send}
+          isFormValid={isFormValid} // Pass validity status
+        >
           <input
             type="text"
             value={tokenName}
