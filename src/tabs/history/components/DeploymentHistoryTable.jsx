@@ -37,7 +37,8 @@ const DeploymentHistoryTable = () => {
           <th style={{ border: '1px solid black', padding: '8px' }}>Transaction Hash</th>
           <th style={{ border: '1px solid black', padding: '8px' }}>Token Name</th>
           <th style={{ border: '1px solid black', padding: '8px' }}>Token Symbol</th>
-          <th style={{ border: '1px solid black', padding: '8px' }}>Initial Supply</th><th style={{ border: '1px solid black', padding: '8px' }}>Explorer Links</th>
+          <th style={{ border: '1px solid black', padding: '8px' }}>Initial Supply</th>
+          <th style={{ border: '1px solid black', padding: '8px' }}>Explorer Links</th>
         </tr>
       </thead>
       <tbody>
