@@ -56,63 +56,68 @@ src/
 
 ## Future Tasks
 
-- [x] Block deployment request when fields are not filled.
-- [ ] Fix 404 on F5/refresh and on direct URL access when tab path is included in the URL.
-- [ ] Add clear browser data to settings page.
-- [ ] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
-- [ ] Add Vercel's analytics.
-- [ ] Remove fields text and add placeholders.
-- [ ] Add sending transaction popup.
-- [ ] Nest the Deployment in a floating frame.
-- [ ] Fix Auto connected wallet open on tab move(could be fixed when upgraded to starkit in task #5).
-- [ ] Create a new "Write" tab and plan a contract write function methods to it(add future task to add custom contract after).
-- [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
-- [ ] Disable button when sending transaction.
-- [ ] Add export history data to settings tab.
-- [ ] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #5).
+1. [x] Block deployment request when fields are not filled.
+2. [x] Fix 404 on F5/refresh and on direct URL access when tab path is included in the URL.
+3. [x] Add clear browser data to settings page.
+4. [ ] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
+5. [ ] Add Vercel's analytics.
+6. [ ] Remove fields text and add placeholders.
+7. [ ] Add sending transaction popup.
+8. [ ] Nest the Deployment in a floating frame.
+9. [ ] Fix Auto connected wallet open on tab move(could be fixed when upgraded to starkit in task #1).
+10. [ ] Create a new "Write" tab and plan a contract write function methods to it(add future task to add custom contract after).
+11. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
+12. [ ] Disable button when sending transaction.
+13. [ ] Add export history data to settings tab.
+14. [ ] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
 
 ## Current Task
 
-### Task 2: Fix 404 on F5/refresh and on direct URL access when tab path is included in the URL
+### Task 2: Add clear browser data to settings page.
 
 ### Problem Description
-When navigating directly to a URL containing a tab path (e.g., `/deploy` or `/history`) or refreshing the page while on such a path, the server returns a 404 error. This happens because the client-side routing handles these paths, but the server is not configured to serve the main `index.html` for these routes, which is necessary for the React Router to take over.
+
+The application needs a feature in the settings page that allows users to clear locally stored browser data, such as cached deployment history or wallet connection information. This is important for user privacy and troubleshooting purposes.
 
 ### Proposed Solution
-The issue you're encountering—receiving a 404 error when navigating directly to a URL containing a tab path (e.g., `/deploy` or `/history`) or refreshing the page while on such a path—is a common problem in single-page applications (SPAs) using React Router. This happens because the server doesn't know how to handle routes defined client-side by React Router.
 
-### ✅ Solution: Configure Your Server to Handle Client-Side Routing
+Implement a button or similar UI element in the settings tab that, when activated, clears the relevant data stored in the browser's local storage or cookies.
 
-To resolve this, you need to ensure that your server serves the `index.html` file for all routes, allowing React Router to handle the routing on the client side. Here's how you can do this depending on your hosting environment:
+### Implementation Details
 
+1.  **UI Element:** Add a button or a similar interactive element to the `Settings.jsx` component.
+2.  **Data Clearing Function:** Implement a function that clears the specific keys from `localStorage` or removes the cookies used by the application. This includes data set in `useDeploymentEffect.ts`.
+3.  **Confirmation:** Optionally, provide a confirmation dialog to prevent accidental data loss.
+4.  **Feedback:** Provide visual feedback to the user indicating that the data has been cleared.
 
-#### 1. **For Vercel**
+### Code Snippets
 
-Create or update a `vercel.json` file in your project's root directory with the following content:
-
-
-```json
-{
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
-}
-```
-
-This configuration ensures that Vercel redirects all requests to `index.html`, allowing React Router to handle the routing.
-
-
-### 🔧 Additional Tips
-
-- **Ensure Correct Base Path**: If your application is served from a subdirectory (e.g., `https://example.com/my-app/`), make sure to set the `basename` prop in your `BrowserRouter` component
+#### Settings.jsx
 
 ```jsx
-  <BrowserRouter basename="/my-app">
-    {/* your routes */}
-  </BrowserRouter>
-```
+// ...existing code...
+import React from 'react';
 
-- **Check for Server-Side Routing Conflicts**: Ensure that your server is not conflicting with client-side routing For example, if you have a server route that matches a client-side route, it may intercept the request before React Router can handle it
+const Settings = () => {
+  const handleClearData = () => {
+    // Confirm with the user before clearing data
+    if (window.confirm('Are you sure you want to clear all local data?')) {
+      // Clear specific keys from localStorage
+      localStorage.removeItem('deploymentHistory');
+      localStorage.removeItem('walletConnection');
+
+      // Provide feedback to the user
+      alert('Local data cleared successfully!');
+    }
+  };
+
+  return (
+    
+      <h2>Settings</h2>
+      <button onClick={handleClearData}>Clear Local Data</button>
+    
+  );
+};
+
+export default Settings;
+```
