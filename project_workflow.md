@@ -58,59 +58,33 @@ src/
 1. [x] Block deployment request when fields are not filled.
 2. [x] Fix 404 on F5/refresh and on direct URL access when tab path is included in the URL.
 3. [x] Add clear browser data to settings page.
-4. [ ] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
+4. [addPlan] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
 5. [x] Add Vercel's analytics.
 6. [x] Remove field's text for name and symbol and add placeholders(also placeholder for supply but without deleting default number).
 7. [ ] Add "Waiting for confirmation" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
-8. [ ] Nest the Deployment in a floating frame.
-9. [ ] Fix Auto connected wallet open on tab move(could be fixed when upgraded to starkit in task #1).
-10. [ ] Create a new "Write" tab and plan a contract write function methods to it(add future task to add custom contract after).
+8. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
+9. [ ] Fix connected wallet auto open on tab redirect(could be fixed when upgraded to starkit in task #1).
+10. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
 11. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
 12. [ ] Disable button when sending transaction.
 13. [ ] Add export history data to settings tab.
 14. [ ] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
 15. [ ] Pop the hover message when blocked Deploy button is pressed.
-16. [ ] Block button when wallet isn't connected.
+16. [ ] Block Deploy button when the wallet isn't connected.
 
-## Current Issue.
+## Current Task
 
-### Task 4: Upgrade wallet connection with starkit
+### Task 10: Create a new "Contract Actions" tab
 
-### Problem Description
+1. Add functionality to interact with deployed contracts, such as executing specific contract methods.
+2. Write a future task to allow users to add custom contracts to this tab.
 
-The current wallet connection implementation needs to be upgraded to use Starkit for improved functionality and compatibility. Starkit provides a more robust and modern approach to wallet integration with Starknet dApps.
+### Steps for Task #10 - Step #1
 
-### Proposed Solution
+1. Identify the active methods for contract actions: `mint`, `burn`, `renounce ownership`, and `transfer ownership`.
+2. Create a UI in `ContractActions.jsx` to allow users to select and execute these methods.
+3. Implement logic to call the respective contract methods using Starknet.js or a similar library.
+4. Display appropriate feedback or results to the user after executing a method.
 
-Replace the existing wallet connection logic with Starkit, following the guidelines and examples provided in the Starknet-React documentation.
-Starknetkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
 
-### Implementation Details
-
-1. **Update ConnectWallet Component:** Modify the `ConnectWallet.jsx` component to use Starkit for wallet connection. This includes updating the component to use the `useStarknet` hook and related Starkit components.
-2. **Remove Legacy Code:** Remove any legacy wallet connection code that is no longer needed.
-
-### Steps to Update ConnectWallet Component
-
-1. **Install Starkit Dependencies:** Ensure that the required dependencies for Starkit are installed. Use the following command:
-   ```bash
-   npm install @starknet-react/core
-   ```
-
-2. **Refactor ConnectWallet Component:**
-   - Replace the existing wallet connection logic in `ConnectWallet.jsx` with the `useStarknet` hook and related Starkit components.
-   - Update the UI to reflect the new wallet connection flow.
-
-3. **Remove Legacy Code:**
-   - Identify and remove any unused imports and legacy wallet connection logic.
-
-4. **Test the Component:**
-   - Verify that the wallet connection works as expected.
-   - Test the disconnect functionality and ensure compatibility with different wallets.
-
-5. **Update Documentation:**
-   - Update the `README.md` or any relevant documentation to reflect the new wallet connection implementation.
-
-6. **Commit Changes:**
-   - Commit the updated `ConnectWallet.jsx` file and any other related changes to the repository.
 
