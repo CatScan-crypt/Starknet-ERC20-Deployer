@@ -11,12 +11,15 @@ eslint.config.js
 index.html
 LICENSE
 package.json
+project_workflow.md
 README.md
+vercel.json
 vite.config.js
 lib/
 	erc20_class_abi.ts
 public/
 	starkscan.png
+	tempIcon.png
 	vite.svg
 	voyager.png
 src/
@@ -29,8 +32,19 @@ src/
 	components/
 		ConnectWallet.jsx
 		starknet-provider.tsx
+		starknetkit.tsx
 		SwitchChain.tsx
+		starknetkit/
+			index.ts
+			starknetkit-connectors.ts
+		ui/
+			button.tsx
+			dropdown.css
+			dropdown.tsx
+			utils.ts
 	tabs/
+		contract-actions/
+			ContractActions.jsx
 		deploy/
 			Deploy.jsx
 			components/
@@ -39,6 +53,7 @@ src/
 				DeploymentTable.tsx
 			hooks/
 				useDeploymentEffect.ts
+				useDeploymentState.ts
 		history/
 			History.jsx
 			components/
@@ -61,34 +76,25 @@ src/
 4. [x] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
 5. [x] Add Vercel's analytics.
 6. [x] Remove field's text for name and symbol and add placeholders(also placeholder for supply but without deleting default number).
-7. [ ] Add "Waiting for confirmation" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
-8. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
-9. [ ] Fix connected wallet auto open on tab redirect(could be fixed when upgraded to starkit in task #1).
-10. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
-11. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
-12. [ ] Disable button when sending transaction.
-13. [x] Add export history data to settings tab.
-14. [x] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
-15. [ ] Pop the hover message when blocked Deploy button is pressed.
-16. [ ] Block Deploy button when the wallet isn't connected.
-17. [ ] In Settings change the exports to a popup export options csv\json
-18. [x] Create a a dropdown window component. Wrap wallet connectors in a dropdown component.
+7. [x] Add export history data to settings tab.
+8. [x] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
+9. [x] Create a a dropdown window component. Wrap wallet connectors in a dropdown component.
+10. [ ] Add "Waiting for confirmation" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
+11. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
+12. [ ] Fix connected wallet auto open on tab redirect(could be fixed when upgraded to starkit in task #1).
+13. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
+14. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
+15. [ ] Disable button when sending transaction.
+16. [ ] Pop the hover message when blocked Deploy button is pressed.
+17. [ ] Block Deploy button when the wallet isn't connected.
+18. [ ] In Settings change the exports to a popup export options csv\json
 19. [ ] Remove redundent wallet connection buttons and text(return message).
-20. [ ] Add error on special chars in name and symbol and add error on chars and special chars in supply.
+20. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
+21. [ ] Add Header and Footer.
 
 ## Current Task
 
-### Task 10: Create a new "Contract Actions" tab
-
-1. Add functionality to interact with deployed contracts, such as executing specific contract methods.
-2. Write a future task to allow users to add custom contracts to this tab.
-
 ### Steps for Task #10 - Step #1
-
-1. Identify the active methods for contract actions: `mint`, `burn`, `renounce ownership`, and `transfer ownership`.
-2. Create a UI in `ContractActions.jsx` to allow users to select and execute these methods.
-3. Implement logic to call the respective contract methods using Starknet.js or a similar library.
-4. Display appropriate feedback or results to the user after executing a method.
 
 
 
