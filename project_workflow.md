@@ -79,9 +79,9 @@ src/
 7. [x] Add export history data to settings tab.
 8. [x] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
 9. [x] Create a a dropdown window component. Wrap wallet connectors in a dropdown component.
-10. [ ] Add "Waiting for confirmation" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
+10. [ ] Add "Waiting for wallet user's approval" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
 11. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
-12. [ ] Fix connected wallet auto open on tab redirect(could be fixed when upgraded to starkit in task #1).
+12. [ ] Fix connected wallet auto open on tab redirect.
 13. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
 14. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
 15. [ ] Disable button when sending transaction.
@@ -91,10 +91,11 @@ src/
 19. [ ] Remove redundent wallet connection buttons and text(return message).
 20. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
 21. [ ] Add Header and Footer.
+22. [ ] Add action to close drop down on click outside the component.
 
 ## Current Task
 
-### Steps for Task #10 - Step #1
+### Steps for Current Task
 
 
 

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import ConnectWallet from './components/ConnectWallet'
+import DisconnectWallet from './components/DisconnectWallet'
 import SwitchChain from './components/SwitchChain'
 import { StarknetKit } from "./components/starknetkit";
 import Dropdown from './components/ui/dropdown';
@@ -39,7 +39,7 @@ function App() {
           title="Wallet Actions"
           options={[
             <div><StarknetKit></StarknetKit></div>,
-            <div><ConnectWallet/></div>,
+            <div><DisconnectWallet/></div>,
             <div><SwitchChain/></div>
           ]}
           onSelect={handleSelect}
