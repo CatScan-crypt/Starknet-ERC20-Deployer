@@ -58,7 +58,7 @@ src/
 1. [x] Block deployment request when fields are not filled.
 2. [x] Fix 404 on F5/refresh and on direct URL access when tab path is included in the URL.
 3. [x] Add clear browser data to settings page.
-4. [addPlan] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
+4. [x] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
 5. [x] Add Vercel's analytics.
 6. [x] Remove field's text for name and symbol and add placeholders(also placeholder for supply but without deleting default number).
 7. [ ] Add "Waiting for confirmation" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
@@ -68,11 +68,14 @@ src/
 11. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
 12. [ ] Disable button when sending transaction.
 13. [x] Add export history data to settings tab.
-14. [ ] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
+14. [x] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
 15. [ ] Pop the hover message when blocked Deploy button is pressed.
 16. [ ] Block Deploy button when the wallet isn't connected.
 17. [ ] In Settings change the exports to a popup export options csv\json
-
+18. [ ] Wrap wallet connectors in a dropdown component.
+19. [ ] Remove redundent wallet connection buttons and text(return message).
+20. [ ] Add error on special chars in name and symbol and add error on chars and special chars in supply.
+ 
 ## Current Task
 
 ### Task 10: Create a new "Contract Actions" tab
