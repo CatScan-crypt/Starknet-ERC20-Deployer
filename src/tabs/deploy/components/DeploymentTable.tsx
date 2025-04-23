@@ -52,23 +52,18 @@ const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send, isFor
         )}
 
         {account ? (
-          <button
-            onClick={send}
-            className={`px-4 py-2 text-white rounded ${
-              isFormValid ? "bg-blue-500 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"
-            }`}
-            title={
-              !isFormValid
-                ? "Please fill in all required fields (Token Name, Token Symbol, Initial Supply > 0)"
-                : "Deploy Contract"
-            }
-          >
-            Deploy Contract
-          </button>
+        <button 
+        onClick={() => send()} 
+        className={`px-4 py-2 text-white rounded ${isFormValid ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`}
+        disabled={!isFormValid} // Disable button based on isFormValid
+        title={!isFormValid ? "Please fill in all required fields (Token Name, Token Symbol, Initial Supply > 0)" : "Deploy Contract"} // Add tooltip
+      >
+        Deploy Contract
+      </button>
         ) : (
           <button
             onClick={connectWalletWithModal} 
-            className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700"
+            className="px-4 pyF-2 text-white bg-red-500 rounded hover:bg-red-700"
           >
             Connect Wallet
           </button>
