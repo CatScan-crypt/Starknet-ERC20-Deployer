@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import ConnectWallet from './components/ConnectWallet'
 import SwitchChain from './components/SwitchChain'
+import { StarknetKit } from "./components/starknetkit";
 
 import React, { useState } from 'react';
 import Deploy from './tabs/deploy/Deploy';
@@ -17,6 +18,7 @@ function App() {
   return (
 
       <BrowserRouter >
+        <StarknetKit></StarknetKit>
         <div className="app-container">
           <div className="top-right-corner">
             <ConnectWallet/> <SwitchChain/>
