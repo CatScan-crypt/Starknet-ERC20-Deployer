@@ -13,7 +13,6 @@ import DeployContractInnerUI from "./DeployContractInnerUI"; // Importing the ne
 
 export default function DeployContractInner() {
   const { address } = useAccount();
-  const { chain } = useNetwork(); // Get the current network (mainnet or testnet)
   const { udc } = useUniversalDeployerContract();
 
   const [tokenName, setTokenName] = useState("");
@@ -49,7 +48,7 @@ export default function DeployContractInner() {
       setTokenSymbol={setTokenSymbol}
       initialSupply={initialSupply}
       setInitialSupply={setInitialSupply}
-
+      send={send}
     />
   );
 }

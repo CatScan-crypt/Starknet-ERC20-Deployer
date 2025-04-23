@@ -9,8 +9,8 @@ import {
   type StarknetkitConnector,
   useStarknetkitConnectModal,
 } from "starknetkit";
-import { availableConnectors } from "./starknetkit/index";
-import { Button } from "./ui/button";
+import { availableConnectors } from "/root/new/Starknet-ERC20-Deployer/src/components/starknetkit/index.ts";
+import { Button } from "/root/new/Starknet-ERC20-Deployer/src/components/ui/button.tsx";
 
 export function StarknetKit() {
   return (
@@ -36,11 +36,6 @@ function StarknetKitInner() {
     await connectAsync({ connector: connector as Connector });
   }
 
-  // function to connect to a wallet via starknetkit connector
-  async function connectWalletWithConnector(connector: Connector) {
-    await connectAsync({ connector });
-  }
-
   return (
     <div>
       <div className="flex flex-col gap-4">
@@ -58,19 +53,3 @@ function StarknetKitInner() {
   );
 }
 
-
-export function useConnectWalletWithModal() {
-  const { connectAsync } = useConnect();
-
-  const { starknetkitConnectModal } = useStarknetkitConnectModal({
-    connectors: availableConnectors as unknown as StarknetkitConnector[], // workaround if needed
-  });
-
-  async function connectWalletWithModal() {
-    const { connector } = await starknetkitConnectModal();
-    if (!connector) return;
-    await connectAsync({ connector: connector as Connector });
-  }
-
-  return { connectWalletWithModal };
-}

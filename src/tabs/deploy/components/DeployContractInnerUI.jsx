@@ -1,7 +1,8 @@
 // src/components/DeployContractInnerUI.js
 
-import React from 'react';
+import React, { useState } from 'react';
 import DeploymentTable from './DeploymentTable';
+
 
 const DeployContractInnerUI = ({
   data,
@@ -14,19 +15,36 @@ const DeployContractInnerUI = ({
   setTokenSymbol,
   initialSupply,
   setInitialSupply,
-  
+  send
 }) => {
+  const [isWaitingForApproval, setIsWaitingForApproval] = useState(false);
+
   // Calculate form validity
   const isFormValid = tokenName.trim() !== '' && tokenSymbol.trim() !== '' && initialSupply > 0;
 
+  const handleDeploy = () => {
+    setIsWaitingForApproval(true);
+    send()
+      .then(() => {
+        setIsWaitingForApproval(false); // Hide popup on success
+        // Handle success logic here
+      })
+      .catch(() => {
+        setIsWaitingForApproval(false); // Hide popup on error
+        // Handle error logic here
+      });
+  };
 
   return (
     <div className="flex gap-6"> {/* Flex container to hold both sides */}
+
+
       {/* Deployment table with input fields on the right */}
       <div className="flex-1"> {/* Takes up remaining space on the right */}
         <DeploymentTable 
           tokenName={tokenName} 
           tokenSymbol={tokenSymbol} 
+          send={handleDeploy}
           isFormValid={isFormValid} // Pass validity status
         >
           <input
