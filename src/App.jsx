@@ -3,6 +3,7 @@ import './App.css';
 import ConnectWallet from './components/ConnectWallet'
 import SwitchChain from './components/SwitchChain'
 import { StarknetKit } from "./components/starknetkit";
+import Dropdown from './components/ui/dropdown';
 
 import React, { useState } from 'react';
 import Deploy from './tabs/deploy/Deploy';
@@ -15,21 +16,34 @@ function App() {
   const [activeTab, setActiveTab] = useState("/");
   const [clickedTab, setClickedTab] = useState("/");
 
+  const handleSelect = (option) => {
+    console.log('Selected option:', option);
+  };
+
   return (
 
       <BrowserRouter >
-        <StarknetKit></StarknetKit>
         <div className="app-container">
           <div className="top-right-corner">
-            <ConnectWallet/> <SwitchChain/>
             </div>
           </div>
+
         <nav className="nav">
+          
           <Link to="/" className={`tab deploy-tab ${activeTab === "/" ? 'active-tab' : ''} ${clickedTab === "/" ? 'clicked' : ''}`} onClick={() => {setActiveTab("/"); setClickedTab("/");}}>Deploy</Link>
      
           <Link to="/history" className={`tab ${clickedTab === "/history" ? 'clicked' : ''} ${activeTab === "/history" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/history"); setClickedTab("/history");}}>History</Link>
           <Link to="/settings" className={`tab ${clickedTab === "/settings" ? 'clicked' : ''} ${activeTab === "/settings" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/settings"); setClickedTab("/settings");}}>Settings</Link>
           <Link to="/contract-actions" className={`tab ${clickedTab === "/contract-actions" ? 'clicked' : ''} ${activeTab === "/contract-actions" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/contract-actions"); setClickedTab("/contract-actions");}}>Contract Actions</Link>
+          <Dropdown
+          title="Wallet Actions"
+          options={[
+            <div><StarknetKit></StarknetKit></div>,
+            <div><ConnectWallet/></div>,
+            <div><SwitchChain/></div>
+          ]}
+          onSelect={handleSelect}
+        />
         </nav>
         <Routes>
           <Route path="/" element={<Deploy />} />

@@ -72,10 +72,10 @@ src/
 15. [ ] Pop the hover message when blocked Deploy button is pressed.
 16. [ ] Block Deploy button when the wallet isn't connected.
 17. [ ] In Settings change the exports to a popup export options csv\json
-18. [ ] Wrap wallet connectors in a dropdown component.
+18. [x] Create a a dropdown window component. Wrap wallet connectors in a dropdown component.
 19. [ ] Remove redundent wallet connection buttons and text(return message).
 20. [ ] Add error on special chars in name and symbol and add error on chars and special chars in supply.
- 
+
 ## Current Task
 
 ### Task 10: Create a new "Contract Actions" tab
