@@ -86,15 +86,17 @@ src/
 14. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
 15. [ ] Disable button when sending transaction.
 16. [ ] Pop the hover message when blocked Deploy button is pressed.
-17. [ ] Block Deploy button when the wallet isn't connected.
+17. [ ] Add initiation logic to the deploy button when wallet isn't connected: if deploy clicked but wallet not connected it will pop the starknetkit component.
+17B.[ ]  make sure the logic contains a method to change the button's text to connect to wallet when not connected.
 18. [ ] In Settings change the exports to an options popup (csv\json).
 19. [ ] Remove redundent wallet connection buttons and text(return message).
 20. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
 21. [x] Add Header and Footer.
-22. [ ] Add action to close drop down on click outside the component.
+22. [ ] Add action to close drop down on clicking outside the component.
 23. [ ] Add social logos and links to footer.
 24. [ ] Hide Switch chain untill connected.
-25. [ ] Add current chain to Switch Chain button.
+25. [ ] Add current chain text to Switch Chain button.
+26. [ ] Block switch chain when on Braavos and add ! icon with message. 
 
 ## Current Task
 

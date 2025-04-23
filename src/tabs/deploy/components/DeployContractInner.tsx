@@ -49,7 +49,7 @@ export default function DeployContractInner() {
       setTokenSymbol={setTokenSymbol}
       initialSupply={initialSupply}
       setInitialSupply={setInitialSupply}
-      send={send}
+
     />
   );
 }

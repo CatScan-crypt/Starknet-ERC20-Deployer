@@ -2,7 +2,6 @@
 
 import React from 'react';
 import DeploymentTable from './DeploymentTable';
-import stringify from 'safe-stable-stringify';
 
 const DeployContractInnerUI = ({
   data,
@@ -15,20 +14,11 @@ const DeployContractInnerUI = ({
   setTokenSymbol,
   initialSupply,
   setInitialSupply,
-  send
+  
 }) => {
   // Calculate form validity
   const isFormValid = tokenName.trim() !== '' && tokenSymbol.trim() !== '' && initialSupply > 0;
 
-  const handleDeploy = () => {
-    send()
-      .then(() => {
-        // Handle success logic here
-      })
-      .catch(() => {
-        // Handle error logic here
-      });
-  };
 
   return (
     <div className="flex gap-6"> {/* Flex container to hold both sides */}
@@ -37,7 +27,6 @@ const DeployContractInnerUI = ({
         <DeploymentTable 
           tokenName={tokenName} 
           tokenSymbol={tokenSymbol} 
-          send={handleDeploy}
           isFormValid={isFormValid} // Pass validity status
         >
           <input
