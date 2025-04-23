@@ -67,10 +67,11 @@ src/
 10. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
 11. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
 12. [ ] Disable button when sending transaction.
-13. [ ] Add export history data to settings tab.
+13. [x] Add export history data to settings tab.
 14. [ ] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
 15. [ ] Pop the hover message when blocked Deploy button is pressed.
 16. [ ] Block Deploy button when the wallet isn't connected.
+17. [ ] In Settings change the exports to a popup export options csv\json
 
 ## Current Task
 
