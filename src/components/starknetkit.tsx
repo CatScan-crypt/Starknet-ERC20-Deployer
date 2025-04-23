@@ -57,22 +57,6 @@ function StarknetKitInner() {
 
         <p>Staknetkit Modal</p>
         <Button onClick={connectWalletWithModal}>Starknetkit Modal</Button>
-
-        <p>Staknetkit Connectors</p>
-        {connectors.map((connector, index) => (
-          <Button
-            onClick={() => connectWalletWithConnector(connector)}
-            key={connector.id}
-          >
-            {connector.id}
-          </Button>
-        ))}
-
-        {/*
-        <p>Experimental (for internal testing only)</p>
-        {connectors.map((connector, index) => (
-          <WalletButton connector={connector} key={connector.id} />
-        ))} */}
       </div>
     </div>
   );
@@ -149,22 +133,5 @@ function WalletButton({ connector }: { connector: Connector }) {
         </Button>
       </div>
     </div>
-  );
-}
-/** @experimental ignore: this function is for internal testing purpose only (not part of demo) */
-function StarknetProvider({ children }: { children: React.ReactNode }) {
-  const chains = [sepolia, mainnet];
-  const provider = publicProvider();
-
-  return (
-    <StarknetConfig
-      chains={chains}
-      provider={provider}
-      connectors={availableConnectors}
-    >
-      <div className="flex flex-col px-4 border border-primary rounded-xl">
-        <div className="py-4">{children}</div>
-      </div>
-    </StarknetConfig>
   );
 }

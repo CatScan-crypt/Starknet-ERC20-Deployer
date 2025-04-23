@@ -87,11 +87,14 @@ src/
 15. [ ] Disable button when sending transaction.
 16. [ ] Pop the hover message when blocked Deploy button is pressed.
 17. [ ] Block Deploy button when the wallet isn't connected.
-18. [ ] In Settings change the exports to a popup export options csv\json
+18. [ ] In Settings change the exports to an options popup (csv\json).
 19. [ ] Remove redundent wallet connection buttons and text(return message).
 20. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
-21. [ ] Add Header and Footer.
+21. [x] Add Header and Footer.
 22. [ ] Add action to close drop down on click outside the component.
+23. [ ] Add social logos and links to footer.
+24. [ ] Hide Switch chain untill connected.
+25. [ ] Add current chain to Switch Chain button.
 
 ## Current Task
 
