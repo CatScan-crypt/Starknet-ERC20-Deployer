@@ -106,3 +106,23 @@ body, html {
   display: flex;     /* Use flexbox for horizontal alignment */
   justify-content: flex-end; /* Align items to the right */
 }
+
+/* Header styles */
+.header {
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 1rem;
+}
