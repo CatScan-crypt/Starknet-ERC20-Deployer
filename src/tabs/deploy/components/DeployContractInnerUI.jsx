@@ -3,6 +3,13 @@
 import React, { useState } from 'react';
 import DeploymentTable from './DeploymentTable';
 
+const WaitingForApprovalPopup = () => (
+  <div className="popup-overlay">
+    <div className="popup-content">
+      <p>Waiting for wallet user approval...</p>
+    </div>
+  </div>
+);
 
 const DeployContractInnerUI = ({
   data,
@@ -38,7 +45,7 @@ const DeployContractInnerUI = ({
   return (
     <div className="flex gap-6"> {/* Flex container to hold both sides */}
 
-
+      {/* {isWaitingForApproval && <WaitingForApprovalPopup />} */}
       {/* Deployment table with input fields on the right */}
       <div className="flex-1"> {/* Takes up remaining space on the right */}
         <DeploymentTable 
