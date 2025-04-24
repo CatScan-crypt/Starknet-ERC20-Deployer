@@ -91,7 +91,7 @@ src/
 19. [ ] Disable button when sending transaction.
 20. [ ] Pop the hover message when blocked Deploy button is pressed.
 21. [ ] In Settings change the exports to an options drop down (csv\json).
-22. [ ] Remove redundent wallet connection buttons and text(return message).
+22. [x] Remove redundent wallet connection buttons and text(return message).
 23. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
 24. [ ] Add action to close drop down on clicking outside the component.
 25. [x] Add social logos and links to footer(GitHub - LinkedIn - Telegram).
@@ -100,6 +100,7 @@ src/
 28. [ ] Add txt option to export dropdown in Settings.
 29. [ ] Add a temp logo.
 30. [ ] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown. 
+31. [ ] Add in history table a deployed on chain column.
 
 
 

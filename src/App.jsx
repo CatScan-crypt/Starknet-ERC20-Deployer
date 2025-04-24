@@ -14,7 +14,7 @@ import ContractActions from './tabs/contract-actions/ContractActions';
 function Header({ handleSelect }) {
   return (
     <header className="header">
-      <span className="header-title">Header</span>
+      <span className="header-title">ERC20 Deployer on Starknet</span>
       <div className="wallet-actions">
         <Dropdown
           title="Wallet Actions"

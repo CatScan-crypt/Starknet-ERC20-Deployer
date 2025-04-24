@@ -18,7 +18,6 @@ export function StarknetKit() {
   );
 }
 
-/** This Demo is for experimental purpose only, will be removed later */
 function StarknetKitInner() {
   const { connectAsync, connectors } = useConnect();
   const { starknetkitConnectModal } = useStarknetkitConnectModal({
@@ -36,20 +35,15 @@ function StarknetKitInner() {
     await connectAsync({ connector: connector as Connector });
   }
 
-  // function to connect to a wallet via starknetkit connector
-  async function connectWalletWithConnector(connector: Connector) {
-    await connectAsync({ connector });
-  }
-
   return (
     <div>
       <div className="flex flex-col gap-4">
         {address && (
           <div className="h-full flex flex-col justify-center">
-            <p className="font-medium">Connected Address: </p>
-            <pre>{address}</pre>
+
           </div>
         )}
+
         <Button onClick={connectWalletWithModal}>Starknetkit Modal</Button>
       </div>
     </div>
