@@ -94,7 +94,7 @@ src/
 22. [ ] Remove redundent wallet connection buttons and text(return message).
 23. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
 24. [ ] Add action to close drop down on clicking outside the component.
-25. [ ] Add social logos and links to footer(GitHub - LinkedIn - Telegram).
+25. [x] Add social logos and links to footer(GitHub - LinkedIn - Telegram).
 26. [ ] Block switch chain when on Braavos and add ! icon with message.
 27. [ ] Add styles to Wallet Actions button(anchor right, dropleft, text color).
 28. [ ] Add txt option to export dropdown in Settings.
