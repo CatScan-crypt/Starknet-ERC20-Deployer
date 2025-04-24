@@ -5,68 +5,6 @@ A React-based dApp for deploying ERC20 tokens on the Starknet network.
 Providing a user-friendly interface for interacting with the Starknet blockchain.
 Users can deploy, manage, and track their ERC20 token deployments.
 
-## File System
-```
-eslint.config.js
-index.html
-LICENSE
-package.json
-project_workflow.md
-README.md
-vercel.json
-vite.config.js
-lib/
-	erc20_class_abi.ts
-public/
-	starkscan.png
-	tempIcon.png
-	vite.svg
-	voyager.png
-src/
-	App.css
-	App.jsx
-	index.css
-	main.jsx
-	assets/
-		react.svg
-	components/
-		ConnectWallet.jsx
-		starknet-provider.tsx
-		starknetkit.tsx
-		SwitchChain.tsx
-		starknetkit/
-			index.ts
-			starknetkit-connectors.ts
-		ui/
-			button.tsx
-			dropdown.css
-			dropdown.tsx
-			utils.ts
-	tabs/
-		contract-actions/
-			ContractActions.jsx
-		deploy/
-			Deploy.jsx
-			components/
-				DeployContractInner.tsx
-				DeployContractInnerUI.jsx
-				DeploymentTable.tsx
-			hooks/
-				useDeploymentEffect.ts
-				useDeploymentState.ts
-		history/
-			History.jsx
-			components/
-				DeploymentHistoryTable.jsx
-		settings/
-			Settings.jsx
-	utils/
-		getCallData.js
-		tests/
-			boilerplate_erc20_contract.compiled_contract_class.json
-			boilerplate_erc20_contract.contract_class.json
-			test.tsx
-```
 
 ## Future Tasks
 
@@ -87,22 +25,22 @@ src/
 15. [x] Add action to close drop down on clicking outside the component.
 16. [x] Add social logos and links to footer(GitHub - LinkedIn - Telegram).
 17. [x] Add styles to Wallet Actions button(anchor right, text color).
-18. [ ] Add "Waiting for wallet user's approval" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
-19. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
-20. [ ] Wallet auto open on tab redirect [happend only on chrome, tested only with Braavos so test with ArgentX].
-21. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
-22. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
-23. [ ] Disable button when sending transaction.
-24. [ ] Pop the hover message when blocked Deploy button is pressed.
-25. [x] In Settings change the exports to an options dropdown menu (csv\json).
-26. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
-27. [ ] Block switch chain when on Braavos and add ! icon with message.
-28. [x] Add txt option to export dropdown in Settings.
-29. [ ] Add a temp logo in header.
-30. [x] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown.
-31. [x] Add in history table a deployed on chain column.
-32. [x] Add OnlyDust logo.
+18. [x] In Settings change the exports to an options dropdown menu (csv\json).
+19. [x] Add txt option to export dropdown in Settings.
+20. [x] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown.
+21. [x] Add in history table a deployed on chain column.
+22. [x] Add OnlyDust logo.
+23. [ ] Add "Waiting for wallet user's approval" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
+24. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
+25. [ ] Wallet auto open on tab redirect [happend only on chrome, tested only with Braavos so test with ArgentX].
+26. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
+27. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
+28. [ ] Disable button when sending transaction.
+29. [ ] Pop the hover message when blocked Deploy button is pressed.
+30. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
+31. [ ] Block switch chain when on Braavos and add ! icon with message.
+32. [ ] Add a temp logo in header.
 33. [ ] Add in history table links and logos for contract address and TxH columns.
-34. [ ]
+34. [ ] Modularize Setting.tsx.
 35. [ ]
 36. [ ]
