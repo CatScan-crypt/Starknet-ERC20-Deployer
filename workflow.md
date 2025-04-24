@@ -98,9 +98,11 @@ src/
 26. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
 27. [ ] Block switch chain when on Braavos and add ! icon with message.
 28. [ ] Add txt option to export dropdown in Settings.
-29. [ ] Add a temp logo.
+29. [ ] Add a temp logo in header.
 30. [x] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown.
-31. [ ] Add in history table a deployed on chain column.
+31. [x] Add in history table a deployed on chain column.
 32. [x] Add OnlyDust logo.
-
-
+33. [ ] Add in history table links and logos for contract address and TxH columns.
+34. [ ]
+35. [ ]
+36. [ ]

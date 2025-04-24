@@ -38,6 +38,7 @@ const DeploymentHistoryTable = () => {
           <th style={{ border: '1px solid black', padding: '8px' }}>Token Name</th>
           <th style={{ border: '1px solid black', padding: '8px' }}>Token Symbol</th>
           <th style={{ border: '1px solid black', padding: '8px' }}>Initial Supply</th>
+          <th style={{ border: '1px solid black', padding: '8px' }}>Deployed On Chain</th>
           <th style={{ border: '1px solid black', padding: '8px' }}>Explorer Links</th>
         </tr>
       </thead>
@@ -51,6 +52,7 @@ const DeploymentHistoryTable = () => {
             <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenName}</td>
             <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenSymbol}</td>
             <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.initialSupply}</td>
+            <td style={{ border: '1px solid black', padding: '8px' }}>{chain?.network || 'Unknown'}</td>
             <td style={{ border: '1px solid black', padding: '8px' }}>
               <a href={`${voyagerBaseUrl}${deployment.contractAddress}`} target="_blank" rel="noopener noreferrer">
                 <img src="/voyager.png" alt="Voyager" width="20" height="20" />
