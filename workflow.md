@@ -99,8 +99,8 @@ src/
 27. [ ] Block switch chain when on Braavos and add ! icon with message.
 28. [ ] Add txt option to export dropdown in Settings.
 29. [ ] Add a temp logo.
-30. [ ] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown.
+30. [x] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown.
 31. [ ] Add in history table a deployed on chain column.
-32. [ ] Add OnlyDust logo.
+32. [x] Add OnlyDust logo.
 
 

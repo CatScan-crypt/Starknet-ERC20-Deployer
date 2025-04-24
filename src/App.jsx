@@ -52,6 +52,9 @@ function Footer() {
         <a href="https://t.me/Cat2can" target="_blank" rel="noopener noreferrer">
           <img src="/Telegram.png" alt="Telegram" width="24" height="24" />
         </a>
+        <a href="https://app.onlydust.com/projects/erc20-deployer-on-starknet" target="_blank" rel="noopener noreferrer">
+          <img src="/OnlyDust.png" alt="Telegram" width="24" height="24" />
+        </a>
       </div>
     </footer>
   );
