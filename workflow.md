@@ -94,7 +94,7 @@ src/
 22. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
 23. [ ] Disable button when sending transaction.
 24. [ ] Pop the hover message when blocked Deploy button is pressed.
-25. [ ] In Settings change the exports to an options drop down (csv\json).
+25. [ ] In Settings change the exports to an options dropdown menu (csv\json).
 26. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
 27. [ ] Block switch chain when on Braavos and add ! icon with message.
 28. [ ] Add txt option to export dropdown in Settings.
