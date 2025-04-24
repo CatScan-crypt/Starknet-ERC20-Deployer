@@ -19,7 +19,7 @@ function ConnectWallet() {
                         </button>
                     </div>
                 ) : (
-                    <span className="opacity-80 text-lg tracking-wide">Connect your wallet to begin</span>
+                    <span className="opacity-80 text-lg tracking-wide"></span>
                 )}
             </div>
         </div>
