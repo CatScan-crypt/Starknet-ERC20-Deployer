@@ -83,24 +83,24 @@ src/
 11. [x] Add Header and Footer.
 12. [x] Hide Switch Chain untill connected.
 13. [x] Add current chain text to Switch Chain button.
-14. [ ] Add "Waiting for wallet user's approval" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
-15. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
-16. [ ] Wallet auto open on tab redirect [happend only on chrome, tested only with Braavos so test with ArgentX].
-17. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
-18. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
-19. [ ] Disable button when sending transaction.
-20. [ ] Pop the hover message when blocked Deploy button is pressed.
-21. [ ] In Settings change the exports to an options drop down (csv\json).
-22. [x] Remove redundent wallet connection buttons and text(return message).
-23. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
-24. [ ] Add action to close drop down on clicking outside the component.
-25. [x] Add social logos and links to footer(GitHub - LinkedIn - Telegram).
-26. [ ] Block switch chain when on Braavos and add ! icon with message.
-27. [x] Add styles to Wallet Actions button(anchor right, text color).
+14. [x] Remove redundent wallet connection buttons and text(return message).
+15. [x] Add action to close drop down on clicking outside the component.
+16. [x] Add social logos and links to footer(GitHub - LinkedIn - Telegram).
+17. [x] Add styles to Wallet Actions button(anchor right, text color).
+18. [ ] Add "Waiting for wallet user's approval" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
+19. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
+20. [ ] Wallet auto open on tab redirect [happend only on chrome, tested only with Braavos so test with ArgentX].
+21. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
+22. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
+23. [ ] Disable button when sending transaction.
+24. [ ] Pop the hover message when blocked Deploy button is pressed.
+25. [ ] In Settings change the exports to an options drop down (csv\json).
+26. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
+27. [ ] Block switch chain when on Braavos and add ! icon with message.
 28. [ ] Add txt option to export dropdown in Settings.
 29. [ ] Add a temp logo.
-30. [ ] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown. 
+30. [ ] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown.
 31. [ ] Add in history table a deployed on chain column.
-
+32. [ ] Add OnlyDust logo.
 
 
