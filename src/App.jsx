@@ -27,7 +27,10 @@ function Header({ handleSelect }) {
 
   return (
     <header className="header">
-      <span className="header-title">ERC20 Deployer on Starknet</span>
+      <div className="header-logo-title">
+        <img src="/logo.png" alt="Logo" className="header-logo" />
+        <span className="header-title">ERC20 Deployer on Starknet</span>
+      </div>
       <div className="wallet-actions">
         <Dropdown
           title="Wallet Actions"

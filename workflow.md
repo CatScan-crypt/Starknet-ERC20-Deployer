@@ -17,8 +17,9 @@ Users can deploy, manage, and track their ERC20 token deployments.
 7. [ ] Pop the hover message when blocked Deploy button is pressed.
 8. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
 9. [ ] Block switch chain when on Braavos and add ! icon with message.
-10. [ ] Add a temp logo in header.
+10. [x] Add a temp logo in header.
 11. [ ] Add in history table links and logos for contract address and TxH columns.
 12. [ ] Modularize Setting.tsx.
-13. [ ]
+13. [ ] Clear gap on the right of the page.
 14. [ ]
+15. [ ]
