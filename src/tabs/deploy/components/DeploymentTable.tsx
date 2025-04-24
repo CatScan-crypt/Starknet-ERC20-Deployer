@@ -1,6 +1,6 @@
 import React from "react";
 import { useAccount } from "@starknet-react/core";
-import { useConnectWalletWithModal } from "/root/new/Starknet-ERC20-Deployer/src/components/starknetkit.tsx"; // 👈 adjust path as needed
+import { useConnectWalletWithModal } from "../../../components/starknetkit.tsx"; // 👈 adjust path as needed
 
 interface DeploymentTableProps {
   tokenName: string;

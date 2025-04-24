@@ -87,7 +87,7 @@ src/
 15. [ ] Disable button when sending transaction.
 16. [ ] Pop the hover message when blocked Deploy button is pressed.
 17. [x] Add initiation logic to the deploy button when wallet isn't connected: if deploy clicked but wallet not connected it will pop the starknetkit component.
-18. [ ] In Settings change the exports to an options popup (csv\json).
+18. [ ] In Settings change the exports to an options drop down (csv\json).
 19. [ ] Remove redundent wallet connection buttons and text(return message).
 20. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
 21. [x] Add Header and Footer.
