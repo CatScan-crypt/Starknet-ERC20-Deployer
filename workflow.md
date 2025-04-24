@@ -1,8 +1,8 @@
 # Project Workflow
 
 ## Project Description
-This project is a React-based dApp for deploying ERC20 tokens on the Starknet network.
-It provides a user-friendly interface for interacting with the Starknet blockchain.
+A React-based dApp for deploying ERC20 tokens on the Starknet network.
+Providing a user-friendly interface for interacting with the Starknet blockchain.
 Users can deploy, manage, and track their ERC20 token deployments.
 
 ## File System
@@ -70,36 +70,34 @@ src/
 
 ## Future Tasks
 
-1. [x] Block deployment request when fields are not filled.
-2. [x] Fix 404 on F5/refresh and on direct URL access when tab path is included in the URL.
-3. [x] Add clear browser data to settings page.
-4. [x] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
-5. [x] Add Vercel's analytics.
-6. [x] Remove field's text for name and symbol and add placeholders(also placeholder for supply but without deleting default number).
-7. [x] Add export history data to settings tab.
-8. [x] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
-9. [x] Create a a dropdown window component. Wrap wallet connectors in a dropdown component.
-10. [ ] Add "Waiting for wallet user's approval" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
-11. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
-12. [ ] Fix connected wallet auto open on tab redirect.
-13. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
-14. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
-15. [ ] Disable button when sending transaction.
-16. [ ] Pop the hover message when blocked Deploy button is pressed.
-17. [x] Add initiation logic to the deploy button when wallet isn't connected: if deploy clicked but wallet not connected it will pop the starknetkit component.
-18. [ ] In Settings change the exports to an options drop down (csv\json).
-19. [ ] Remove redundent wallet connection buttons and text(return message).
-20. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
-21. [x] Add Header and Footer.
-22. [ ] Add action to close drop down on clicking outside the component.
-23. [ ] Add social logos and links to footer.
-24. [ ] Hide Switch chain untill connected.
-25. [ ] Add current chain text to Switch Chain button.
-26. [ ] Block switch chain when on Braavos and add ! icon with message. 
-
-## Current Task
-
-### Steps for Current Task
+1.  [x] Block deployment request when fields are not filled.
+2.  [x] Fix 404 on F5/refresh and on direct URL access when tab path is included in the URL.
+3.  [x] Add clear browser data to settings page.
+4.  [x] Upgrade wallet connection with starkit: https://github.com/apibara/starknet-react/blob/main/docs/components/demo/starknetkit.tsx
+5.  [x] Add Vercel's analytics.
+6.  [x] Remove field's text for name and symbol and add placeholders(also placeholder for supply but without deleting default number).
+7.  [x] Add export history data to settings tab.
+8.  [x] Find and mitigate the issue on "WalletConnet" browser's console warning(might be solved with task #1).
+9.  [x] Create a a dropdown window component. Wrap wallet connectors in a dropdown component.
+10. [x] Add initiation logic to the deploy button when wallet isn't connected: if deploy clicked but wallet not connected it will pop the starknetkit component.
+11. [x] Add Header and Footer.
+12. [x] Hide Switch Chain untill connected.
+13. [x] Add current chain text to Switch Chain button.
+14. [ ] Add "Waiting for wallet user's approval" popup and "Sending transaction" popup and "Transaction result [eg fail\success]" popup messages.
+15. [ ] Wrap the Deployment component in a floating frame to enhance its visual presentation and accessibility.
+16. [ ] Fix connected wallet auto open on tab redirect.
+17. [ ] Create a new "Contract Actions" tab and write under Current Task a contract actions functions methods to it(add future task to add custom contract after).
+18. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts - deploymentData function.
+19. [ ] Disable button when sending transaction.
+20. [ ] Pop the hover message when blocked Deploy button is pressed.
+21. [ ] In Settings change the exports to an options drop down (csv\json).
+22. [ ] Remove redundent wallet connection buttons and text(return message).
+23. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply.
+24. [ ] Add action to close drop down on clicking outside the component.
+25. [ ] Add social logos and links to footer.
+26. [ ] Block switch chain when on Braavos and add ! icon with message.
+27. [ ] Add styles to Wallet Actions button(anchor left, dropleft, text color).
+28. [ ] Add txt option to export dropdown in Settings.
 
 
 
