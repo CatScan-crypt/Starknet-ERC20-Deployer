@@ -96,7 +96,7 @@ src/
 24. [ ] Add action to close drop down on clicking outside the component.
 25. [x] Add social logos and links to footer(GitHub - LinkedIn - Telegram).
 26. [ ] Block switch chain when on Braavos and add ! icon with message.
-27. [ ] Add styles to Wallet Actions button(anchor right, dropleft, text color).
+27. [x] Add styles to Wallet Actions button(anchor right, text color).
 28. [ ] Add txt option to export dropdown in Settings.
 29. [ ] Add a temp logo.
 30. [ ] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown. 

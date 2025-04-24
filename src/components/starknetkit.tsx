@@ -50,8 +50,6 @@ function StarknetKitInner() {
             <pre>{address}</pre>
           </div>
         )}
-
-        <p>Staknetkit Modal</p>
         <Button onClick={connectWalletWithModal}>Starknetkit Modal</Button>
       </div>
     </div>

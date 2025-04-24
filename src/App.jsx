@@ -11,10 +11,21 @@ import History from './tabs/history/History';
 import Settings from './tabs/settings/Settings';
 import ContractActions from './tabs/contract-actions/ContractActions';
 
-function Header() {
+function Header({ handleSelect }) {
   return (
     <header className="header">
       <span className="header-title">Header</span>
+      <div className="wallet-actions">
+        <Dropdown
+          title="Wallet Actions"
+          options={[
+            <div><StarknetKit></StarknetKit></div>,
+            <div><DisconnectWallet/></div>,
+            <div><SwitchChain/></div>
+          ]}
+          onSelect={handleSelect}
+        />
+      </div>
     </header>
   );
 }
@@ -48,21 +59,10 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header handleSelect={handleSelect} />
       <BrowserRouter >
         <div className="app-container">
-          <div className="top-right-corner">
-          <Dropdown
-          title="Wallet Actions"
-          options={[
-            <div><StarknetKit></StarknetKit></div>,
-            <div><DisconnectWallet/></div>,
-            <div><SwitchChain/></div>
-          ]}
-          onSelect={handleSelect}
-        />
-            </div>
-          </div>
+        </div>
 
         <nav className="nav">
           
