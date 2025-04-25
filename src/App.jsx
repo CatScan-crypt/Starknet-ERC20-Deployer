@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import "./styles/components.css";
 import { Header } from './components/Header';
 import React, { useState } from 'react';
 import Deploy from './tabs/deploy/Deploy';
@@ -12,13 +13,9 @@ function App() {
   const [activeTab, setActiveTab] = useState("/");
   const [clickedTab, setClickedTab] = useState("/");
 
-  const handleSelect = (option) => {
-    console.log('Selected option:', option);
-  };
-
   return (
     <>
-      <Header handleSelect={handleSelect} />
+      <Header  />
       <BrowserRouter >
         <div className="app-container">
         </div>

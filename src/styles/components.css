@@ -1,0 +1,50 @@
+
+.footer {
+    background-color: #282c34;
+    color: white;
+    text-align: left;
+    padding: 1rem;
+    padding-left: 3%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .header-title {
+    font-size: 1.5em;
+  }
+  
+  .wallet-actions {
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
+  
+  .header-logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  
+  .header-logo-title {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  
+  
+.header {
+    background-color: #282c34;
+    color: white;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; 
+    width: 100vw; 
+    left: 0; 
+    right: 0; 
+  }
+  
+  
