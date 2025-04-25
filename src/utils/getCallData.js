@@ -1,7 +1,7 @@
 // src/utils/getCallData.js
 
 import { CallData } from "starknet";
-import sierraCodeRaw from "./tests/boilerplate_erc20_contract.contract_class.json";
+import sierraCodeRaw from "./contractClass.json";
 
 export function getCallData(address, name, symbol, initialSupply) {
   const calldata = new CallData(sierraCodeRaw.abi).compile("constructor", {
