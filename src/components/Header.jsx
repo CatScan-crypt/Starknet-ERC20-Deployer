@@ -40,9 +40,12 @@ function Header({ handleSelect }) {
 function LogoTitleWrapper({ children }) {
   return (
     <div style={{
+      position: 'absolute',
+      top: '10px',
+      left: '10px',
       border: '1px solid black', 
-      padding: '25px', // Equal padding
-      borderRadius: '25px', // Curved corners
+      padding: '15px', 
+      borderRadius: '25px', 
       backgroundColor: 'rgba(192, 192, 192, 0.25)'
     }}>
       {children}

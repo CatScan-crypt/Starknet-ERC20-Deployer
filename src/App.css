@@ -130,14 +130,13 @@ body, html {
 .header-logo {
   width: 25px;
   height: 25px;
-  margin-right: 10px; /* Added for spacing */
+  margin-right: 10px;
 }
 
 .header-logo-title {
-  margin: 0 0 0 3%; 
-  display: flex; /* Added */
-  align-items: center; /* Added */
-  white-space: nowrap; /* Added */
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .footer {
