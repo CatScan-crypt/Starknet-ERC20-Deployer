@@ -20,3 +20,9 @@
 20. [x] Remove redundent list space when the menu isn't occupied in Wallet Actions dropdown.
 21. [x] Add in history table a deployed on chain column.
 22. [x] Add OnlyDust logo.
+23. [x] Add a temp logo in header.
+24. [x] Clear gap on the right of the page.
+25. [x] Add a div to nest a curved asset component and wrap the logo and text in it.
+26. [x] Create a new "Contract Actions" tab.
+27. [x] Add in history table links and logos for contract address and TxH columns.
+28. [x] Wallet auto open on tab redirect [happend only on chrome, tested only with Braavos so test with ArgentX](add to known issue).
