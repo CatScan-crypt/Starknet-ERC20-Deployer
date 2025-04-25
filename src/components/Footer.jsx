@@ -17,6 +17,12 @@ function Footer() {
           <img src="/OnlyDust.png" alt="Telegram" width="24" height="24" />
         </a>
       </div>
+      <div style={{ textAlign: 'center' }}>
+        <a href="https://github.com/CatScan-crypt" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', 
+          position: 'absolute', bottom: '20%', left: '50%', transform: 'translate(-50%, 0%)' }}>
+          Created by Catscan
+        </a>
+      </div>
     </footer>
   );
 }

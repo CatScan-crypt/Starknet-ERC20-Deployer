@@ -27,9 +27,13 @@ Users can deploy, manage, and track their ERC20 token deployments.
 17. [x] Add a div to nest a curved asset component and wrap the logo and text in it.
 18. [ ] Change all px props to % or similar for margins and paddings.
 19. [ ] Change Wallet Actions text to wallet hash and network and if not connect then it will have a "No Connected Wallet". 
-20. [ ] Fix Deploy route to app.jsx.
+20. [ ] Fix Deploy route in app.jsx.
 21. [ ] Fix security vulnerabilities.
 22. [ ] Investigate walletConnect deprecation warning.
-23. [ ] Add created by catscan in the footer.
-24. [ ]
+23. [x] Add created by catscan in the footer.
+24. [ ] Add no deployed contracts yet in history tab.
 25. [ ] 
+25. [ ]
+25. [ ]
+25. [ ]
+25. [ ]
