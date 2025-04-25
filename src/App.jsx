@@ -1,70 +1,14 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import DisconnectWallet from './components/DisconnectWallet'
-import SwitchChain from './components/SwitchChain'
-import { StarknetKit } from "./components/starknetkit";
-import Dropdown from './components/ui/dropdown';
-import { useAccount } from '@starknet-react/core';
-
+import { Header } from './components/Header';
 import React, { useState } from 'react';
 import Deploy from './tabs/deploy/Deploy';
 import History from './tabs/history/History';
 import Settings from './tabs/settings/Settings';
 import ContractActions from './tabs/contract-actions/ContractActions';
-
-function Header({ handleSelect }) {
-  const { account } = useAccount(); // Get account status
-
-  // Dynamically build options based on connection status
-  const options = [
-    <div key="starknetkit"><StarknetKit /></div>,
-  ];
-
-  if (account) {
-    options.push(<div key="disconnect"><DisconnectWallet /></div>);
-    options.push(<div key="switchchain"><SwitchChain /></div>);
-  }
-
-  return (
-    <header className="header">
-      <div className="header-logo-title">
-        <img src="/logo.png" alt="Logo" className="header-logo" />
-        <span className="header-title">ERC20 Deployer on Starknet</span>
-      </div>
-      <div className="wallet-actions">
-        <Dropdown
-          title="Wallet Actions"
-          options={options} // Use the dynamically built options array
-          onSelect={handleSelect}
-        />
-      </div>
-    </header>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="footer">
-      <div>
-        <a href="https://github.com/CatScan-crypt/Starknet-ERC20-Deployer" target="_blank" rel="noopener noreferrer">
-          <img src="/GitHub.png" alt="GitHub" width="24" height="24" style={{ marginRight: '10px' }} />
-        </a>
-        <a href="https://www.linkedin.com/in/marian-roth/" target="_blank" rel="noopener noreferrer">
-          <img src="/LinkedIn.png" alt="LinkedIn" width="24" height="24" style={{ marginRight: '10px' }} />
-        </a>
-        <a href="https://t.me/Cat2can" target="_blank" rel="noopener noreferrer">
-          <img src="/Telegram.png" alt="Telegram" width="24" height="24" />
-        </a>
-        <a href="https://app.onlydust.com/projects/erc20-deployer-on-starknet" target="_blank" rel="noopener noreferrer">
-          <img src="/OnlyDust.png" alt="Telegram" width="24" height="24" />
-        </a>
-      </div>
-    </footer>
-  );
-}
+import Footer from './components/Footer';
 
 function App() {
-
   const [activeTab, setActiveTab] = useState("/");
   const [clickedTab, setClickedTab] = useState("/");
 
@@ -78,14 +22,31 @@ function App() {
       <BrowserRouter >
         <div className="app-container">
         </div>
-
-        <nav className="nav">
-          
-          <Link to="/" className={`tab deploy-tab ${activeTab === "/" ? 'active-tab' : ''} ${clickedTab === "/" ? 'clicked' : ''}`} onClick={() => {setActiveTab("/"); setClickedTab("/");}}>Deploy</Link>
-     
-          <Link to="/history" className={`tab ${clickedTab === "/history" ? 'clicked' : ''} ${activeTab === "/history" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/history"); setClickedTab("/history");}}>History</Link>
-          <Link to="/settings" className={`tab ${clickedTab === "/settings" ? 'clicked' : ''} ${activeTab === "/settings" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/settings"); setClickedTab("/settings");}}>Settings</Link>
-          <Link to="/contract-actions" className={`tab ${clickedTab === "/contract-actions" ? 'clicked' : ''} ${activeTab === "/contract-actions" ? 'active-tab' : ''}`} onClick={() => {setActiveTab("/contract-actions"); setClickedTab("/contract-actions");}}>Contract Actions</Link>
+        <nav className="nav">   
+          <Link to="/" className={`tab deploy-tab 
+          ${activeTab === "/" ? 'active-tab' : ''} 
+          ${clickedTab === "/" ? 'clicked' : ''}`} 
+          onClick={() => {setActiveTab("/"); 
+          setClickedTab("/");}}>Deploy
+          </Link>
+          <Link to="/history" className={`tab 
+            ${clickedTab === "/history" ? 'clicked' : ''} 
+            ${activeTab === "/history" ? 'active-tab' : ''}`} 
+            onClick={() => {setActiveTab("/history"); 
+            setClickedTab("/history");}}>History
+            </Link>
+          <Link to="/settings" className={`tab 
+            ${clickedTab === "/settings" ? 'clicked' : ''} 
+            ${activeTab === "/settings" ? 'active-tab' : ''}`} 
+            onClick={() => {setActiveTab("/settings"); 
+            setClickedTab("/settings");}}>Settings
+            </Link>
+          <Link to="/contract-actions" className={`tab 
+            ${clickedTab === "/contract-actions" ? 'clicked' : ''} 
+            ${activeTab === "/contract-actions" ? 'active-tab' : ''}`} 
+            onClick={() => {setActiveTab("/contract-actions"); 
+            setClickedTab("/contract-actions");}}>Contract Actions
+            </Link>
         </nav>
         <Routes>
           <Route path="/" element={<Deploy />} />

@@ -118,8 +118,6 @@ body, html {
 }
 
 .header-title {
-  position: absolute;
-  margin-left: 1%;
   font-size: 1.5em;
 }
 
@@ -132,10 +130,14 @@ body, html {
 .header-logo {
   width: 25px;
   height: 25px;
+  margin-right: 10px; /* Added for spacing */
 }
 
 .header-logo-title {
   margin: 0 0 0 3%; 
+  display: flex; /* Added */
+  align-items: center; /* Added */
+  white-space: nowrap; /* Added */
 }
 
 .footer {
