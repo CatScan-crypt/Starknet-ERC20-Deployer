@@ -9,7 +9,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 
 ### UI/UX Enhancements
 1. [x] Add no deployed contracts yet in history tab. (DeploymentHistoryTable.jsx)
-2. [ ] Pop the hover message when the deploy button is pressed when blocked (solution: https://stackoverflow.com/questions/69038218/make-disabled-button-trigger-onclick-event-in-react). (DeployContractInnerUI.jsx)
+2. [x] Pop the hover message when the deploy button is pressed when blocked. (DeploymentTable.tsx)
 3. [ ] Change all px props to % or similar for margins and paddings. (App.css)
 4. [ ] Replace the deploy button when pending and add "Waiting for user's approval" message instead and "Sending transaction" after - (DeployContractInnerUI.jsx)
 5. [ ] Add "Transaction result [eg fail\success]" popup messages. (DeployContractInnerUI.jsx)
