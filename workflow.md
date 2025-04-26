@@ -10,16 +10,18 @@ Users can deploy, manage, and track their ERC20 token deployments.
 ### UI/UX Enhancements
 1. [x] Add no deployed contracts yet in history tab. (DeploymentHistoryTable.jsx)
 2. [x] Pop the hover message when the deploy button is pressed when blocked. (DeploymentTable.tsx)
-3. [ ] Change all px props to % or similar for margins and paddings. (App.css)
+3. [x] Change all px props to % or similar for margins and paddings. (App.css)
 4. [ ] Replace the deploy button when pending and add "Waiting for user's approval" message instead and "Sending transaction" after - (DeployContractInnerUI.jsx)
-5. [ ] Add "Transaction result [eg fail\success]" popup messages. (DeployContractInnerUI.jsx)
+5. [ ] Add "Transaction result [eg fail\success]" system popup messages. (DeployContractInnerUI.jsx)
 6. [ ] Add a success\fail message on contract deployment(start with alert and continue with a component). (DeployContractInnerUI.jsx)
-
+7. [ ] Make the Tx and CA text in history with copy functionality.
+ 
 ### Wallet Integration
 1. [ ] Disable button when sending transaction. (DeployContractInnerUI.jsx)
 2. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply. (DeployContractInnerUI.jsx)
 3. [ ] Block the switch chain button in wallet actions when on Braavos and add ! icon with message. (SwitchChain.tsx)
-4. [ ] Change Wallet Actions text to wallet hash and network and if not connect then it will have a "No Connected Wallet". (walletActions.jsx)
+4. [ ] Change Wallet Actions text to wallet hash and network and if not connected then it will have a "No Connected Wallet". (walletActions.jsx)
+5. [ ] Add an "Add to wallet" column in history(addTokenExample.md).
 
 ### Code Refactoring
 1. [ ] Modularize Setting.tsx. (Settings.jsx)
