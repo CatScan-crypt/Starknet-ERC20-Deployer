@@ -1,17 +1,10 @@
 // src/components/DeployContractInnerUI.js
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DeploymentTable from './DeploymentTable';
 
-const WaitingForApprovalPopup = () => (
-  <div className="popup-overlay">
-    <div className="popup-content">
-      <p>Waiting for wallet user approval...</p>
-    </div>
-  </div>
-);
-
 const DeployContractInnerUI = ({
+  isSuccess,
   data,
   isPending,
   isError,
@@ -24,35 +17,68 @@ const DeployContractInnerUI = ({
   setInitialSupply,
   send
 }) => {
-  const [isWaitingForApproval, setIsWaitingForApproval] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
-  // Calculate form validity
+  useEffect(() => {
+    if (data) {
+      console.log('Data after request:', data);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      setShowSuccess(true);
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      setShowError(true);
+      const timer = setTimeout(() => {
+        setShowError(false);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isError]);
+
   const isFormValid = tokenName.trim() !== '' && tokenSymbol.trim() !== '' && initialSupply > 0;
 
   const handleDeploy = () => {
-    setIsWaitingForApproval(true);
-    send()
-      .then(() => {
-        setIsWaitingForApproval(false); // Hide popup on success
-        // Handle success logic here
-      })
-      .catch(() => {
-        setIsWaitingForApproval(false); // Hide popup on error
-        // Handle error logic here
-      });
+    send();
   };
 
   return (
-    <div className="flex gap-6"> {/* Flex container to hold both sides */}
-
-      {/* {isWaitingForApproval && <WaitingForApprovalPopup />} */}
-      {/* Deployment table with input fields on the right */}
-      <div className="flex-1"> {/* Takes up remaining space on the right */}
+    <div className="flex gap-6"> 
+      <div className="flex-1">
+        {isPending && (
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-50">
+            <div className="bg-white p-4 rounded shadow">Waiting for user approval</div>
+          </div>
+        )}
+        {showSuccess && (
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-green-500 bg-opacity-50">
+            <div className="bg-white p-4 rounded shadow text-green-600">
+              Deployment was successful!
+            </div>
+          </div>
+        )}
+        {showError && (
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-red-500 bg-opacity-50">
+            <div className="bg-white p-4 rounded shadow text-red-600">
+              {error?.reason || error?.message || 'An unknown error occurred'}
+            </div>
+          </div>
+        )}
         <DeploymentTable 
           tokenName={tokenName} 
           tokenSymbol={tokenSymbol} 
           send={handleDeploy}
-          isFormValid={isFormValid} // Pass validity status
+          isFormValid={isFormValid} 
         >
           <input
             type="text"
