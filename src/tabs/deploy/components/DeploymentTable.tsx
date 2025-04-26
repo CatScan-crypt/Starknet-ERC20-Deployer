@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAccount } from "@starknet-react/core";
-import { useConnectWalletWithModal } from "../../../components/starknetkit.tsx"; // 👈 adjust path as needed
+import { useConnectWalletWithModal } from "../../../components/starknetkit.tsx"; 
+import "./DeploymentTable.css";
 
 interface DeploymentTableProps {
   tokenName: string;
@@ -12,28 +13,16 @@ interface DeploymentTableProps {
 
 const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send, isFormValid }) => {
   const { account } = useAccount();
-  const { connectWalletWithModal } = useConnectWalletWithModal(); // 👈 use the hook
+  const { connectWalletWithModal } = useConnectWalletWithModal(); 
   const [showMessage, setShowMessage] = useState(false);
 
   const handleCheckForm = () => {
     setShowMessage(true);
-    setTimeout(() => setShowMessage(false), 3000); // Hide message after 3 seconds
+    setTimeout(() => setShowMessage(false), 3000);
   };
 
   return (
-    <div
-      className="border border-gray-300 rounded p-4"
-      style={{
-        backgroundColor: "grey",
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        marginLeft: "20px",
-      }}
-    >
+    <div className="deployment-table-container">
       <h3 className="text-lg font-semibold">Deployment Information</h3>
       <div className="mt-2">
         {React.Children.count(children) === 3 ? (
