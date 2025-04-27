@@ -19,13 +19,17 @@ Users can deploy, manage, and track their ERC20 token deployments.
 9. [ ] Add scroll options for the table when over 7 list items.
 0. [ ] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
 1. [ ] Add system alert when copy is inited.
+2. [ ] Add delete row in history table.
+3. [ ] Add a temp icon untill fetch is finised.
 
 ### Wallet Integration
 1. [ ] Disable button when sending transaction. (DeployContractInnerUI.jsx)
 2. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply. (DeployContractInnerUI.jsx)
 3. [ ] Block the switch chain button in wallet actions when on Braavos and add ! icon with message. (SwitchChain.tsx)
-4. [ ] Change Wallet Actions text to wallet hash and network and if not connected then it will have a "No Connected Wallet". (walletActions.jsx)
+4. [x] Change Wallet Actions text to wallet hash and network and if not connected then it will have a "No Connected Wallet". (walletActions.jsx)
 5. [ ] Add an "Add to wallet" column in history(addTokenExample.md)[https://starknetjs.com/docs/6.11.0/guides/walletAccount/].
+6. [ ] Add wallet icons to Wallet actions dropdown and current network.
+7. [ ] Add "Locked Wallet" text to Wallet actions when locked.
 
 ### Code Refactoring
 1. [ ] Modularize Setting.tsx. (Settings.jsx)
@@ -35,7 +39,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 1. [x] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts-deploymentData function. (useDeploymentEffect.ts)
 2. [ ] Fix Deploy route in app.jsx. (App.jsx)
 3. [ ] Page refresh returns tab styles to the deploy tab but stays on the same page.
-
+4. [ ] Fix Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png.
 
 ### Security and Warnings
 1. [ ] Fix security vulnerabilities. (package.json)

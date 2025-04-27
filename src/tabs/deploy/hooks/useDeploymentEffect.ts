@@ -43,7 +43,7 @@ const useDeploymentEffect = (
     if (data?.transaction_hash && address) {
       const fetchContract = async () => {
         console.log("Fetching contract data...");
-        await new Promise(resolve => setTimeout(resolve, 30000));
+        await new Promise(resolve => setTimeout(resolve, 20000));
 
         const options = {
           method: 'POST',

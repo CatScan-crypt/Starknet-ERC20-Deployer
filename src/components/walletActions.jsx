@@ -6,9 +6,9 @@ import { StarknetKit } from './starknetkit';
 import Dropdown from './ui/dropdown';
 
 function WalletActions({ handleSelect }) {
-  const { account } = useAccount(); // Get account status
+  const {address, account } = useAccount(); 
 
-  // Dynamically build options based on connection status
+  
   const options = [
     <div key="starknetkit"><StarknetKit /></div>,
   ];
@@ -21,8 +21,8 @@ function WalletActions({ handleSelect }) {
   return (
     <div className="wallet-actions">
       <Dropdown
-        title="Wallet Actions"
-        options={options} // Use the dynamically built options array
+        title={address ? `${address.slice(0, 6)}...${address.slice(-4)}` : "Wallet Actions"} 
+        options={options} 
         onSelect={handleSelect}
       />
     </div>
