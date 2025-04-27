@@ -1,14 +1,41 @@
 import React from 'react';
-import { useAccount } from '@starknet-react/core';
+import { useAccount, useNetwork } from '@starknet-react/core';
 import DisconnectWallet from './DisconnectWallet';
 import SwitchChain from './SwitchChain';
 import { StarknetKit } from './starknetkit';
 import Dropdown from './ui/dropdown';
+import argentLogo from '../../public/argent.png';
+import braavosLogo from '../../public/braavos.png';
+
 
 function WalletActions({ handleSelect }) {
-  const { account } = useAccount(); // Get account status
+  const { address, account } = useAccount(); 
+  const { chain } = useNetwork();
+  console.log('chainName', chain?.name);
 
-  // Dynamically build options based on connection status
+  const getWalletIcon = () => {
+    console.log('account', account);
+    if (account?.walletProvider?.id === 'argentX') {
+      return <img src={argentLogo} 
+      style={{ width: '25px', height: '25px' }}
+      alt="Argent" className="wallet-icon" 
+        
+      />;
+    } else if (account?.walletProvider?.id === 'braavos') {
+      return <img src={braavosLogo} 
+      style={{ width: '25px', height: '25px' }}
+      alt="Braavos" className="wallet-icon" />;
+    }
+    return null;
+  };
+
+  const getNetworkName = () => {
+    if (chain?.name === 'Starknet Sepolia Testnet') {
+      return 'Testnet';
+    }
+    return 'Mainnet';
+  };
+
   const options = [
     <div key="starknetkit"><StarknetKit /></div>,
   ];
@@ -21,8 +48,16 @@ function WalletActions({ handleSelect }) {
   return (
     <div className="wallet-actions">
       <Dropdown
-        title="Wallet Actions"
-        options={options} // Use the dynamically built options array
+        title={
+          address ? (
+            <div className="dropdown-title">
+              <div className="dropdown-title-content">
+                {`${address.slice(0, 4)}...${address.slice(-3)}`} {getWalletIcon()} {getNetworkName()}
+              </div>
+            </div>
+          ) : "Wallet Actions"
+        }
+        options={options} 
         onSelect={handleSelect}
       />
     </div>

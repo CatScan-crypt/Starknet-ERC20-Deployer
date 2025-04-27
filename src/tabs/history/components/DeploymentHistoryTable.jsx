@@ -7,6 +7,13 @@ const shortenAddress = (address) => {
   return address.slice(0, 7) + "...." + address.slice(-4);
 };
 
+const copyToClipboard = (text) => {
+  navigator.clipboard.writeText(text).then(() => {
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+};
+
 const DeploymentHistoryTable = () => {
   const [deployments, setDeployments] = useState([]);
   const { address } = useAccount();
@@ -54,8 +61,21 @@ const DeploymentHistoryTable = () => {
           {deployments.map((deployment, index) => (
             <tr key={index}>
               <td style={{ border: '1px solid black', padding: '8px' }}>{new Date(deployment.timestamp).toISOString().slice(0, 10)} - {String(new Date(deployment.timestamp).getUTCHours()).padStart(2, '0')}:{String(new Date(deployment.timestamp).getUTCMinutes()).padStart(2, '0')}</td>
-              <td style={{ border: '1px solid black', padding: '8px' }}>
+              <td 
+                style={{ border: '1px solid black', padding: '8px', cursor: 'pointer' }} 
+                onClick={() => copyToClipboard(deployment.contractAddress)}
+                title="Click to copy"
+              >
                 {shortenAddress(deployment.contractAddress)}
+                <img 
+                  src="/public/tempIcon.png" 
+                  alt="Copy" 
+                  style={{ marginLeft: '8px', cursor: 'pointer', width: '16px', height: '16px' }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    copyToClipboard(deployment.contractAddress);
+                  }}
+                />
                 <div>
                   <a href={`${voyagerBaseUrl}${deployment.contractAddress}`} target="_blank" rel="noopener noreferrer">
                     <img src="/voyager.png" alt="Voyager" width="20" height="20" />
@@ -66,8 +86,21 @@ const DeploymentHistoryTable = () => {
                 </div>
               </td>
               <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.status}</td>
-              <td style={{ border: '1px solid black', padding: '8px' }}>
+              <td 
+                style={{ border: '1px solid black', padding: '8px', cursor: 'pointer' }} 
+                onClick={() => copyToClipboard(deployment.transactionHash)}
+                title="Click to copy"
+              >
                 {shortenAddress(deployment.transactionHash)}
+                <img 
+                  src="/public/tempIcon.png" 
+                  alt="Copy" 
+                  style={{ marginLeft: '8px', cursor: 'pointer', width: '16px', height: '16px' }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    copyToClipboard(deployment.transactionHash);
+                  }}
+                />
                 <div>
                   <a href={`${voyagerBaseUrl.replace('contract', 'tx')}${deployment.transactionHash}`} target="_blank" rel="noopener noreferrer">
                     <img src="/voyager.png" alt="Voyager" width="20" height="20" />

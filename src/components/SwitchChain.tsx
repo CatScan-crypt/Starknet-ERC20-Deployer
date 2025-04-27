@@ -32,7 +32,7 @@ function ConnectWallet() {
                     <button onClick={handleSwitchChain}>
                         Switch Chain
                     </button>
-                    <span className="ml-2 text-gray-600">Connected to: {chain?.network || "Unknown"}</span>
+                    
                 </>
             )}
         </div>

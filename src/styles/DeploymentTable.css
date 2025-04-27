@@ -1,0 +1,14 @@
+/* DeploymentTable.css */
+
+.deployment-table-container {
+  border-radius: 0.25rem; 
+  padding: 1rem; 
+  background-color: grey;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+}

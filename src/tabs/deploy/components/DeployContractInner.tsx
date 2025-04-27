@@ -19,7 +19,7 @@ export default function DeployContractInner() {
   const [tokenSymbol, setTokenSymbol] = useState("");
   const [initialSupply, setInitialSupply] = useState(1000000);
 
-  const { isError, error, send, data, isPending } = useSendTransaction({
+  const { isError, error, send, data, isPending, isSuccess } = useSendTransaction({
     calls:
       udc && address
         ? [
@@ -34,13 +34,14 @@ export default function DeployContractInner() {
   });
 
   // Use the custom hook here to handle deployment data effects
-  useDeploymentEffect(data, address, tokenName, tokenSymbol, initialSupply);
+  useDeploymentEffect(data, address, tokenName, tokenSymbol, initialSupply, isSuccess, isError);
 
   return (
     <DeployContractInnerUI
       data={data}
       isPending={isPending}
       isError={isError}
+      isSuccess={isSuccess}
       error={error}
       tokenName={tokenName}
       setTokenName={setTokenName}
