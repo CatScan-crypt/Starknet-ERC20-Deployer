@@ -26,3 +26,14 @@
 26. [x] Create a new "Contract Actions" tab.
 27. [x] Add in history table links and logos for contract address and TxH columns.
 28. [x] Wallet auto open on tab redirect [happend only on chrome, tested only with Braavos so test with ArgentX](add to known issue).
+29. [x] Add no deployed contracts yet in history tab. (DeploymentHistoryTable.jsx)
+30. [x] Pop the hover message when the deploy button is pressed when blocked. (DeploymentTable.tsx)
+31. [x] Change all px props to % or similar for margins and paddings. (App.css)
+32. [x] Replace the deploy button when pending and add "Waiting for user's approval" message instead and "Sending transaction" after - (DeployContractInnerUI.jsx)
+33. [x] Add "Transaction result [eg fail\success]" system popup messages. (DeployContractInnerUI.jsx)
+34. [x] Add a success\fail message on contract deployment(start with alert and continue with a component). (DeployContractInnerUI.jsx)
+35. [x] Make the Tx and CA text in history with copy functionality.
+36. [x] Change Wallet Actions text to wallet hash and network and if not connected then it will have a "No Connected Wallet". (walletActions.jsx)
+37. [x] Add wallet icons to Wallet actions dropdown and current network.
+38. [x] Modularize App.css. (App.css)
+39. [x] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts-deploymentData function. (useDeploymentEffect.ts)
