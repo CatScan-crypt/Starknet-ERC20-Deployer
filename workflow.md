@@ -28,7 +28,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 3. [ ] Block the switch chain button in wallet actions when on Braavos and add ! icon with message. (SwitchChain.tsx)
 4. [x] Change Wallet Actions text to wallet hash and network and if not connected then it will have a "No Connected Wallet". (walletActions.jsx)
 5. [ ] Add an "Add to wallet" column in history(addTokenExample.md)[https://starknetjs.com/docs/6.11.0/guides/walletAccount/].
-6. [ ] Add wallet icons to Wallet actions dropdown and current network.
+6. [x] Add wallet icons to Wallet actions dropdown and current network.
 7. [ ] Add "Locked Wallet" text to Wallet actions when locked.
 
 ### Code Refactoring
@@ -40,6 +40,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 2. [ ] Fix Deploy route in app.jsx. (App.jsx)
 3. [ ] Page refresh returns tab styles to the deploy tab but stays on the same page.
 4. [ ] Fix Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png.
+5. [ ] Investigate Port disconnected, reconnecting... Port connected inject.js:1 loop.
 
 ### Security and Warnings
 1. [ ] Fix security vulnerabilities. (package.json)
@@ -47,4 +48,4 @@ Users can deploy, manage, and track their ERC20 token deployments.
 
 ### Feature Development
 1. [ ] Add contract methods to Contract Actions tab. (ContractActions.jsx)
-
+2. [ ] Research faucet requests to add test funds button.
