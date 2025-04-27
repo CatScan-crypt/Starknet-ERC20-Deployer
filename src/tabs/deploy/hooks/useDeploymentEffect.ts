@@ -10,14 +10,39 @@ const useDeploymentEffect = (
   address: string | undefined,
   tokenName: string,
   tokenSymbol: string,
-  initialSupply: number
+  initialSupply: number,
+  isSuccess: boolean,
+  isError: boolean
 ) => {
   const { chain } = useNetwork();
 
   useEffect(() => {
+    console.log("useDeploymentEffect triggered");
+    const key = `deployments_${address}`; // Use wallet address as part of the key
+    const storedDeployments = localStorage.getItem(key);
+    const deployments = storedDeployments ? JSON.parse(storedDeployments) : [];
+
+    const deploymentData = {
+      timestamp: new Date().toISOString(),
+      contractAddress: "N/A",
+      status: isError ? "Fail" : isSuccess ? "Success" : "Pending",
+      transactionHash: data?.transaction_hash || "Unknown",
+      tokenName: tokenName,
+      tokenSymbol: tokenSymbol,
+      initialSupply: initialSupply,
+    };
+
+    if (isError) {
+      // Save failed deployment immediately
+      deployments.push(deploymentData);
+      localStorage.setItem(key, JSON.stringify(deployments));
+      console.log("Stored deployments:", deployments);
+      return;
+    }
+
     if (data?.transaction_hash && address) {
       const fetchContract = async () => {
-        // Add a 30-second delay
+        console.log("Fetching contract data...");
         await new Promise(resolve => setTimeout(resolve, 30000));
 
         const options = {
@@ -30,39 +55,34 @@ const useDeploymentEffect = (
             params: [data.transaction_hash]
           })
         };
+
         try {
-          const baseUrl = chain?.network === "mainnet" ? 'https://starknet-mainnet.public.blastapi.io' :'https://starknet-sepolia.public.blastapi.io' ;
+          const baseUrl = chain?.network === "mainnet" ? 'https://starknet-mainnet.public.blastapi.io' :'https://starknet-sepolia.public.blastapi.io';
           const response = await fetch(baseUrl, options);
           const res = await response.json();
-          
-          // Deployment successful, save to local storage
-          const deploymentData = {
-            timestamp: new Date().toISOString(),
-            contractAddress: res.result.events[0].from_address, // Replace with actual contract address if available
-            status: "Success",
-            transactionHash: data.transaction_hash,
-            tokenName: tokenName,
-            tokenSymbol: tokenSymbol,
-            initialSupply: initialSupply,
-          };
 
-          // Get existing deployments from local storage
-          const key = `deployments_${address}`; // Use wallet address as part of the key
-          const storedDeployments = localStorage.getItem(key);
-          const deployments = storedDeployments ? JSON.parse(storedDeployments) : [];
-
-          // Add the new deployment to the array
+          // Update contract address if successful
+          if (!isError) {
+            console.log("Transaction receipt fetched successfully:", res);
+            deploymentData.contractAddress = res.result?.events?.[0]?.from_address || "Unknown";
+            deploymentData.status = "Success";
+          }
+        } catch (error) {
+          console.error(error);
+        } finally {
+          // Add the deployment data to the array
           deployments.push(deploymentData);
 
           // Save the updated array back to local storage
           localStorage.setItem(key, JSON.stringify(deployments));
-        } catch (error) {
-          console.error(error)
+
+          // Log stored deployments
+          console.log("Stored deployments:", deployments);
         }
       }
-      fetchContract()
+      fetchContract();
     }
-  }, [data?.transaction_hash, tokenName, tokenSymbol, initialSupply, address]);
+  }, [data?.transaction_hash, tokenName, tokenSymbol, initialSupply, address, isSuccess, isError]);
 }
 
 export default useDeploymentEffect

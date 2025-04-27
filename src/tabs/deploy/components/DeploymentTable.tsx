@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAccount } from "@starknet-react/core";
 import { useConnectWalletWithModal } from "../../../components/starknetkit.tsx"; 
-import "./DeploymentTable.css";
+import "../../../styles/DeploymentTable.css";
 
 interface DeploymentTableProps {
   tokenName: string;

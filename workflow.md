@@ -14,7 +14,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 4. [x] Replace the deploy button when pending and add "Waiting for user's approval" message instead and "Sending transaction" after - (DeployContractInnerUI.jsx)
 5. [x] Add "Transaction result [eg fail\success]" system popup messages. (DeployContractInnerUI.jsx)
 6. [x] Add a success\fail message on contract deployment(start with alert and continue with a component). (DeployContractInnerUI.jsx)
-7. [ ] Make the Tx and CA text in history with copy functionality.
+7. [x] Make the Tx and CA text in history with copy functionality.
 8. [ ] Add error on identical successful deployments.
 9. [ ] Add scroll options for the table when over 7 list items.
 0. [ ] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
@@ -32,7 +32,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 2. [x] Modularize App.css. (App.css)
 
 ### Bug Fixes
-1. [ ] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts-deploymentData function. (useDeploymentEffect.ts)
+1. [x] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts-deploymentData function. (useDeploymentEffect.ts)
 2. [ ] Fix Deploy route in app.jsx. (App.jsx)
 3. [ ] Page refresh returns tab styles to the deploy tab but stays on the same page.
 

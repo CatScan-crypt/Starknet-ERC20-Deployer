@@ -34,7 +34,7 @@ export default function DeployContractInner() {
   });
 
   // Use the custom hook here to handle deployment data effects
-  useDeploymentEffect(data, address, tokenName, tokenSymbol, initialSupply);
+  useDeploymentEffect(data, address, tokenName, tokenSymbol, initialSupply, isSuccess, isError);
 
   return (
     <DeployContractInnerUI
