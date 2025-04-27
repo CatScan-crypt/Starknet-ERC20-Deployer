@@ -17,8 +17,7 @@ const useDeploymentEffect = (
   const { chain } = useNetwork();
 
   useEffect(() => {
-    console.log("useDeploymentEffect triggered");
-    const key = `deployments_${address}`; // Use wallet address as part of the key
+    const key = `deployments_${address}`; 
     const storedDeployments = localStorage.getItem(key);
     const deployments = storedDeployments ? JSON.parse(storedDeployments) : [];
 
@@ -33,10 +32,9 @@ const useDeploymentEffect = (
     };
 
     if (isError) {
-      // Save failed deployment immediately
+      
       deployments.push(deploymentData);
       localStorage.setItem(key, JSON.stringify(deployments));
-      console.log("Stored deployments:", deployments);
       return;
     }
 
@@ -61,7 +59,7 @@ const useDeploymentEffect = (
           const response = await fetch(baseUrl, options);
           const res = await response.json();
 
-          // Update contract address if successful
+          
           if (!isError) {
             console.log("Transaction receipt fetched successfully:", res);
             deploymentData.contractAddress = res.result?.events?.[0]?.from_address || "Unknown";
@@ -70,14 +68,9 @@ const useDeploymentEffect = (
         } catch (error) {
           console.error(error);
         } finally {
-          // Add the deployment data to the array
           deployments.push(deploymentData);
 
-          // Save the updated array back to local storage
           localStorage.setItem(key, JSON.stringify(deployments));
-
-          // Log stored deployments
-          console.log("Stored deployments:", deployments);
         }
       }
       fetchContract();
