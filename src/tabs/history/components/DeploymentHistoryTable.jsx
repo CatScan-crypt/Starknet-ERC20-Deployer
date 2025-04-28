@@ -7,6 +7,7 @@ const DeploymentHistoryTable = () => {
   const { deployments, chain } = useDeploymentHistory();
   const [filter, setFilter] = useState('all');
   const [status, setStatus] = useState('all');
+  const [selectedRows, setSelectedRows] = useState([]);
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
@@ -14,6 +15,16 @@ const DeploymentHistoryTable = () => {
 
   const handleStatusChange = (event) => {
     setStatus(event.target.value);
+  };
+
+  const handleCheckboxChange = (index) => {
+    const newSelectedRows = [...selectedRows];
+    if (newSelectedRows.includes(index)) {
+      newSelectedRows.splice(newSelectedRows.indexOf(index), 1);
+    } else {
+      newSelectedRows.push(index);
+    }
+    setSelectedRows(newSelectedRows);
   };
 
   const filteredDeployments = deployments.filter((deployment) => {
@@ -25,8 +36,15 @@ const DeploymentHistoryTable = () => {
   const starkscanBaseUrl = chain?.network === 'mainnet' ? "https://starkscan.co/contract/" : "https://sepolia.starkscan.co/contract/";
   const voyagerBaseUrl = chain?.network === 'mainnet' ? "https://voyager.online/contract/" : "https://sepolia.voyager.online/contract/";
 
+  const handleButtonClick = () => {
+    alert('Button clicked!');
+  };
+
   return (
     <>
+      <button onClick={handleButtonClick} style={{ marginBottom: '10px', padding: '8px 16px', cursor: 'pointer' , maxWidth:'5%' }}>
+        Delete Selected
+      </button>
       <FilterToggle filter={filter} onChange={handleFilterChange} />
       <StatusToggle status={status} onChange={handleStatusChange} />
       <EmptyMessage deployments={deployments} />
@@ -34,6 +52,7 @@ const DeploymentHistoryTable = () => {
         <table style={{ borderCollapse: 'collapse', width: '100%' }}>
           <thead>
             <tr>
+              <th style={{ border: '1px solid black', padding: '8px' }}>Select</th>
               <th style={{ border: '1px solid black', padding: '8px' }}>Timestamp</th>
               <th style={{ border: '1px solid black', padding: '8px' }}>Contract Address</th>
               <th style={{ border: '1px solid black', padding: '8px' }}>Status</th>
@@ -46,11 +65,27 @@ const DeploymentHistoryTable = () => {
           </thead>
           <tbody>
             {filteredDeployments.map((deployment, index) => (
-              <tr key={index}>
+              <tr
+                key={index}
+                style={{
+                  backgroundColor: selectedRows.includes(index) ? '#f0f8ff' : 'transparent',
+                  cursor: 'pointer',
+                }}
+              >
+                <td style={{ border: '1px solid black', padding: '8px' }}>
+                  <input
+                    type="checkbox"
+                    checked={selectedRows.includes(index)}
+                    onChange={() => handleCheckboxChange(index)}
+                  />
+                </td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{new Date(deployment.timestamp).toISOString().slice(0, 10)} - {String(new Date(deployment.timestamp).getUTCHours()).padStart(2, '0')}:{String(new Date(deployment.timestamp).getUTCMinutes()).padStart(2, '0')}</td>
                 <td
                   style={{ border: '1px solid black', padding: '8px', cursor: 'pointer' }}
-                  onClick={() => copyToClipboard(deployment.contractAddress)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    copyToClipboard(deployment.contractAddress);
+                  }}
                   title="Click to copy"
                 >
                   {shortenAddress(deployment.contractAddress)}
@@ -71,7 +106,10 @@ const DeploymentHistoryTable = () => {
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.status}</td>
                 <td
                   style={{ border: '1px solid black', padding: '8px', cursor: 'pointer' }}
-                  onClick={() => copyToClipboard(deployment.transactionHash)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    copyToClipboard(deployment.transactionHash);
+                  }}
                   title="Click to copy"
                 >
                   {shortenAddress(deployment.transactionHash)}
