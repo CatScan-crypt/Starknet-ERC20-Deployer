@@ -18,6 +18,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 8. [x] Add switch in history for show sepolia, mainnet or both.
 9. [ ] Rerender the table after switch chain was inited. 
 0. [ ] Remove icons from failed deployments in history table.
+1. [ ] Add Deployment ID column.
 
 ### Wallet Integration
 1. [ ] Disable button when sending transaction. (DeployContractInnerUI.jsx)
@@ -34,6 +35,8 @@ Users can deploy, manage, and track their ERC20 token deployments.
 2. [ ] Page refresh returns tab styles to the deploy tab but stays on the same page.
 3. [ ] Fix Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png.
 4. [ ] Investigate Port disconnected, reconnecting... Port connected inject.js:1 loop.
+5. [ ] No 404 on empty routes.
+6. [ ] Fix inaccurate hour timestemp in History table. 
 
 ### Security and Warnings
 1. [ ] Fix security vulnerabilities. (package.json)
