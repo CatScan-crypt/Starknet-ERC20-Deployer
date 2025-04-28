@@ -11,10 +11,8 @@ import braavosLogo from '../../public/braavos.png';
 function WalletActions({ handleSelect }) {
   const { address, account } = useAccount(); 
   const { chain } = useNetwork();
-  console.log('chainName', chain?.name);
 
   const getWalletIcon = () => {
-    console.log('account', account);
     if (account?.walletProvider?.id === 'argentX') {
       return <img src={argentLogo} 
       style={{ width: '25px', height: '25px' }}
