@@ -9,8 +9,7 @@ function History() {
       height: '100vh', 
       display: 'flex', 
       flexDirection: 'column', 
-      justifyContent: 'flex-start', 
-      alignItems: 'center' }}>
+      justifyContent: 'flex-start' }}>
       <h1>History Page</h1>
       <DeploymentHistoryTable deployments={deployments} />
     </div>

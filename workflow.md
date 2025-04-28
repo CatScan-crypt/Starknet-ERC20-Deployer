@@ -15,13 +15,14 @@ Users can deploy, manage, and track their ERC20 token deployments.
 5. [ ] Add delete row in history table.
 6. [ ] Add a temp icon untill fetch is finised.
 7. [ ] Add switch for: show all, show only failed, show only successful in history table.
+8. [ ] Add switch in history for show sepolia, mainnet or both.
 
 ### Wallet Integration
 1. [ ] Disable button when sending transaction. (DeployContractInnerUI.jsx)
 2. [ ] Add error and block deploy button on special chars in name and symbol and do same on chars and special chars in supply. (DeployContractInnerUI.jsx)
 3. [ ] Block the switch chain button in wallet actions when on Braavos and add ! icon with message. (SwitchChain.tsx)
 4. [ ] Add an "Add to Wallet" column in history(addTokenExample.md)[https://starknetjs.com/docs/6.11.0/guides/walletAccount/].
-5. [ ] Add "Locked Wallet" text to Wallet actions when disconnect button is true and switch network is false.
+5. [ ] Add "Locked Wallet" text to Wallet actions when disconnect button is true and switch network button is false.
 
 ### Code Refactoring
 1. [ ] Modularize Setting.tsx. (Settings.jsx)
