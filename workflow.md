@@ -10,7 +10,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 ### UI/UX Enhancements
 1. [ ] Add error on identical successful deployments.
 2. [x] Add scroll option for the table when over 7 list items.
-3. [ ] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
+3. [x] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
 4. [ ] Add system alert when copy is inited.
 5. [ ] Add delete row in history table.
 6. [ ] Add a temp icon untill fetch is finised.
@@ -32,6 +32,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 2. [ ] Page refresh returns tab styles to the deploy tab but stays on the same page.
 3. [ ] Fix Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png.
 4. [ ] Investigate Port disconnected, reconnecting... Port connected inject.js:1 loop.
+5. [ ] Deployed on Chain column shows current network instead of deployed on network data.
 
 ### Security and Warnings
 1. [ ] Fix security vulnerabilities. (package.json)

@@ -55,7 +55,7 @@ const DeploymentHistoryTable = () => {
                 >
                   {shortenAddress(deployment.contractAddress)}
                   <img 
-                    src="/public/tempIcon.png" 
+                    src="/public/copyIcon.png" 
                     alt="Copy" 
                     style={{ marginLeft: '8px', cursor: 'pointer', width: '16px', height: '16px' }}
                     onClick={(e) => {
@@ -76,7 +76,7 @@ const DeploymentHistoryTable = () => {
                 >
                   {shortenAddress(deployment.transactionHash)}
                   <img 
-                    src="/public/tempIcon.png" 
+                    src="/public/copyIcon.png" 
                     alt="Copy" 
                     style={{ marginLeft: '8px', cursor: 'pointer', width: '16px', height: '16px' }}
                     onClick={(e) => {
