@@ -9,13 +9,13 @@ Users can deploy, manage, and track their ERC20 token deployments.
 
 ### UI/UX Enhancements
 1. [ ] Add error on identical successful deployments.
-2. [ ] Add scroll option for the table when over 7 list items.
+2. [x] Add scroll option for the table when over 7 list items.
 3. [ ] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
 4. [ ] Add system alert when copy is inited.
 5. [ ] Add delete row in history table.
 6. [ ] Add a temp icon untill fetch is finised.
-7. [ ] Add switch for: show all, show only failed, show only successful in history table.
-8. [ ] Add switch in history for show sepolia, mainnet or both.
+7. [x] Add switch for: show all, show only failed, show only successful in history table.
+8. [x] Add switch in history for show sepolia, mainnet or both.
 
 ### Wallet Integration
 1. [ ] Disable button when sending transaction. (DeployContractInnerUI.jsx)

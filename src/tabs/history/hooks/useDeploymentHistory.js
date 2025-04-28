@@ -19,4 +19,17 @@ const useDeploymentHistory = () => {
   return { deployments, chain };
 };
 
+export const shortenAddress = (address) => {
+  if (!address) return "";
+  return address.slice(0, 7) + "...." + address.slice(-4);
+};
+
+export const copyToClipboard = (text) => {
+  navigator.clipboard.writeText(text).then(() => {
+    console.log('Copied to clipboard:', text);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+};
+
 export default useDeploymentHistory;

@@ -1,39 +1,36 @@
-import React from 'react';
-import { useAccount } from "@starknet-react/core";
-import { useNetwork } from "@starknet-react/core";
-import useDeploymentHistory from '../hooks/useDeploymentHistory'; // Import useDeploymentHistory
-
-const shortenAddress = (address) => {
-  if (!address) return "";
-  return address.slice(0, 7) + "...." + address.slice(-4);
-};
-
-const copyToClipboard = (text) => {
-  navigator.clipboard.writeText(text).then(() => {
-  }).catch(err => {
-    console.error('Failed to copy: ', err);
-  });
-};
+import React, { useState } from 'react';
+import useDeploymentHistory from '../hooks/useDeploymentHistory'; 
+import { shortenAddress, copyToClipboard } from '../hooks/useDeploymentHistory';
+import { FilterToggle, EmptyMessage, ExplorerLinks, StatusToggle } from './UIComponents';
 
 const DeploymentHistoryTable = () => {
   const { deployments, chain } = useDeploymentHistory();
-  const { address } = useAccount();
+  const [filter, setFilter] = useState('all');
+  const [status, setStatus] = useState('all');
 
-  const renderEmptyMessage = () => {
-    if (deployments.length === 0) {
-      return <p>No deployment history found for this account.</p>;
-    }
-    return null;
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
   };
 
-  // Determine the correct explorer URLs based on the network
+  const handleStatusChange = (event) => {
+    setStatus(event.target.value);
+  };
+
+  const filteredDeployments = deployments.filter((deployment) => {
+    const matchesFilter = filter === 'all' || (filter === 'test' && chain?.network !== 'mainnet') || (filter === 'main' && chain?.network === 'mainnet');
+    const matchesStatus = status === 'all' || deployment.status === status;
+    return matchesFilter && matchesStatus;
+  });
+
   const starkscanBaseUrl = chain?.network === 'mainnet' ? "https://starkscan.co/contract/" : "https://sepolia.starkscan.co/contract/";
   const voyagerBaseUrl = chain?.network === 'mainnet' ? "https://voyager.online/contract/" : "https://sepolia.voyager.online/contract/";
 
   return (
     <>
-      {renderEmptyMessage()}
-      <div style={{ maxHeight: '60%',maxWidth: "95%", overflowY: 'auto',marginLeft:"2.5%"}}>
+      <FilterToggle filter={filter} onChange={handleFilterChange} />
+      <StatusToggle status={status} onChange={handleStatusChange} />
+      <EmptyMessage deployments={deployments} />
+      <div style={{ maxHeight: '60%', maxWidth: "95%", overflowY: 'auto', marginLeft: "2.5%" }}>
         <table style={{ borderCollapse: 'collapse', width: '100%' }}>
           <thead>
             <tr>
@@ -48,7 +45,7 @@ const DeploymentHistoryTable = () => {
             </tr>
           </thead>
           <tbody>
-            {deployments.map((deployment, index) => (
+            {filteredDeployments.map((deployment, index) => (
               <tr key={index}>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{new Date(deployment.timestamp).toISOString().slice(0, 10)} - {String(new Date(deployment.timestamp).getUTCHours()).padStart(2, '0')}:{String(new Date(deployment.timestamp).getUTCMinutes()).padStart(2, '0')}</td>
                 <td
@@ -66,14 +63,10 @@ const DeploymentHistoryTable = () => {
                       copyToClipboard(deployment.contractAddress);
                     }}
                   />
-                  <div>
-                    <a href={`${voyagerBaseUrl}${deployment.contractAddress}`} target="_blank" rel="noopener noreferrer">
-                      <img src="/voyager.png" alt="Voyager" width="20" height="20" />
-                    </a>
-                    <a href={`${starkscanBaseUrl}${deployment.contractAddress}`} target="_blank" rel="noopener noreferrer">
-                      <img src="/starkscan.png" alt="Starkscan" width="20" height="20" />
-                    </a>
-                  </div>
+                  <ExplorerLinks 
+                    voyagerUrl={`${voyagerBaseUrl}${deployment.contractAddress}`} 
+                    starkscanUrl={`${starkscanBaseUrl}${deployment.contractAddress}`} 
+                  />
                 </td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.status}</td>
                 <td
@@ -91,14 +84,10 @@ const DeploymentHistoryTable = () => {
                       copyToClipboard(deployment.transactionHash);
                     }}
                   />
-                  <div>
-                    <a href={`${voyagerBaseUrl.replace('contract', 'tx')}${deployment.transactionHash}`} target="_blank" rel="noopener noreferrer">
-                      <img src="/voyager.png" alt="Voyager" width="20" height="20" />
-                    </a>
-                    <a href={`${starkscanBaseUrl.replace('contract', 'tx')}${deployment.transactionHash}`} target="_blank" rel="noopener noreferrer">
-                      <img src="/starkscan.png" alt="Starkscan" width="20" height="20" />
-                    </a>
-                  </div>
+                  <ExplorerLinks 
+                    voyagerUrl={`${voyagerBaseUrl.replace('contract', 'tx')}${deployment.transactionHash}`} 
+                    starkscanUrl={`${starkscanBaseUrl.replace('contract', 'tx')}${deployment.transactionHash}`} 
+                  />
                 </td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenName}</td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenSymbol}</td>
