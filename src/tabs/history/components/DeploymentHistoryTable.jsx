@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 import useDeploymentHistory from '../hooks/useDeploymentHistory'; 
 import { shortenAddress, copyToClipboard } from '../hooks/useDeploymentHistory';
-import { FilterToggle, EmptyMessage, ExplorerLinks } from './UIComponents';
+import { FilterToggle, EmptyMessage, ExplorerLinks, StatusToggle } from './UIComponents';
 
 const DeploymentHistoryTable = () => {
   const { deployments, chain } = useDeploymentHistory();
   const [filter, setFilter] = useState('all');
+  const [status, setStatus] = useState('all');
 
-  const handleToggleChange = (event) => {
+  const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
 
+  const handleStatusChange = (event) => {
+    setStatus(event.target.value);
+  };
+
   const filteredDeployments = deployments.filter((deployment) => {
-    if (filter === 'test') {
-      return chain?.network !== 'mainnet';
-    } else if (filter === 'main') {
-      return chain?.network === 'mainnet';
-    }
-    return true; // Show all
+    const matchesFilter = filter === 'all' || (filter === 'test' && chain?.network !== 'mainnet') || (filter === 'main' && chain?.network === 'mainnet');
+    const matchesStatus = status === 'all' || deployment.status === status;
+    return matchesFilter && matchesStatus;
   });
 
   const starkscanBaseUrl = chain?.network === 'mainnet' ? "https://starkscan.co/contract/" : "https://sepolia.starkscan.co/contract/";
@@ -25,7 +27,8 @@ const DeploymentHistoryTable = () => {
 
   return (
     <>
-      <FilterToggle filter={filter} onChange={handleToggleChange} />
+      <FilterToggle filter={filter} onChange={handleFilterChange} />
+      <StatusToggle status={status} onChange={handleStatusChange} />
       <EmptyMessage deployments={deployments} />
       <div style={{ maxHeight: '60%', maxWidth: "95%", overflowY: 'auto', marginLeft: "2.5%" }}>
         <table style={{ borderCollapse: 'collapse', width: '100%' }}>

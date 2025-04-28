@@ -32,6 +32,38 @@ export const FilterToggle = ({ filter, onChange }) => (
   </div>
 );
 
+export const StatusToggle = ({ status, onChange }) => (
+  <div style={{ marginBottom: '16px' }}>
+    <label>
+      <input
+        type="radio"
+        value="all"
+        checked={status === 'all'}
+        onChange={onChange}
+      />
+      Show All
+    </label>
+    <label style={{ marginLeft: '16px' }}>
+      <input
+        type="radio"
+        value="Fail"
+        checked={status === 'Fail'}
+        onChange={onChange}
+      />
+      Show Failed
+    </label>
+    <label style={{ marginLeft: '16px' }}>
+      <input
+        type="radio"
+        value="Success"
+        checked={status === 'Success'}
+        onChange={onChange}
+      />
+      Show Successful
+    </label>
+  </div>
+);
+
 export const EmptyMessage = ({ deployments }) => (
   deployments.length === 0 ? <p>No deployment history found for this account.</p> : null
 );

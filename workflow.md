@@ -14,7 +14,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 4. [ ] Add system alert when copy is inited.
 5. [ ] Add delete row in history table.
 6. [ ] Add a temp icon untill fetch is finised.
-7. [ ] Add switch for: show all, show only failed, show only successful in history table.
+7. [x] Add switch for: show all, show only failed, show only successful in history table.
 8. [x] Add switch in history for show sepolia, mainnet or both.
 
 ### Wallet Integration
