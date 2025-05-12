@@ -2,22 +2,25 @@ import React from "react";
 import { useNetwork, useSwitchChain, useAccount } from "@starknet-react/core";
 import { constants } from "starknet";
 
+const sepolia = constants.StarknetChainId.SN_SEPOLIA;
+const mainnet = constants.StarknetChainId.SN_MAIN;
+
 function ConnectWallet() {
     const { chain } = useNetwork();
     const { switchChain } = useSwitchChain({
         params: {
-            chainId: constants.StarknetChainId.SN_SEPOLIA
+            chainId: sepolia
         },
     });
-    const { account } = useAccount(); // Check wallet connection
+    const { account } = useAccount(); 
 
     const handleSwitchChain = async () => {
         try {
             console.log("Current chain:", chain);
             if (chain.network === "mainnet") {
-                switchChain({ chainId: constants.StarknetChainId.SN_SEPOLIA });
+                switchChain({ chainId: sepolia });
             } else {
-                switchChain({ chainId: constants.StarknetChainId.SN_MAIN });
+                switchChain({ chainId: mainnet });
             }
             console.log("Switched chain successfully");
         } catch (error) {
@@ -32,7 +35,6 @@ function ConnectWallet() {
                     <button onClick={handleSwitchChain}>
                         Switch Chain
                     </button>
-                    
                 </>
             )}
         </div>

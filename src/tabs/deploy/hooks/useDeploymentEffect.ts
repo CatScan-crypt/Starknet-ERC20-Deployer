@@ -21,7 +21,14 @@ const useDeploymentEffect = (
     const storedDeployments = localStorage.getItem(key);
     const deployments = storedDeployments ? JSON.parse(storedDeployments) : [];
 
+    const getNextDeploymentId = (deployments: any[]): number => {
+      if (deployments.length === 0) return 1;
+      const lastDeployment = deployments[deployments.length - 1];
+      return (lastDeployment.id || 0) + 1;
+    };
+
     const deploymentData = {
+      id: getNextDeploymentId(deployments),
       timestamp: new Date().toISOString(),
       contractAddress: "N/A",
       status: isError ? "Fail" : isSuccess ? "Success" : "Pending",
@@ -35,6 +42,7 @@ const useDeploymentEffect = (
       
       deployments.push(deploymentData);
       localStorage.setItem(key, JSON.stringify(deployments));
+      console.log("Deployment data saved to localStorage:", deploymentData);
       return;
     }
 
@@ -64,6 +72,7 @@ const useDeploymentEffect = (
             console.log("Transaction receipt fetched successfully:", res);
             deploymentData.contractAddress = res.result?.events?.[0]?.from_address || "Unknown";
             deploymentData.status = "Success";
+            console.log("Deployment data:", deploymentData);
           }
         } catch (error) {
           console.error(error);
@@ -71,6 +80,7 @@ const useDeploymentEffect = (
           deployments.push(deploymentData);
 
           localStorage.setItem(key, JSON.stringify(deployments));
+          console.log("Deployment data saved to localStorage:", deploymentData);
         }
       }
       fetchContract();

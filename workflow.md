@@ -1,7 +1,7 @@
 # Project Workflow
 
 ## Project Description
-A React-based dApp for deploying ERC20 tokens on the Starknet network.
+A React-starknet dApp for deploying ERC20 tokens on the Starknet network.
 Providing a user-friendly interface for interacting with the Starknet blockchain.
 Users can deploy, manage, and track their ERC20 token deployments.
 
@@ -16,9 +16,10 @@ Users can deploy, manage, and track their ERC20 token deployments.
 6. [ ] Add a temp icon untill fetch is finised.
 7. [x] Add switch for: show all, show only failed, show only successful in history table.
 8. [x] Add switch in history for show sepolia, mainnet or both.
-9. [ ] Rerender the table after switch chain was inited. 
-0. [ ] Remove icons from failed deployments in history table.
-1. [ ] Add Deployment ID column.
+9. [ ] Rerender the historty table after switch chain was inited. 
+0. [ ] Remove icons and CA &TxH text, from failed deployments in history table(copy and explorer links).
+1. [ ] Add Deployment ID column and in localStorage.
+2. [ ] Change history table's direction.
 
 ### Wallet Integration
 1. [ ] Disable button when sending transaction. (DeployContractInnerUI.jsx)
@@ -31,7 +32,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 1. [ ] Modularize Setting.tsx. (Settings.jsx)
 
 ### Bug Fixes
-1. [ ] Fix Deploy route in app.jsx. (App.jsx)
+1. [ ] Fix 'Deploy' route in app.jsx. (App.jsx)
 2. [ ] Page refresh returns tab styles to the deploy tab but stays on the same page.
 3. [ ] Fix Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png.
 4. [ ] Investigate Port disconnected, reconnecting... Port connected inject.js:1 loop.
@@ -46,3 +47,4 @@ Users can deploy, manage, and track their ERC20 token deployments.
 1. [ ] Add contract methods to Contract Actions tab. (ContractActions.jsx)
 2. [ ] Research faucet requests to add test funds button.
 2. [ ] Add events analytics.
+4. [ ] Update  "@starknet-react/core":

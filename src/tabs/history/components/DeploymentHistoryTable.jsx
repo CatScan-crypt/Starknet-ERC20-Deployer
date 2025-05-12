@@ -26,6 +26,10 @@ const DeploymentHistoryTable = () => {
     }
     setSelectedRows(newSelectedRows);
   };
+  
+  const handleDeletaButtonClick = () => {
+    console.log('Button clicked!');
+  };
 
   const filteredDeployments = deployments.filter((deployment) => {
     const matchesFilter = filter === 'all' || 
@@ -42,8 +46,12 @@ const DeploymentHistoryTable = () => {
 
   return (
     <>
+
       <EmptyMessage deployments={deployments} />
       <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+      <button onClick={handleDeletaButtonClick} style={{ marginBottom: '10px', padding: '8px 16px', cursor: 'pointer' , maxWidth:'5%' }}>
+      Delete Selected
+       </button>
         <FilterToggle filter={filter} onChange={handleFilterChange} />
         <StatusToggle status={status} onChange={handleStatusChange} />
         </div>
@@ -60,6 +68,7 @@ const DeploymentHistoryTable = () => {
               <th style={{ border: '1px solid black', padding: '8px' }}>Token Symbol</th>
               <th style={{ border: '1px solid black', padding: '8px' }}>Initial Supply</th>
               <th style={{ border: '1px solid black', padding: '8px' }}>Deployed On Chain</th>
+              <th style={{ border: '1px solid black', padding: '8px' }}>ID</th>
             </tr>
           </thead>
           <tbody>
@@ -92,6 +101,7 @@ const DeploymentHistoryTable = () => {
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenSymbol}</td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.initialSupply}</td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{chain?.network || 'Unknown'}</td>
+                <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.id}</td>
               </tr>
             ))}
           </tbody>
