@@ -11,7 +11,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 1. [ ] Add error on identical successful deployments.
 2. [x] Add scroll option for the table when over 7 list items.
 3. [x] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
-4. [ ] Add system alert when copy is inited.
+4. [x] Add system alert when copy is inited.
 5. [ ] Add delete row in history table.
 6. [ ] Add a temp icon untill fetch is finised.
 7. [x] Add switch for: show all, show only failed, show only successful in history table.
@@ -38,6 +38,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 4. [ ] Investigate Port disconnected, reconnecting... Port connected inject.js:1 loop.
 5. [ ] No 404 on empty routes.
 6. [ ] Fix inaccurate hour timestemp in History table. 
+7. [x] Fix no chain prop in deploymentData.
 
 ### Security and Warnings
 1. [ ] Fix security vulnerabilities. (package.json)

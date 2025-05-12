@@ -108,7 +108,7 @@ const DeploymentHistoryTable = () => {
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenName}</td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenSymbol}</td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.initialSupply}</td>
-                <td style={{ border: '1px solid black', padding: '8px' }}>{chain?.network || 'Unknown'}</td>
+                <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.chain || 'Unknown'}</td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.id}</td>
               </tr>
             ))}

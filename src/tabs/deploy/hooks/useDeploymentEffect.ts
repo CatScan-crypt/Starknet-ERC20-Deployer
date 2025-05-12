@@ -36,6 +36,7 @@ const useDeploymentEffect = (
       tokenName: tokenName,
       tokenSymbol: tokenSymbol,
       initialSupply: initialSupply,
+      chain: chain?.network || "Unknown" // Added chain property
     };
 
     if (isError) {
