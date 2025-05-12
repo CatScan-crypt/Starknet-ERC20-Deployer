@@ -1,8 +1,7 @@
-import React from 'react';
 import { shortenAddress, copyToClipboard } from '../hooks/useDeploymentHistory'; 
 import { ExplorerLinks } from './UIComponents'; 
 
-const DeploymentRowLinks = ({ deployment, voyagerBaseUrl, starkscanBaseUrl }) => {
+const DeploymentRowLinks = ({ deployment, voyagerBaseUrl, starkscanBaseUrl, showAlert }) => {
   return (
     <>
       <td
@@ -10,6 +9,7 @@ const DeploymentRowLinks = ({ deployment, voyagerBaseUrl, starkscanBaseUrl }) =>
         onClick={(e) => {
           e.stopPropagation();
           copyToClipboard(deployment.contractAddress);
+          showAlert('success', 'Contract address copied to clipboard!');
         }}
         title="Click to copy"
       >
@@ -21,6 +21,7 @@ const DeploymentRowLinks = ({ deployment, voyagerBaseUrl, starkscanBaseUrl }) =>
           onClick={(e) => {
             e.stopPropagation();
             copyToClipboard(deployment.contractAddress);
+            showAlert('success', 'Contract address copied to clipboard!');
           }}
         />
         <ExplorerLinks 
@@ -34,6 +35,7 @@ const DeploymentRowLinks = ({ deployment, voyagerBaseUrl, starkscanBaseUrl }) =>
         onClick={(e) => {
           e.stopPropagation();
           copyToClipboard(deployment.transactionHash);
+          showAlert('success', 'Transaction hash copied to clipboard!')          
         }}
         title="Click to copy"
       >
@@ -45,6 +47,7 @@ const DeploymentRowLinks = ({ deployment, voyagerBaseUrl, starkscanBaseUrl }) =>
           onClick={(e) => {
             e.stopPropagation();
             copyToClipboard(deployment.transactionHash);
+            showAlert('success', 'Transaction hash copied to clipboard!')
           }}
         />
         <ExplorerLinks 

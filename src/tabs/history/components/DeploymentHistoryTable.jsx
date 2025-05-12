@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import useDeploymentHistory from '../hooks/useDeploymentHistory';
 import { FilterToggle, EmptyMessage, StatusToggle } from './UIComponents';
 import DeploymentRowLinks from './DeploymentRowLinks';
+import AlertMessage from '../../../components/ui/AlertMessage';
 
 const DeploymentHistoryTable = () => {
   const { deployments, chain } = useDeploymentHistory();
   const [filter, setFilter] = useState('all');
   const [status, setStatus] = useState('all');
   const [selectedRows, setSelectedRows] = useState([]);
+  const [alert, setAlert] = useState({ visible: false, type: '', message: '' });
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
@@ -29,6 +31,11 @@ const DeploymentHistoryTable = () => {
   
   const handleDeletaButtonClick = () => {
     console.log('Button clicked!');
+  };
+
+  const showAlert = (type, message) => {
+    setAlert({ visible: true, type, message });
+    setTimeout(() => setAlert({ visible: false, type: '', message: '' }), 3000);
   };
 
   const filteredDeployments = deployments.filter((deployment) => {
@@ -96,6 +103,7 @@ const DeploymentHistoryTable = () => {
                   deployment={deployment}
                   voyagerBaseUrl={voyagerBaseUrl}
                   starkscanBaseUrl={starkscanBaseUrl}
+                  showAlert={showAlert}
                 />
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenName}</td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenSymbol}</td>
@@ -107,7 +115,14 @@ const DeploymentHistoryTable = () => {
           </tbody>
         </table>
       </div>
-    </>
+      {alert.visible && (
+        <AlertMessage
+          type={alert.type}
+          message={alert.message}
+          onClose={() => setAlert({ visible: false, type: '', message: '' })}
+        />
+      )}
+      </>
   );
 };
 
