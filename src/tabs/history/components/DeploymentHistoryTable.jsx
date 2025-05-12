@@ -61,13 +61,13 @@ const DeploymentHistoryTable = () => {
             <tr>
               <th style={{ border: '1px solid black', padding: '8px' }}>Select</th>
               <th style={{ border: '1px solid black', padding: '8px' }}>Timestamp</th>
-              <th style={{ border: '1px solid black', padding: '8px' }}>Contract Address</th>
+              <th style={{ border: '1px solid black', padding: '8px' }}>CA</th>
               <th style={{ border: '1px solid black', padding: '8px' }}>Status</th>
-              <th style={{ border: '1px solid black', padding: '8px' }}>Transaction Hash</th>
-              <th style={{ border: '1px solid black', padding: '8px' }}>Token Name</th>
-              <th style={{ border: '1px solid black', padding: '8px' }}>Token Symbol</th>
-              <th style={{ border: '1px solid black', padding: '8px' }}>Initial Supply</th>
-              <th style={{ border: '1px solid black', padding: '8px' }}>Deployed On Chain</th>
+              <th style={{ border: '1px solid black', padding: '8px' }}>TxH</th>
+              <th style={{ border: '1px solid black', padding: '8px' }}>Name</th>
+              <th style={{ border: '1px solid black', padding: '8px' }}>Symbol</th>
+              <th style={{ border: '1px solid black', padding: '8px' }}>Supply</th>
+              <th style={{ border: '1px solid black', padding: '8px' }}>Chain</th>
               <th style={{ border: '1px solid black', padding: '8px' }}>ID</th>
             </tr>
           </thead>

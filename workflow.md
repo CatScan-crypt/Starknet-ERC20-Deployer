@@ -17,8 +17,8 @@ Users can deploy, manage, and track their ERC20 token deployments.
 7. [x] Add switch for: show all, show only failed, show only successful in history table.
 8. [x] Add switch in history for show sepolia, mainnet or both.
 9. [ ] Rerender the historty table after switch chain was inited. 
-0. [ ] Remove icons and CA &TxH text, from failed deployments in history table(copy and explorer links).
-1. [ ] Add Deployment ID column and in localStorage.
+0. [ ] Remove icons and CA & TxH text, from failed deployments in history table(copy and explorer links).
+1. [x] Add Deployment ID column and in localStorage.
 2. [ ] Change history table's direction.
 
 ### Wallet Integration
