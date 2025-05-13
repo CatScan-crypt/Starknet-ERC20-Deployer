@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAccount } from '@starknet-react/core';
+import TimezoneSelector from './TimezoneSelector';
 
 export default function WalletConnectAndSwitch() {
   const { address } = useAccount();
@@ -86,6 +87,10 @@ export default function WalletConnectAndSwitch() {
     }
   };
 
+  const handleTimezoneChange = (timezone) => {
+    console.log('Selected timezone:', timezone);
+  };
+
   return (
     <div style={{ 
       backgroundColor: 'grey', 
@@ -116,6 +121,8 @@ export default function WalletConnectAndSwitch() {
             </div>
           )}
         </div>
+
+        <TimezoneSelector onTimezoneChange={handleTimezoneChange} />
     </div>
   );
 }

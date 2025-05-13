@@ -20,6 +20,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 0. [ ] Remove icons and CA & TxH text, from failed deployments in history table(copy and explorer links).
 1. [x] Add Deployment ID column and in localStorage.
 2. [ ] Change history table's direction.
+3. [ ] In settings, modify the clear data button's text to be with the current chain.
 
 ### Wallet Integration
 1. [ ] Disable button when sending transaction. (DeployContractInnerUI.jsx)
@@ -37,7 +38,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 3. [ ] Fix Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png.
 4. [ ] Investigate Port disconnected, reconnecting... Port connected inject.js:1 loop.
 5. [ ] No 404 on empty routes.
-6. [ ] Fix inaccurate hour timestemp in History table. 
+6. [x] Fix inaccurate hour timestamp in History table[add a in setting a dropdown to set local time]. 
 7. [x] Fix no chain prop in deploymentData.
 
 ### Security and Warnings
@@ -47,5 +48,5 @@ Users can deploy, manage, and track their ERC20 token deployments.
 ### Feature Development
 1. [ ] Add contract methods to Contract Actions tab. (ContractActions.jsx)
 2. [ ] Research faucet requests to add test funds button.
-2. [ ] Add events analytics.
-4. [ ] Update  "@starknet-react/core":
+2. [ ] Add handmade or Vercel events analytics.
+4. [x] Update  "@starknet-react/core":

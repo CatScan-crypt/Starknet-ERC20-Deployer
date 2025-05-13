@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useDeploymentHistory from '../hooks/useDeploymentHistory';
 import { FilterToggle, EmptyMessage, StatusToggle } from './UIComponents';
 import DeploymentRowLinks from './DeploymentRowLinks';
@@ -10,6 +10,14 @@ const DeploymentHistoryTable = () => {
   const [status, setStatus] = useState('all');
   const [selectedRows, setSelectedRows] = useState([]);
   const [alert, setAlert] = useState({ visible: false, type: '', message: '' });
+  const [timezoneOffset, setTimezoneOffset] = useState(0);
+
+  useEffect(() => {
+    const savedTimezone = localStorage.getItem('selectedTimezone');
+    if (savedTimezone) {
+      setTimezoneOffset(parseInt(savedTimezone, 10));
+    }
+  }, []);
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
@@ -50,6 +58,11 @@ const DeploymentHistoryTable = () => {
   "https://starkscan.co/contract/" : "https://sepolia.starkscan.co/contract/";
   const voyagerBaseUrl = chain?.network === 'mainnet' ? 
   "https://voyager.online/contract/" : "https://sepolia.voyager.online/contract/";
+
+  const adjustedHours = (timestamp) => {
+    const date = new Date(timestamp);
+    return String(date.getUTCHours() + timezoneOffset).padStart(2, '0');
+  };
 
   return (
     <>
@@ -96,7 +109,7 @@ const DeploymentHistoryTable = () => {
                 </td>
                 <td style={{ border: '1px solid black', padding: '8px' }}>
                   {new Date(deployment.timestamp).toISOString().slice(0, 10)} - 
-                  {String(new Date(deployment.timestamp).getUTCHours()).padStart(2, '0')}:
+                  {adjustedHours(deployment.timestamp)}:
                   {String(new Date(deployment.timestamp).getUTCMinutes()).padStart(2, '0')}
                 </td>
                 <DeploymentRowLinks
