@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import useDeploymentHistory from '../hooks/useDeploymentHistory';
-import { FilterToggle, EmptyMessage, StatusToggle } from './UIComponents';
+import { EmptyMessage, StatusToggle } from './UIComponents';
 import DeploymentRowLinks from './DeploymentRowLinks';
 import AlertMessage from '../../../components/ui/AlertMessage';
 
 const DeploymentHistoryTable = () => {
   const { deployments, chain } = useDeploymentHistory();
-  const [filter, setFilter] = useState('all');
   const [status, setStatus] = useState('all');
   const [selectedRows, setSelectedRows] = useState([]);
   const [alert, setAlert] = useState({ visible: false, type: '', message: '' });
@@ -18,10 +17,6 @@ const DeploymentHistoryTable = () => {
       setTimezoneOffset(parseInt(savedTimezone, 10));
     }
   }, []);
-
-  const handleFilterChange = (event) => {
-    setFilter(event.target.value);
-  };
 
   const handleStatusChange = (event) => {
     setStatus(event.target.value);
@@ -47,11 +42,8 @@ const DeploymentHistoryTable = () => {
   };
 
   const filteredDeployments = deployments.filter((deployment) => {
-    const matchesFilter = filter === 'all' || 
-    (filter === 'test' && chain?.network !== 'mainnet') || 
-    (filter === 'main' && chain?.network === 'mainnet');
     const matchesStatus = status === 'all' || deployment.status === status;
-    return matchesFilter && matchesStatus;
+    return matchesStatus;
   });
 
   const starkscanBaseUrl = chain?.network === 'mainnet' ? 
@@ -72,7 +64,6 @@ const DeploymentHistoryTable = () => {
       <button onClick={handleDeletaButtonClick} style={{ marginBottom: '10px', padding: '8px 16px', cursor: 'pointer' , maxWidth:'5%' }}>
       Delete Selected
        </button>
-        <FilterToggle filter={filter} onChange={handleFilterChange} />
         <StatusToggle status={status} onChange={handleStatusChange} />
         </div>
         <div style={{ maxHeight: '60%', maxWidth: "95%", overflowY: 'auto', marginLeft: "2.5%" }}>
