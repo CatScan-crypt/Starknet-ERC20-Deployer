@@ -30,7 +30,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 5. [ ] Add "Locked Wallet" text to Wallet actions when disconnect button is true and switch network button is false.
 
 ### Code Refactoring
-1. [ ] Modularize Setting.tsx. (Settings.jsx)
+1. [x] Modularize Setting.tsx. (Settings.jsx)
 
 ### Bug Fixes
 1. [ ] Fix 'Deploy' route in app.jsx. (App.jsx)
