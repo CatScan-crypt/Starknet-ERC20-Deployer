@@ -78,3 +78,4 @@ export const ExplorerLinks = ({ voyagerUrl, starkscanUrl }) => (
     </a>
   </div>
 );
+

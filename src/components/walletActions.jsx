@@ -53,7 +53,7 @@ function WalletActions({ handleSelect }) {
                 {`${address.slice(0, 4)}...${address.slice(-3)}`} {getWalletIcon()} {getNetworkName()}
               </div>
             </div>
-          ) : "Wallet Actions"
+          ) : "No Connected Wallet"
         }
         options={options} 
         onSelect={handleSelect}
