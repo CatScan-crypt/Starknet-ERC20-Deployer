@@ -9,18 +9,10 @@ Users can deploy, manage, and track their ERC20 token deployments.
 
 ### UI/UX Enhancements
 1. [ ] Add error on identical successful deployments.
-2. [x] Add scroll option for the table when over 7 list items.
-3. [x] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
-4. [x] Add system alert when copy is inited.
-5. [x] Add delete row in history table.
-6. [ ] Add a temp icon untill fetch is finised.
-7. [x] Add switch for: show all, show only failed, show only successful in history table.
-8. [x] Add switch in history for show sepolia, mainnet or both.
-9. [ ] Rerender the historty table after switch chain was inited. 
-0. [ ] Remove icons and CA & TxH text, from failed deployments in history table(copy and explorer links).
-1. [x] Add Deployment ID column and in localStorage.
-2. [ ] Change history table's direction.
-3. [ ] In settings, modify the clear data button's text to be with the current chain.
+2. [ ] Add a temp icon untill fetch is finised.
+3. [ ] Remove icons and CA & TxH text, from failed deployments in history table(copy and explorer links).
+4. [ ] Change history table's direction.
+5. [ ] In settings, modify the clear data button's text to be with the current chain.
 
 ### Wallet Integration
 1. [ ] Disable button when sending transaction. (DeployContractInnerUI.jsx)
@@ -38,10 +30,9 @@ Users can deploy, manage, and track their ERC20 token deployments.
 3. [ ] Fix "Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png".
 4. [ ] Investigate Port disconnected, reconnecting... Port connected inject.js:1 loop.
 5. [ ] No 404 on empty routes.
-6. [x] Fix inaccurate hour timestamp in History table[add a in setting a dropdown to set local time]. 
-7. [x] Fix no chain prop in deploymentData.
-8. [ ] Update README.MD
-9. [ ] Switching in history to chain with no deployment, results in no action.
+6. [ ] Update README.MD
+7. [ ] Switching in history to chain with no deployment, results in no action.
+8. [ ] Fix TypeError: onSelect is not a function at handleSelect (dropdown.tsx:17:5)
 
 ### Security and Warnings
 1. [ ] Fix security vulnerabilities. (package.json)
@@ -51,6 +42,5 @@ Users can deploy, manage, and track their ERC20 token deployments.
 1. [ ] Add contract methods to Contract Actions tab. (ContractActions.jsx)
 2. [ ] Research faucet requests to add test funds button.
 2. [ ] Add handmade or Vercel events analytics.
-4. [x] Update  "@starknet-react/core":
 5. [ ] Add AirDrop functionalities.
-6. [ ] Add a transfer tax option.
+6. [ ] Add a transfer tax option in contract and deployment table.

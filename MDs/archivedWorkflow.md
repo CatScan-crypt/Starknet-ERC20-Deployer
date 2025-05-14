@@ -37,3 +37,15 @@
 37. [x] Add wallet icons to Wallet actions dropdown and current network.
 38. [x] Modularize App.css. (App.css)
 39. [x] Fix "No fail" transaction in: Starknet-ERC20-Deployer/src/tabs/deploy/hooks/useDeploymentEffect.ts-deploymentData function. (useDeploymentEffect.ts)
+40. [x] Add scroll option for the table when over 7 list items.
+41. [x] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
+42. [x] Add system alert when copy is inited.
+43. [x] Add delete row in history table.
+44. [x] Add switch for: show all, show only failed, show only successful in history table.
+45. [x] Add switch in history for show sepolia, mainnet or both.
+46. [x] Rerender the historty table after switch chain was inited.
+47. [x] Add Deployment ID column and in localStorage.
+48. [x] Modularize Setting.tsx. (Settings.jsx)
+49. [x] Fix inaccurate hour timestamp in History table[add a in setting a dropdown to set local time].
+50. [x] Fix no chain prop in deploymentData.
+51. [x] Update "@starknet-react/core":
