@@ -3,13 +3,18 @@ import useDeploymentHistory from '../hooks/useDeploymentHistory';
 import { EmptyMessage, StatusToggle } from './UIComponents';
 import DeploymentRowLinks from './DeploymentRowLinks';
 import AlertMessage from '../../../components/ui/AlertMessage';
+import { useAccount } from '@starknet-react/core';
+import { handleDeleteStoredDeployments } from './handleDeleteStoredDeployments';
 
 const DeploymentHistoryTable = () => {
   const { deployments, chain } = useDeploymentHistory();
+  const { address } = useAccount();
+
   const [status, setStatus] = useState('all');
   const [selectedRows, setSelectedRows] = useState([]);
   const [alert, setAlert] = useState({ visible: false, type: '', message: '' });
   const [timezoneOffset, setTimezoneOffset] = useState(0);
+  const [localDeployments, setLocalDeployments] = useState([]);
 
   useEffect(() => {
     const savedTimezone = localStorage.getItem('selectedTimezone');
@@ -17,6 +22,10 @@ const DeploymentHistoryTable = () => {
       setTimezoneOffset(parseInt(savedTimezone, 10));
     }
   }, []);
+
+  useEffect(() => {
+    setLocalDeployments(deployments); // Sync from hook
+  }, [deployments]);
 
   const handleStatusChange = (event) => {
     setStatus(event.target.value);
@@ -31,9 +40,15 @@ const DeploymentHistoryTable = () => {
     }
     setSelectedRows(newSelectedRows);
   };
-  
-  const handleDeletaButtonClick = () => {
-    console.log('Button clicked!');
+
+  const handleDeleteStoredDeploymentsWrapper = () => {
+    handleDeleteStoredDeployments({
+      address,
+      selectedRows,
+      setLocalDeployments,
+      setSelectedRows,
+      setAlert,
+    });
   };
 
   const showAlert = (type, message) => {
@@ -41,15 +56,17 @@ const DeploymentHistoryTable = () => {
     setTimeout(() => setAlert({ visible: false, type: '', message: '' }), 3000);
   };
 
-  const filteredDeployments = deployments.filter((deployment) => {
+  const filteredDeployments = localDeployments.filter((deployment) => {
     const matchesStatus = status === 'all' || deployment.status === status;
     return matchesStatus;
   });
 
-  const starkscanBaseUrl = chain?.network === 'mainnet' ? 
-  "https://starkscan.co/contract/" : "https://sepolia.starkscan.co/contract/";
-  const voyagerBaseUrl = chain?.network === 'mainnet' ? 
-  "https://voyager.online/contract/" : "https://sepolia.voyager.online/contract/";
+  const starkscanBaseUrl = chain?.network === 'mainnet'
+    ? "https://starkscan.co/contract/"
+    : "https://sepolia.starkscan.co/contract/";
+  const voyagerBaseUrl = chain?.network === 'mainnet'
+    ? "https://voyager.online/contract/"
+    : "https://sepolia.voyager.online/contract/";
 
   const adjustedHours = (timestamp) => {
     const date = new Date(timestamp);
@@ -58,15 +75,14 @@ const DeploymentHistoryTable = () => {
 
   return (
     <>
-
-      <EmptyMessage deployments={deployments} />
+      <EmptyMessage deployments={localDeployments} />
       <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-      <button onClick={handleDeletaButtonClick} style={{ marginBottom: '10px', padding: '8px 16px', cursor: 'pointer' , maxWidth:'5%' }}>
-      Delete Selected
-       </button>
+        <button onClick={handleDeleteStoredDeploymentsWrapper} style={{ marginBottom: '10px', padding: '8px 16px', cursor: 'pointer', maxWidth: '10%' }}>
+          Delete Selected Stored Deployments
+        </button>
         <StatusToggle status={status} onChange={handleStatusChange} />
-        </div>
-        <div style={{ maxHeight: '60%', maxWidth: "95%", overflowY: 'auto', marginLeft: "2.5%" }}>
+      </div>
+      <div style={{ maxHeight: '60%', maxWidth: "95%", overflowY: 'auto', marginLeft: "2.5%" }}>
         <table style={{ borderCollapse: 'collapse', width: '100%' }}>
           <thead>
             <tr>
@@ -126,7 +142,7 @@ const DeploymentHistoryTable = () => {
           onClose={() => setAlert({ visible: false, type: '', message: '' })}
         />
       )}
-      </>
+    </>
   );
 };
 

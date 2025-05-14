@@ -32,14 +32,16 @@ Users can deploy, manage, and track their ERC20 token deployments.
 ### Code Refactoring
 1. [x] Modularize Setting.tsx. (Settings.jsx)
 
-### Bug Fixes
+### Bug Fixes and Updates
 1. [ ] Fix 'Deploy' route in app.jsx. (App.jsx)
 2. [ ] Page refresh returns tab styles to the deploy tab but stays on the same page.
-3. [ ] Fix Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png.
+3. [ ] Fix "Files in the public directory are served at the root path. Instead of /public/tempIcon.png, use /tempIcon.png".
 4. [ ] Investigate Port disconnected, reconnecting... Port connected inject.js:1 loop.
 5. [ ] No 404 on empty routes.
 6. [x] Fix inaccurate hour timestamp in History table[add a in setting a dropdown to set local time]. 
 7. [x] Fix no chain prop in deploymentData.
+8. [ ] Update README.MD
+9. [ ] Switching in history to chain with no deployment, results in no action.
 
 ### Security and Warnings
 1. [ ] Fix security vulnerabilities. (package.json)
@@ -50,3 +52,5 @@ Users can deploy, manage, and track their ERC20 token deployments.
 2. [ ] Research faucet requests to add test funds button.
 2. [ ] Add handmade or Vercel events analytics.
 4. [x] Update  "@starknet-react/core":
+5. [ ] Add AirDrop functionalities.
+6. [ ] Add a transfer tax option.
