@@ -24,7 +24,7 @@ const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send, isFor
 
   return (
     <div className="deployment-table-container">
-      <h3 className="text-lg font-semibold">Deployment Information</h3>
+      <h3 className="text-lg font-semibold"></h3>
       <div className="mt-2">
         <DeploymentWindow
           button={
@@ -40,22 +40,14 @@ const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send, isFor
               ) : (
                 <>
                   <button
-                    className="px-4 py-2 text-gray-500 bg-yellow-500 rounded hover:bg-yellow-700 mt-2"
+                    className="px-4 py-2 text-gray-500 bg-yellow-500 rounded hover:bg-yellow-700"
                     style={{ color: 'gray' }}
                     title="Please ensure all fields are correctly filled before deploying."
                     onClick={handleCheckForm}
                   >
                     Check Form
                   </button>
-                  <p
-                    className="mt-2 text-red-500"
-                    style={{
-                      visibility: showMessage ? "visible" : "hidden",
-                      height: "1em",
-                    }}
-                  >
-                    Please review the form fields for accuracy.
-                  </p>
+
                 </>
               )
             ) : (
@@ -70,19 +62,25 @@ const DeploymentTable: React.FC<DeploymentTableProps> = ({ children, send, isFor
           }
         >
           {React.Children.count(children) === 3 ? (
-            <table>
+            <table style={{ margin: '0 auto', textAlign: 'left', width: '100%', borderCollapse: 'separate', borderSpacing: '0 0.4em' }}>
               <tbody>
                 <tr>
-                  <td className="font-medium">Token Name:</td>
-                  <td>{React.Children.toArray(children)[0]}</td>
+                  <td className="font-medium" style={{ verticalAlign: 'top', textAlign: 'left', paddingBottom: '0.1em' }}>Token Name:</td>
                 </tr>
                 <tr>
-                  <td className="font-medium">Token Symbol:</td>
-                  <td>{React.Children.toArray(children)[1]}</td>
+                  <td style={{ textAlign: 'left' }}>{React.Children.toArray(children)[0]}</td>
                 </tr>
                 <tr>
-                  <td className="font-medium">Initial Supply:</td>
-                  <td>{React.Children.toArray(children)[2]}</td>
+                  <td className="font-medium" style={{ verticalAlign: 'top', textAlign: 'left', paddingBottom: '0.1em' }}>Token Symbol:</td>
+                </tr>
+                <tr>
+                  <td style={{ textAlign: 'left' }}>{React.Children.toArray(children)[1]}</td>
+                </tr>
+                <tr>
+                  <td className="font-medium" style={{ verticalAlign: 'top', textAlign: 'left', paddingBottom: '0.1em' }}>Initial Supply:</td>
+                </tr>
+                <tr>
+                  <td style={{ textAlign: 'left' }}>{React.Children.toArray(children)[2]}</td>
                 </tr>
               </tbody>
             </table>
