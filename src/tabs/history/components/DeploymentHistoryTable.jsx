@@ -78,7 +78,7 @@ const DeploymentHistoryTable = () => {
       <EmptyMessage deployments={localDeployments} />
       <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
         <button onClick={handleDeleteStoredDeploymentsWrapper} style={{ marginBottom: '10px', padding: '8px 16px', cursor: 'pointer', maxWidth: '10%' }}>
-          Delete Selected Stored Deployments
+          Delete Selected
         </button>
         <StatusToggle status={status} onChange={handleStatusChange} />
       </div>

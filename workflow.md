@@ -12,7 +12,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 2. [x] Add scroll option for the table when over 7 list items.
 3. [x] Change the icons of braavos and argent to starkscan and voyager and change copy icon in history.
 4. [x] Add system alert when copy is inited.
-5. [ ] Add delete row in history table.
+5. [x] Add delete row in history table.
 6. [ ] Add a temp icon untill fetch is finised.
 7. [x] Add switch for: show all, show only failed, show only successful in history table.
 8. [x] Add switch in history for show sepolia, mainnet or both.

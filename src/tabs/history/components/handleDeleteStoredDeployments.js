@@ -15,6 +15,7 @@ export const handleDeleteStoredDeployments = ({ address, selectedRows, setLocalD
       setLocalDeployments(updatedDeployments); 
       setSelectedRows([]);
       setAlert({ visible: true, type: 'success', message: 'Selected deployments deleted.' });
+      setTimeout(() => setAlert({ visible: false, type: '', message: '' }), 3000);
     }
   }
 };
