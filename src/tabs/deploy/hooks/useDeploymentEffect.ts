@@ -27,27 +27,34 @@ const useDeploymentEffect = (
       return (lastDeployment.id || 0) + 1;
     };
 
+    // 1. Prepare deploymentData with "Pending" status
     const deploymentData = {
       id: getNextDeploymentId(deployments),
       timestamp: new Date().toISOString(),
-      contractAddress: "N/A",
+      contractAddress: "Pending",
       status: isError ? "Fail" : isSuccess ? "Success" : "Pending",
-      transactionHash: data?.transaction_hash || "Unknown",
+      transactionHash: data?.transaction_hash || "pending",
       tokenName: tokenName,
       tokenSymbol: tokenSymbol,
       initialSupply: initialSupply,
-      chain: chain?.network || "Unknown" // Added chain property
+      chain: chain?.network || "Unknown"
     };
 
+    // 2. If error, push immediately and return
     if (isError) {
-      
       deployments.push(deploymentData);
       localStorage.setItem(key, JSON.stringify(deployments));
       console.log("Deployment data saved to localStorage:", deploymentData);
       return;
     }
 
+    // 3. If tx hash and address exist, push "Pending" first, then update after fetch
     if (data?.transaction_hash && address) {
+      // Push "Pending" deployment immediately
+      deployments.push(deploymentData);
+      localStorage.setItem(key, JSON.stringify(deployments));
+      console.log("Pending deployment pushed to localStorage:", deploymentData);
+
       const fetchContract = async () => {
         console.log("Fetching contract data...");
         await new Promise(resolve => setTimeout(resolve, 20000));
@@ -68,20 +75,20 @@ const useDeploymentEffect = (
           const response = await fetch(baseUrl, options);
           const res = await response.json();
 
-          
           if (!isError) {
-            console.log("Transaction receipt fetched successfully:", res);
-            deploymentData.contractAddress = res.result?.events?.[0]?.from_address || "Unknown";
-            deploymentData.status = "Success";
-            console.log("Deployment data:", deploymentData);
+            // Find and update the pending deployment
+            const updatedDeployments = JSON.parse(localStorage.getItem(key) || "[]");
+            const idx = updatedDeployments.findIndex((d: any) => d.id === deploymentData.id);
+            if (idx !== -1) {
+              updatedDeployments[idx].contractAddress = res.result?.events?.[0]?.from_address || "Unknown";
+              updatedDeployments[idx].status = "Success";
+              updatedDeployments[idx].transactionHash = data.transaction_hash;
+              localStorage.setItem(key, JSON.stringify(updatedDeployments));
+              console.log("Deployment updated in localStorage:", updatedDeployments[idx]);
+            }
           }
         } catch (error) {
           console.error(error);
-        } finally {
-          deployments.push(deploymentData);
-
-          localStorage.setItem(key, JSON.stringify(deployments));
-          console.log("Deployment data saved to localStorage:", deploymentData);
         }
       }
       fetchContract();
