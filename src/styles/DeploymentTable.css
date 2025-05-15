@@ -11,12 +11,16 @@
   justify-content: flex-start;
   align-items: center;
 }
-
-/* Make input fields inside the deployment table wider and thicker */
-.deployment-table-container input[type="text"],
-.deployment-table-container input[type="number"],
+.deployment-table-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.deployment-table-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
 .deployment-table-container input {
-  width: 300px;
+  width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   height: 2.5em;

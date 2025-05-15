@@ -32,6 +32,7 @@ Users can deploy, manage, and track their ERC20 token deployments.
 5. [ ] No 404 on empty routes. (`App.jsx`)
 6. [ ] Update README.MD (`README.md`)
 7. [ ] Fix TypeError: onSelect is not a function at handleSelect. (`dropdown.tsx`)
+8. [ ] Empty input field at Initial supply in deployment table results in site breakage.
 
 ### Security and Warnings
 1. [ ] Fix security vulnerabilities. (`package.json`)
@@ -43,3 +44,4 @@ Users can deploy, manage, and track their ERC20 token deployments.
 3. [ ] Add handmade or Vercel events analytics. (`vercel.json` or new analytics integration)
 4. [ ] Add AirDrop functionalities. (New file or integration point TBD)
 5. [ ] Add a transfer tax option in contract and deployment table. (`DeployContractInnerUI.jsx`, `DeploymentHistoryTable.jsx`)
+6. [ ] Find a feature for users to share like deployed tokens.
