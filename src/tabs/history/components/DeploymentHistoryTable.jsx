@@ -98,41 +98,41 @@ const DeploymentHistoryTable = () => {
               <th style={{ border: '1px solid black', padding: '8px' }}>ID</th>
             </tr>
           </thead>
-          <tbody>
-            {filteredDeployments.map((deployment, index) => (
-              <tr
-                key={index}
-                style={{
-                  backgroundColor: selectedRows.includes(index) ? '#f0f8ff' : 'transparent',
-                  cursor: 'pointer',
-                }}
-              >
-                <td style={{ border: '1px solid black', padding: '8px' }}>
-                  <input
-                    type="checkbox"
-                    checked={selectedRows.includes(index)}
-                    onChange={() => handleCheckboxChange(index)}
+            <tbody>
+              {[...filteredDeployments].reverse().map((deployment, index) => (
+                <tr
+                  key={index}
+                  style={{
+                    backgroundColor: selectedRows.includes(index) ? '#f0f8ff' : 'transparent',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <td style={{ border: '1px solid black', padding: '8px' }}>
+                    <input
+                      type="checkbox"
+                      checked={selectedRows.includes(index)}
+                      onChange={() => handleCheckboxChange(index)}
+                    />
+                  </td>
+                  <td style={{ border: '1px solid black', padding: '8px' }}>
+                    {new Date(deployment.timestamp).toISOString().slice(0, 10)} - 
+                    {adjustedHours(deployment.timestamp)}:
+                    {String(new Date(deployment.timestamp).getUTCMinutes()).padStart(2, '0')}
+                  </td>
+                  <DeploymentRowLinks
+                    deployment={deployment}
+                    voyagerBaseUrl={voyagerBaseUrl}
+                    starkscanBaseUrl={starkscanBaseUrl}
+                    showAlert={showAlert}
                   />
-                </td>
-                <td style={{ border: '1px solid black', padding: '8px' }}>
-                  {new Date(deployment.timestamp).toISOString().slice(0, 10)} - 
-                  {adjustedHours(deployment.timestamp)}:
-                  {String(new Date(deployment.timestamp).getUTCMinutes()).padStart(2, '0')}
-                </td>
-                <DeploymentRowLinks
-                  deployment={deployment}
-                  voyagerBaseUrl={voyagerBaseUrl}
-                  starkscanBaseUrl={starkscanBaseUrl}
-                  showAlert={showAlert}
-                />
-                <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenName}</td>
-                <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenSymbol}</td>
-                <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.initialSupply}</td>
-                <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.chain || 'Unknown'}</td>
-                <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.id}</td>
-              </tr>
-            ))}
-          </tbody>
+                  <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenName}</td>
+                  <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.tokenSymbol}</td>
+                  <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.initialSupply}</td>
+                  <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.chain || 'Unknown'}</td>
+                  <td style={{ border: '1px solid black', padding: '8px' }}>{deployment.id}</td>
+                </tr>
+              ))}
+            </tbody>
         </table>
       </div>
       {alert.visible && (

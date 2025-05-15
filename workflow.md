@@ -10,8 +10,8 @@ Users can deploy, manage, and track their ERC20 token deployments.
 ### UI/UX Enhancements
 1. [ ] Add error on identical successful deployments. (`DeployContractInnerUI.jsx`)
 2. [ ] Add a temp icon untill fetch is finised. (`DeploymentHistoryTable.jsx`)
-3. [ ] Remove icons and CA & TxH text, from failed deployments in history table(copy and explorer links). (`DeploymentHistoryTable.jsx`)
-4. [ ] Change history table's direction. (`DeploymentHistoryTable.jsx`)
+3. [x] Remove icons and CA & TxH text, from failed deployments in history table(copy and explorer links). (`DeploymentHistoryTable.jsx`)
+4. [x] Change history table's direction. (`DeploymentHistoryTable.jsx`)
 5. [ ] In settings, modify the clear data button's text to be with the current chain. (`Settings.jsx`)
 
 ### Wallet Integration
